@@ -20,5 +20,5 @@ docker run --rm -P --name {docker_process_name_of_your_choice} -d {image_name}
 // Connect
 psql -h localhost -p 32768:{pg_port} -d {database_name} -U {username} --password
 
-psql -h localhost -p 32768 -d generic_db -U admin --password
+psql -h localhost -p 32768 -d stable_coin_compare -U admin --password
 ```

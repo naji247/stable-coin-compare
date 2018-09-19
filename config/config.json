@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "admin",
-    "database": "generic_db",
+    "database": "stable_coin_compare",
     "host": "localhost",
     "dialect": "postgres",
     "port": 32768
@@ -10,7 +10,7 @@
   "test": {
     "username": "postgres",
     "password": "admin",
-    "database": "generic_db",
+    "database": "stable_coin_compare",
     "host": "localhost",
     "dialect": "postgres",
     "port": 32768
@@ -18,7 +18,7 @@
   "production": {
     "username": "postgres",
     "password": null,
-    "database": "generic_db",
+    "database": "stable_coin_compare",
     "host": "localhost",
     "dialect": "postgres",
     "port": 32768
