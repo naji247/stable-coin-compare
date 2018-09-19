@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders children correctly 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="root"
+      role="navigation"
+    >
+      <a
+        className="link"
+        href="/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+      <a
+        className="link"
+        href="/dashboard"
+        onClick={[Function]}
+      >
+        Dashboard
+      </a>
+    </div>
+    <a
+      className="brand"
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="React"
+        height="90"
+        src="logo-small.png"
+        srcSet="logo-small.png 2x"
+        width="90"
+      />
+      <span
+        className="brandTxt"
+      >
+        SCX
+      </span>
+    </a>
+    <div
+      className="banner"
+    >
+      <div
+        className="pricesContainer"
+      >
+        <span
+          className="bannerTitle"
+        >
+          $10,342
+        </span>
+        <span
+          className="bannerTitle"
+        >
+          $1.01
+        </span>
+      </div>
+      <div
+        className="bannerDescContainer"
+      >
+        <p
+          className="bannerDesc"
+        >
+          Volatility is not your friend.
+        </p>
+        <p
+          className="bannerDesc"
+        >
+          Take back control of your wealth with stable coins.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

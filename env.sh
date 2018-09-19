@@ -1,0 +1,2 @@
+export DATABASE_PASSWORD=password
+export JWT_SECRET=secret
