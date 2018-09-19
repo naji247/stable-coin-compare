@@ -24,28 +24,7 @@ class Navigation extends React.Component {
   }
 
   render() {
-    return (
-      <div className={s.root} role="navigation">
-        {this.props.token
-          ? [
-              <Link
-                className={s.link}
-                to="/"
-                onClick={event => this.onLogoutClick(event)}
-              >
-                Logout
-              </Link>
-            ]
-          : [
-              <Link className={s.link} to="/login">
-                Login
-              </Link>,
-              <Link className={s.link} to="/signup">
-                Sign Up
-              </Link>
-            ]}
-      </div>
-    );
+    return <div className={s.root} role="navigation" />;
   }
 }
 
