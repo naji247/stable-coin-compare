@@ -9,53 +9,55 @@
 
 @import '../../components/variables.css';
 
-.introducingContainer {
-  margin: 0 auto;
-  padding: 10% 0 10%;
-  max-width: 90%;
-}
-
-.introducingText {
+.constructionHeading {
   text-align: center;
   font-weight: normal;
   color: var(--text-color-black);
 }
 
-.depositText {
+.constructionText {
   text-align: center;
   font-weight: lighter;
   color: var(--text-color-black);
 }
 
-.descriptionContainer {
-  margin: 0 auto;
-  padding: 6% 0;
-  display: flex;
-}
-
-.callToActionContainer {
-  margin: 3% auto 0;
-  color: var(--text-color-white);
-  background-image: url('./shanghai.jpg');
-  background-size: cover;
-  background-position: bottom;
-  background-attachment: fixed;
-}
-.opacityLayer {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20% 0 25%;
+.emailSignupContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.callToActionBig {
+.emailInput {
   text-align: center;
   font-weight: lighter;
-  margin: 0;
+  font-size: 1.17em;
+  color: var(--text-color-black);
+  font-family: var(--font-family-base);
+  border: 2px solid #1a1d1e;
+  line-height: 0;
 }
 
-.callToActionSmall {
-  text-align: center;
+.emailButton {
   font-weight: lighter;
-  margin: 2% 0 0 0;
+  font-size: 1.17em;
+  border: 2px solid #1a1d1e;
+  background-color: #1a1d1e;
+  color: var(--text-color-white);
+  height: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+  .constructionContainer {
+    margin: 0 auto;
+    padding: 5% 0 10%;
+    max-width: 55%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .constructionContainer {
+    margin: 0 auto;
+    padding: 10% 0 10%;
+    max-width: 80%;
+  }
 }

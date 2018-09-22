@@ -37,11 +37,20 @@
 }
 
 @font-face {
-  font-family: 'Roboto-Light';
+  font-family: 'Roboto';
   font-style: normal;
+  font-weight: 200;
   src: local('Roboto Light'), local('Roboto-Light'),
     url(./fonts/Roboto-Light.ttf) format('truetype'),
     url(./fonts/Roboto-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'),
+    url(./fonts/Roboto-Thin.ttf) format('truetype'),
+    url(./fonts/Roboto-Thin.ttf) format('truetype');
 }
 
 @font-face {

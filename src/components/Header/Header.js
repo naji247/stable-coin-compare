@@ -21,8 +21,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className={s.root}>
-        <div className={s.container}>
-          <Navigation />
+        <div className={s.opacityLayer}>
+          <div className={s.container}>
+            {/* <Navigation />
           <Link className={s.brand} to="/">
             <img
               src={logoUrl}
@@ -31,74 +32,15 @@ class Header extends React.Component {
               className={s.logo}
             />
             <span className={s.brandTxt}>SCX</span>
-          </Link>
-          <EmailSignUp />
+          </Link> */}
+            <div className={s.headlineContainer}>
+              <h1 className={s.headlineName}>Stable Coin Compare</h1>
+              <h3 className={s.description}>
+                Your guide to understand and evaluate Stable Coins
+              </h3>
+            </div>
+          </div>
         </div>
-      </div>
-    );
-  }
-}
-
-class EmailSignUp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.emailInput = React.createRef();
-    this.state = { subscribed: false, duplicateError: false };
-  }
-  handleSubmit = async event => {
-    this.setState({ duplicateError: false });
-    event.preventDefault();
-    const email = (this.emailInput && this.emailInput.current.value) || null;
-    if (this.emailInput && !email) {
-      return;
-    }
-
-    try {
-      const resp = await fetch(`${APP_URL}/api/subscribe`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email })
-      });
-
-      const body = await resp.json();
-      if (!resp.ok) {
-        this.setState({ duplicateError: true });
-        return;
-      }
-      this.setState({ subscribed: true, duplicateError: false });
-    } catch (error) {
-      this.setState({ duplicateError: true });
-    }
-  };
-
-  render() {
-    let duplicateErrorNotice = null;
-    if (this.state.duplicateError) {
-      duplicateErrorNotice = (
-        <p>Hmmm. Looks like you've already subscribed, try again?</p>
-      );
-    }
-    return (
-      <div className={s.emailSignupContainer}>
-        <p>
-          This site is under construction! If you're interested please subscribe
-          for updates :)
-        </p>
-        {duplicateErrorNotice}
-        {!this.state.subscribed ? (
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="email"
-              ref={this.emailInput}
-              placeholder="satoshi@nakamoto.com"
-            />
-            <input type="submit" value="Subscribe!" />
-          </form>
-        ) : (
-          <p>Thanks so much for your interest! We'll keep you posted.</p>
-        )}
       </div>
     );
   }

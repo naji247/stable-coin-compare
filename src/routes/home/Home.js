@@ -22,28 +22,83 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className={s.introducingContainer}>
+        <div className={s.constructionContainer}>
           <Fade bottom cascade>
             <div>
-              <h1 className={s.introducingText}>
-                Introducing a new vision for banking
+              <h1 className={s.constructionHeading}>
+                This site is currently under construction!
               </h1>
-              <h3 className={s.depositText}>
-                Maintain your deposits in USD-linked stable coins
+              <h3 className={s.constructionText}>
+                We are working hard to develop these features for you ASAP. If
+                you want to be notified about future updates, subscribe to our
+                newsletter :)
               </h3>
             </div>
+            <EmailSignUp />
           </Fade>
         </div>
-        <Description />
-        <StablecoinPrimer />
-        <div className={s.callToActionContainer}>
-          <div className={s.opacityLayer}>
-            <h1 className={s.callToActionBig}>So what are you waiting for?</h1>
-            <h3 className={s.callToActionSmall}>
-              Sign up today to be part of the future
-            </h3>
-          </div>
-        </div>
+      </div>
+    );
+  }
+}
+
+class EmailSignUp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.emailInput = React.createRef();
+    this.state = { subscribed: false, duplicateError: false };
+  }
+  handleSubmit = async event => {
+    this.setState({ duplicateError: false });
+    event.preventDefault();
+    const email = (this.emailInput && this.emailInput.current.value) || null;
+    if (this.emailInput && !email) {
+      return;
+    }
+
+    try {
+      const resp = await fetch(`${APP_URL}/api/subscribe`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+
+      const body = await resp.json();
+      if (!resp.ok) {
+        this.setState({ duplicateError: true });
+        return;
+      }
+      this.setState({ subscribed: true, duplicateError: false });
+    } catch (error) {
+      this.setState({ duplicateError: true });
+    }
+  };
+
+  render() {
+    let duplicateErrorNotice = null;
+    if (this.state.duplicateError) {
+      duplicateErrorNotice = (
+        <p>Hmmm. Looks like you've already subscribed, try again?</p>
+      );
+    }
+    return (
+      <div className={s.emailSignupContainer}>
+        {duplicateErrorNotice}
+        {!this.state.subscribed ? (
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="email"
+              ref={this.emailInput}
+              placeholder="your@email.com"
+              className={s.emailInput}
+            />
+            <input type="submit" value="Subscribe" className={s.emailButton} />
+          </form>
+        ) : (
+          <p>Thanks so much for your interest! We'll keep you posted.</p>
+        )}
       </div>
     );
   }
