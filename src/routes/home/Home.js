@@ -17,11 +17,8 @@ import Description from '../../components/Description';
 import StablecoinPrimer from '../../components/StablecoinPrimer';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
-<<<<<<< HEAD
 import { Element } from 'react-scroll';
-=======
 import { APP_URL } from '../../secrets';
->>>>>>> 3e5448be93e629c5e70e38eda9e8050a58b673c8
 
 class Home extends React.Component {
   render() {
