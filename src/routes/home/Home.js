@@ -17,7 +17,11 @@ import Description from '../../components/Description';
 import StablecoinPrimer from '../../components/StablecoinPrimer';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
+<<<<<<< HEAD
 import { Element } from 'react-scroll';
+=======
+import { APP_URL } from '../../secrets';
+>>>>>>> 3e5448be93e629c5e70e38eda9e8050a58b673c8
 
 class Home extends React.Component {
   render() {
@@ -65,7 +69,6 @@ class EmailSignUp extends React.Component {
         },
         body: JSON.stringify({ email })
       });
-
       const body = await resp.json();
       if (!resp.ok) {
         this.setState({ duplicateError: true });
@@ -73,6 +76,7 @@ class EmailSignUp extends React.Component {
       }
       this.setState({ subscribed: true, duplicateError: false });
     } catch (error) {
+      console.log(error);
       this.setState({ duplicateError: true });
     }
   };
