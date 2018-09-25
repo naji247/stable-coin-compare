@@ -48,7 +48,7 @@ const routes = {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = `SCX`;
+    route.title = `Stable Coin Compare`;
     route.description = route.description || '';
 
     return route;

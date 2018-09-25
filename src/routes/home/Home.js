@@ -17,11 +17,12 @@ import Description from '../../components/Description';
 import StablecoinPrimer from '../../components/StablecoinPrimer';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
+import { Element } from 'react-scroll';
 
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <Element name="subscribe">
         <div className={s.constructionContainer}>
           <Fade bottom cascade>
             <div>
@@ -37,7 +38,7 @@ class Home extends React.Component {
             <EmailSignUp />
           </Fade>
         </div>
-      </div>
+      </Element>
     );
   }
 }

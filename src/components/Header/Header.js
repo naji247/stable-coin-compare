@@ -16,14 +16,15 @@ import logoUrl from './logo-small.png';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { APP_URL } from '../../secrets';
+import arrowUrl from './arrow.png';
+import { Link as ScrollLink } from 'react-scroll';
 
 class Header extends React.Component {
   render() {
     return (
       <div className={s.root}>
-        <div className={s.opacityLayer}>
-          <div className={s.container}>
-            {/* <Navigation />
+        <div className={s.container}>
+          {/* <Navigation />
           <Link className={s.brand} to="/">
             <img
               src={logoUrl}
@@ -33,12 +34,22 @@ class Header extends React.Component {
             />
             <span className={s.brandTxt}>SCX</span>
           </Link> */}
-            <div className={s.headlineContainer}>
-              <h1 className={s.headlineName}>Stable Coin Compare</h1>
-              <h3 className={s.description}>
-                Your guide to understand and evaluate Stable Coins
-              </h3>
-            </div>
+          <div className={s.headlineContainer}>
+            <h1 className={s.headlineName}>Stable Coin Compare</h1>
+            <h3 className={s.description}>
+              Your guide to understand and evaluate Stable Coins
+            </h3>
+          </div>
+          <div className={s.arrowContainer}>
+            <ScrollLink
+              activeClass="active"
+              to="subscribe"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              <img src={arrowUrl} alt="arrow" className={s.arrow} />
+            </ScrollLink>
           </div>
         </div>
       </div>

@@ -7002,7 +7002,7 @@ prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -7250,6 +7250,13 @@ react-scroll-parallax@^1.3.3:
   resolved "https://registry.yarnpkg.com/react-scroll-parallax/-/react-scroll-parallax-1.3.3.tgz#b4930039b4311c62b3a9d369cebc7f30b3cffed6"
   dependencies:
     prop-types "^15.5.10"
+
+react-scroll@^1.7.10:
+  version "1.7.10"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.7.10.tgz#b59cfa11a899a362c6489607ed5865c9c5fd0b53"
+  dependencies:
+    lodash.throttle "^4.1.1"
+    prop-types "^15.5.8"
 
 react-spinners@^0.3.2:
   version "0.3.2"
