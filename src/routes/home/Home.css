@@ -28,6 +28,7 @@
 }
 
 .emailInput {
+  -webkit-appearance: none;
   font-family: var(--font-family-base);
   text-align: center;
   color: var(--text-color-black);
@@ -39,10 +40,14 @@
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
+  line-height: normal;
 }
 
 .emailButton {
+  -webkit-appearance: none;
+  font-family: var(--font-family-base);
   color: var(--text-color-white);
+  line-height: normal;
   background-color: #1a1d1e;
   font-weight: lighter;
   border: 0.1em solid #1a1d1e;
