@@ -82,24 +82,36 @@ class EmailSignUp extends React.Component {
     let duplicateErrorNotice = null;
     if (this.state.duplicateError) {
       duplicateErrorNotice = (
-        <p>Hmmm. Looks like you've already subscribed, try again?</p>
+        <Fade top>
+          <p className={s.subscribeMessage}>
+            Hmmm. Looks like you've already subscribed, try again?
+          </p>
+        </Fade>
       );
     }
     return (
       <div className={s.emailSignupContainer}>
         {duplicateErrorNotice}
         {!this.state.subscribed ? (
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="email"
-              ref={this.emailInput}
-              placeholder="your@email.com"
-              className={s.emailInput}
-            />
-            <input type="submit" value="Subscribe" className={s.emailButton} />
-          </form>
+          <Shake spy={duplicateErrorNotice}>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="email"
+                ref={this.emailInput}
+                placeholder="your@email.com"
+                className={s.emailInput}
+              />
+              <input
+                type="submit"
+                value="Subscribe"
+                className={s.emailButton}
+              />
+            </form>
+          </Shake>
         ) : (
-          <p>Thanks so much for your interest! We'll keep you posted.</p>
+          <p className={s.subscribeMessage}>
+            Thanks so much for your interest! We'll keep you posted.
+          </p>
         )}
       </div>
     );

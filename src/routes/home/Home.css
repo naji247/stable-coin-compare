@@ -46,6 +46,10 @@
   height: 100%;
 }
 
+.subscribeMessage {
+  font-weight: lighter;
+}
+
 @media only screen and (min-width: 700px) {
   .constructionContainer {
     margin: 0 auto;
