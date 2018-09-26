@@ -35,8 +35,8 @@ class Home extends React.Component {
                 you want to be notified about future updates, subscribe to our
                 newsletter :)
               </h3>
+              <EmailSignUp />
             </div>
-            <EmailSignUp />
           </Fade>
         </div>
       </Element>
@@ -109,9 +109,11 @@ class EmailSignUp extends React.Component {
             </form>
           </Shake>
         ) : (
-          <p className={s.subscribeMessage}>
-            Thanks so much for your interest! We'll keep you posted.
-          </p>
+          <Fade top>
+            <p className={s.subscribeMessage}>
+              Thanks so much for your interest! We'll keep you posted.
+            </p>
+          </Fade>
         )}
       </div>
     );
