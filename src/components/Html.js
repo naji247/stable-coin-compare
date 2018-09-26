@@ -21,17 +21,17 @@ class Html extends React.Component {
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        cssText: PropTypes.string.isRequired,
-      }).isRequired,
+        cssText: PropTypes.string.isRequired
+      }).isRequired
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
-    children: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired
   };
 
   static defaultProps = {
     styles: [],
-    scripts: [],
+    scripts: []
   };
 
   render() {
@@ -39,6 +39,10 @@ class Html extends React.Component {
     return (
       <html className="no-js" lang="en">
         <head>
+          <meta
+            name="google-site-verification"
+            content="7st8SFQs96unqLuJRZ9guVH8F4rVsXaVFgNANusvw1w"
+          />
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <title>{title}</title>
@@ -69,7 +73,7 @@ class Html extends React.Component {
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
                   `ga('create','${
                     config.analytics.googleTrackingId
-                  }','auto');ga('send','pageview')`,
+                  }','auto');ga('send','pageview')`
               }}
             />
           )}
