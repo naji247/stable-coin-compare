@@ -22,7 +22,7 @@ import { APP_URL } from '../../secrets';
 
 class Home extends React.Component {
   render() {
-    const coinIds = [2308, 2563, 825, 1312, 623, 2927, 624];
+    const coinIds = [825, 2563, 2308, 624, 1312, 623, 2927];
     return (
       <Element name="subscribe">
         <div className={s.constructionContainer}>
