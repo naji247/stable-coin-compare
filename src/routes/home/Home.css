@@ -29,6 +29,7 @@
 
 .emailInput {
   -webkit-appearance: none;
+  border-radius: 0;
   font-family: var(--font-family-base);
   text-align: center;
   color: var(--text-color-black);
@@ -45,6 +46,7 @@
 
 .emailButton {
   -webkit-appearance: none;
+  border-radius: 0;
   font-family: var(--font-family-base);
   color: var(--text-color-white);
   line-height: normal;
