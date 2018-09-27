@@ -22,6 +22,7 @@ import { APP_URL } from '../../secrets';
 
 class Home extends React.Component {
   render() {
+    const coinIds = [2308, 2563, 825, 1312, 623, 2927, 624];
     return (
       <Element name="subscribe">
         <div className={s.constructionContainer}>
@@ -39,6 +40,14 @@ class Home extends React.Component {
             </div>
           </Fade>
         </div>
+        <script type="text/javascript" src="./currency.js" />
+        <h1 className={s.constructionHeading}>
+          Currently Released Stable Coins
+        </h1>
+        <div className={s.widgetContainer}>
+          {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId} />)}
+        </div>
+        <p className={s.widgetNotice}>These numbers are updated real time.</p>
       </Element>
     );
   }
@@ -120,6 +129,29 @@ class EmailSignUp extends React.Component {
   }
 }
 
+class CoinMarketCapWidget extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className={s.coinmarketcapWidgetWrapper}>
+        <div
+          className="coinmarketcap-currency-widget"
+          data-currencyid={this.props.currencyId}
+          data-base="USD"
+          data-secondary=""
+          data-ticker="true"
+          data-rank="false"
+          data-marketcap="true"
+          data-volume="true"
+          data-stats="USD"
+          data-statsticker="false"
+        />
+      </div>
+    );
+  }
+}
 const mapState = state => ({});
 
 const mapDispatch = {};

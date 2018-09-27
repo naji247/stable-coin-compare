@@ -71,6 +71,20 @@
   }
 }
 
+.widgetContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.coinmarketcapWidgetWrapper {
+  margin: 1em;
+}
+.widgetNotice {
+  text-align: center;
+  font-size: 0.5em;
+}
+
 @media only screen and (max-width: 700px) {
   .constructionContainer {
     margin: 0 auto;
