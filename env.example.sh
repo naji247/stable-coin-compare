@@ -1,0 +1,3 @@
+export DATABASE_PASSWORD=password
+export JWT_SECRET=secret
+export EC2_IP_ADDRESS='SET IP ADDRESS HERE'
