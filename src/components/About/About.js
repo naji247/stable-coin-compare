@@ -28,18 +28,18 @@ class About extends React.Component {
             Coins understand how successful each stability protocol is at
             maintaining their fixed price. We do so by aggregating data on price
             movements from multiple sources and computing stability metrics from
-            them to show how Stable Coins compare among themselves and across
-            asset classes. This way, users of Stable Coins can better understand
+            them to show how Stablecoins compare among themselves and across
+            asset classes. This way, users of Stablecoins can better understand
             which protocols are the most effective and the risks associated with
             holding them.
           </p>
-          <h2 className={s.aboutHeader}>About Stable Coins</h2>
+          <h2 className={s.aboutHeader}>About Stablecoins</h2>
           <p className={s.aboutText}>
-            Stable Coins are a category of cryptocurrencies that take advantage
-            of decentralization but aim to reduce price volatility. Stable Coins
+            Stablecoins are a category of cryptocurrencies that take advantage
+            of decentralization but aim to reduce price volatility. Stablecoins
             maintain a fixed exchange rate with existing currencies like the
             dollar so that they can be a viable store of wealth and a more
-            reliable medium of transaction. Each Stable Coin is implemented
+            reliable medium of transaction. Each Stablecoin is implemented
             differently with its own mechanism to maintain the peg which results
             in varying levels of success in achieving the goal of stability.
           </p>

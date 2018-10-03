@@ -14,17 +14,16 @@ import s from './Navigation.css';
 import Link from '../Link';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/authActions';
-import store from '../../storeUtil';
 
 class Navigation extends React.Component {
-  onLogoutClick(event) {
-    // TODO: Add long term storage
-    if (store.get('auth_token')) store.remove('auth_token');
-    this.props.logout();
-  }
-
   render() {
-    return <div className={s.root} role="navigation" />;
+    return (
+      <div className={s.root} role="navigation">
+        <Link className={s.link} to="/coins">
+          Coins
+        </Link>
+      </div>
+    );
   }
 }
 

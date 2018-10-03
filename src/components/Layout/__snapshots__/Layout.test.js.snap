@@ -73,7 +73,7 @@ exports[`Layout renders children correctly 1`] = `
           <p
             className="bannerDesc"
           >
-            Take back control of your wealth with stable coins.
+            Take back control of your wealth with stablecoins.
           </p>
         </div>
       </div>

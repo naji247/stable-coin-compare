@@ -9,8 +9,9 @@
 @import '../variables.css';
 
 .root {
-  float: right;
-  margin: 6px 0 0;
+  font-weight: 100;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .link {

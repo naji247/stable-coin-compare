@@ -36,7 +36,7 @@ class StablecoinPrimer extends React.Component {
           <div className={s.text}>
             <Fade bottom>
               <div>
-                <h2 className={s.header}>Why Stable Coins?</h2>
+                <h2 className={s.header}>Why Stablecoins?</h2>
                 All of the decentralization benefits of cryptocurrencies with an
                 algorithmically maintained peg to the US dollar for monetary
                 stability. This mitigates the risk of depreciation that has

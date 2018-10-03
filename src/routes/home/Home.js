@@ -42,7 +42,7 @@ class Home extends React.Component {
         </div>
         <script type="text/javascript" src="./currency.js" />
         <h1 className={s.constructionHeading}>
-          Currently Released Stable Coins
+          Currently Released Stablecoins
         </h1>
         <div className={s.widgetContainer}>
           {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId} />)}

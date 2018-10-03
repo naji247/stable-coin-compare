@@ -25,7 +25,7 @@ class Introducing extends React.Component {
                 Introducing a new vision for banking
               </h1>
               <h3 className={s.depositText}>
-                Maintain your deposits in USD-linked stable coins
+                Maintain your deposits in USD-linked stablecoins
               </h3>
             </div>
           </Fade>

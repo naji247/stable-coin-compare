@@ -24,20 +24,20 @@ class Header extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          {/* <Navigation />
-          <Link className={s.brand} to="/">
-            <img
-              src={logoUrl}
-              srcSet={`${logoUrl} 2x`}
-              alt="SCX Logo"
-              className={s.logo}
-            />
-            <span className={s.brandTxt}>SCX</span>
-          </Link> */}
+           <Navigation />
+          {/*<Link className={s.brand} to="/">*/}
+            {/*<img*/}
+              {/*src={logoUrl}*/}
+              {/*srcSet={`${logoUrl} 2x`}*/}
+              {/*alt="SCX Logo"*/}
+              {/*className={s.logo}*/}
+            {/*/>*/}
+            {/*<span className={s.brandTxt}>SCX</span>*/}
+          {/*</Link>*/}
           <div className={s.headlineContainer}>
-            <h1 className={s.headlineName}>Stable Coin Compare</h1>
+            <h1 className={s.headlineName}>Stablecoin Compare</h1>
             <h3 className={s.description}>
-              Your guide to understand and evaluate Stable Coins
+              Your guide to understand and evaluate Stablecoins
             </h3>
           </div>
           <div className={s.arrowContainer}>
