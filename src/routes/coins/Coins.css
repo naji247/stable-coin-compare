@@ -49,6 +49,7 @@ h1 {
   margin: 1em 1em 1em 1em;
   border-radius: 1em;
   transition: background-color 0.15s ease;
+  cursor: pointer;
 }
 
 .coinSelect:hover {
