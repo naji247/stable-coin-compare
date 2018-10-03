@@ -12,12 +12,74 @@
 body {
   margin: 0px;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family-base);
+  font-weight: 100;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-family: var(--font-family-base);
+  font-weight: 100;
+  font-size: 3em;
+  margin: 0;
+  align-self: center;
+}
+
 @media only screen and (min-width: 700px) {
-  .constructionContainer {
+  .container {
     margin: 0 auto;
-    padding: 5% 0 10%;
-    max-width: 55%;
+    padding: 3% 0 10%;
+    max-width: 90%;
   }
+}
+
+.coinLogo {
+}
+
+.coinSelect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
+  border: transparent solid .2em;
+  border-radius: 1em;
+}
+
+.coinSelect:hover {
+  border: aliceblue solid .2em;
+  border-radius: 1em;
+}
+
+.coinName {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 1.25em;
+}
+
+.coinSelectContainer {
+  display: flex;
+  width: 45em;
+  margin: 2em;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.coinDetailsContainer {
+  display: flex;
+  width: 100%;
+}
+.coinDetails {
+  display: flex;
+  width: 45em;
+  margin: 2em;
+  justify-content: center;
+
 }
 
 .widgetContainer {
@@ -35,7 +97,7 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
-  .constructionContainer {
+  .container {
     margin: 0 auto;
     padding: 10% 0 10%;
     max-width: 80%;
