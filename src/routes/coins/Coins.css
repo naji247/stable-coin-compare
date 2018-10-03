@@ -47,13 +47,13 @@ h1 {
   justify-content: center;
   padding: 1em 1em 1em 1em;
   margin: 1em 1em 1em 1em;
-  border: transparent solid .2em;
   border-radius: 1em;
+  transition: background-color 0.15s ease;
 }
 
 .coinSelect:hover {
-  border: aliceblue solid .2em;
   border-radius: 1em;
+  background-color: aliceblue;
 }
 
 .coinName {
