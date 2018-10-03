@@ -40,6 +40,7 @@ module.exports = {
   analytics: {
     // https://analytics.google.com/
     googleTrackingId: process.env.GOOGLE_TRACKING_ID, // UA-XXXXX-X
+    heapTrackingId: process.env.HEAP_TRACKING_ID
   },
 
   // Authentication
