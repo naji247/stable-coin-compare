@@ -172,7 +172,7 @@ class App extends React.Component {
       <ul>
         <li>
           <a href="/" onClick={this.transition}>
-            Home
+            Coins
           </a>
         </li>
         <li>

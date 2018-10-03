@@ -12,17 +12,27 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Navbar.css';
 import Link from '../Link';
-import logoUrl from './logo-small.png';
+import logoUrl from './logo-white.png';
 
 class Navbar extends React.Component {
   render() {
     return (
-      <div className={s.root}>
-        <Link className={s.brand} to="/">
-          <img src={logoUrl} alt="SCX Logo" className={s.logo} />
-          <span className={s.brandTxt}>SCX</span>
-        </Link>
-      </div>
+      <header className={s.root}>
+        <nav>
+          <ul>
+            <li>
+              <a className={s.homeLink} href="/">
+                <img src={logoUrl} alt="Logo" className={s.logo} />
+                Stablecoin Compare
+              </a>
+            </li>
+          </ul>
+
+          <ul >
+            <li><a href="/coins">Coins</a></li>
+          </ul>
+        </nav>
+      </header>
     );
   }
 }
