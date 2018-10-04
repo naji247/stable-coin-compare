@@ -76,6 +76,21 @@ h1 {
   width: 100px;
 }
 
+.coinDetailHeader {
+  display: flex;
+  flex-direction: column;
+}
+.coinDetailLogo {
+  width: 100px;
+  height: 100px;
+  align-self: center;
+}
+
+.coinDetailTitle {
+  text-align: center;
+  margin: 1em 0em;
+}
+
 .coinSelectContainer {
   display: flex;
   width: 45em;
@@ -88,12 +103,17 @@ h1 {
   display: flex;
   width: 100%;
 }
+
+.coinDetailRow {
+  display: flex;
+  flex-direction: column;
+}
+
 .coinDetails {
   display: flex;
   width: 45em;
   margin: 2em;
   justify-content: center;
-
 }
 
 .widgetContainer {

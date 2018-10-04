@@ -40,7 +40,7 @@ class Coins extends React.Component {
     };
   }
   handleCoinSelect(coinId) {
-    this.setState({coinId});
+    (coinId === this.state.coinId) ? this.setState({coinId: null}) : this.setState({coinId});
   }
 
   render() {
@@ -61,7 +61,8 @@ class Coins extends React.Component {
             </div>
             <div className={s.coinDetails}>
               {/*TODO: Adding coin details sections*/}
-              <p>Select a coin from the left.</p>
+              {!this.state.coinId ? <p>Select a coin from the left.</p> :
+                <CoinDetails coinId={this.state.coinId} />}
             </div>
           </div>
         </div>
@@ -83,6 +84,31 @@ const CoinSelector = props => (
     </span>
   </div>
 );
+
+const shownDetails = ['Founders']
+const CoinDetails = props => (
+  <div className={s.coinDetailHeader}>
+    <div className={s.coinDetailRow}>
+      <div className={s.coinDetailLogo}>
+        <img
+          src={coinLogos[`${props.coinId}.png`]}
+          alt={props.coinId}
+        />
+      </div>
+      <span className={s.coinDetailTitle}>
+      {coinDetails[props.coinId]['Stablecoin Project']}
+      </span>
+    </div>
+    <div>
+      {shownDetails.map(field => (
+        <div>
+          <span>{field}:</span>
+          <span>{coinDetails[props.coinId][field]}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)
 
 const mapState = state => ({});
 
