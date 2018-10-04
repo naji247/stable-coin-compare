@@ -14,17 +14,16 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css';
 import s from './Layout.css';
-import Header from '../Header';
 // import Feedback from '../Feedback';
 // import Footer from '../Footer';
 const muiTheme = getMuiTheme({
   fontFamily: 'Nunito Sans',
   palette: {
-    textColor: '#2A3439',
+    textColor: '#2A3439'
   },
   tableRow: {
-    hoverColor: '#CDE2F3',
-  },
+    hoverColor: '#CDE2F3'
+  }
 });
 
 class Layout extends React.Component {
@@ -32,7 +31,6 @@ class Layout extends React.Component {
     return (
       <div>
         <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-          <Header />
           {this.props.children}
           {/* <Feedback />
         <Footer /> */}

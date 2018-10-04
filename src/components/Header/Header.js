@@ -12,7 +12,6 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
-import logoUrl from './logo-small.png';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { APP_URL } from '../../secrets';
@@ -24,16 +23,7 @@ class Header extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-           <Navigation />
-          {/*<Link className={s.brand} to="/">*/}
-            {/*<img*/}
-              {/*src={logoUrl}*/}
-              {/*srcSet={`${logoUrl} 2x`}*/}
-              {/*alt="SCX Logo"*/}
-              {/*className={s.logo}*/}
-            {/*/>*/}
-            {/*<span className={s.brandTxt}>SCX</span>*/}
-          {/*</Link>*/}
+          <Navigation />
           <div className={s.headlineContainer}>
             <h1 className={s.headlineName}>Stablecoin Compare</h1>
             <h3 className={s.description}>

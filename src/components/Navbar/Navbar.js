@@ -28,8 +28,12 @@ class Navbar extends React.Component {
             </li>
           </ul>
 
-          <ul >
-            <li><a href="/coins">Coins</a></li>
+          <ul>
+            <li>
+              <a href="/coins" className={s.navOption}>
+                Coins
+              </a>
+            </li>
           </ul>
         </nav>
       </header>

@@ -17,6 +17,7 @@ import Description from '../../components/Description';
 import StablecoinPrimer from '../../components/StablecoinPrimer';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
+import Header from '../../components/Header';
 import { Element } from 'react-scroll';
 import { APP_URL } from '../../secrets';
 
@@ -24,31 +25,34 @@ class Home extends React.Component {
   render() {
     const coinIds = [825, 2563, 2308, 624, 1312, 623, 2927];
     return (
-      <Element name="subscribe">
-        <div className={s.constructionContainer}>
-          <Fade bottom cascade>
-            <div>
-              <h1 className={s.constructionHeading}>
-                This site is currently under construction!
-              </h1>
-              <h3 className={s.constructionText}>
-                We are working hard to develop these features for you ASAP. If
-                you want to be notified about future updates, subscribe to our
-                newsletter :)
-              </h3>
-              <EmailSignUp />
-            </div>
-          </Fade>
-        </div>
-        <script type="text/javascript" src="./currency.js" />
-        <h1 className={s.constructionHeading}>
-          Currently Released Stablecoins
-        </h1>
-        <div className={s.widgetContainer}>
-          {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId} />)}
-        </div>
-        <p className={s.widgetNotice}>These numbers are updated real time.</p>
-      </Element>
+      <div>
+        <Header />
+        <Element name="subscribe">
+          <div className={s.constructionContainer}>
+            <Fade bottom cascade>
+              <div>
+                <h1 className={s.constructionHeading}>
+                  This site is currently under construction!
+                </h1>
+                <h3 className={s.constructionText}>
+                  We are working hard to develop these features for you ASAP. If
+                  you want to be notified about future updates, subscribe to our
+                  newsletter :)
+                </h3>
+                <EmailSignUp />
+              </div>
+            </Fade>
+          </div>
+          <script type="text/javascript" src="./currency.js" />
+          <h1 className={s.constructionHeading}>
+            Currently Released Stablecoins
+          </h1>
+          <div className={s.widgetContainer}>
+            {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId} />)}
+          </div>
+          <p className={s.widgetNotice}>These numbers are updated real time.</p>
+        </Element>
+      </div>
     );
   }
 }

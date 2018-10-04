@@ -10,17 +10,17 @@
 import React from 'react';
 import Coins from './Coins';
 import Layout from '../../components/Layout';
-import Navbar from "../../components/Navbar";
+import Navbar from '../../components/Navbar';
 
 async function action({ fetch }) {
   return {
     chunks: ['home'],
     title: 'React Starter Kit',
     component: (
-      <div>
+      <Layout>
         <Coins />
-      </div>
-    ),
+      </Layout>
+    )
   };
 }
 

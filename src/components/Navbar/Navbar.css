@@ -8,12 +8,11 @@
  */
 @import '../variables.css';
 
-
 nav {
   display: flex;
-  background-color: #333;
-  width: 100%;
+  background-color: #1a1d1e;
   justify-content: space-between;
+  padding: 0.3em 1em;
 }
 
 ul {
@@ -21,7 +20,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #1a1d1e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,24 +30,31 @@ li {
   float: left;
 }
 
-li a {
+.navOption {
   display: block;
   color: var(--text-color-white);
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 100;
-  padding: 1.4em 1.2em;
+  padding: 0em 1.4em;
   font-family: var(--font-family-base);
   text-decoration: none;
 }
 
 li a:hover {
-  background-color: #111;
+  font-weight: 200;
 }
 
 .homeLink {
-  padding: .3em;
-  margin-left: .8em;
+  padding: 0.3em 0;
+  margin-left: 0.8em;
+  display: block;
+  color: var(--text-color-white);
+  text-align: center;
+  font-size: 1em;
+  font-weight: 100;
+  font-family: var(--font-family-base);
+  text-decoration: none;
 }
 
 .root {
@@ -71,7 +77,7 @@ li a:hover {
 }
 
 .logo {
-  height: 3.3em;
-  margin-right: .7em;
+  height: 2.4em;
+  margin-right: 0.7em;
   vertical-align: middle;
 }
