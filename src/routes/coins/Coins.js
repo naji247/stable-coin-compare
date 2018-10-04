@@ -17,7 +17,8 @@ import { Element } from 'react-scroll';
 import { APP_URL } from '../../secrets';
 import Navbar from '../../components/Navbar';
 import _ from 'lodash';
-import * as coinDetails from '../../stablecoinInfo'
+import * as coinDetails from '../../stablecoinInfo';
+import classNames from 'classnames';
 
 function importAll(r) {
   const images = {};
@@ -32,6 +33,16 @@ const coinLogos = importAll(
 );
 
 class Coins extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      coinId: null
+    };
+  }
+  handleCoinSelect(coinId) {
+    this.setState({coinId});
+  }
+
   render() {
     return (
       <Element>
@@ -40,14 +51,16 @@ class Coins extends React.Component {
           <h1>Coins</h1>
           <div className={s.coinDetailsContainer}>
             <div className={s.coinSelectContainer}>
-              {_.keys(coinDetails).map(coinId =>
-                <div className={s.coinSelect}>
-                  <img key={coinId} src={coinLogos[`${coinId}.png`]} className={s.coinLogo} alt={coinId} />
-                  <span className={s.coinName}>{coinDetails[coinId]["Stablecoin Project"]}</span>
-                </div>
-              )}
+              {_.keys(coinDetails).map(coinId => (
+                <CoinSelector
+                  isActive={coinId === this.state.coinId}
+                  onClick={() => this.handleCoinSelect(coinId)}
+                  coinId={coinId}
+                />
+              ))}
             </div>
             <div className={s.coinDetails}>
+              {/*TODO: Adding coin details sections*/}
               <p>Select a coin from the left.</p>
             </div>
           </div>
@@ -56,6 +69,20 @@ class Coins extends React.Component {
     );
   }
 }
+
+const CoinSelector = props => (
+  <div onClick={props.onClick} className={props.isActive ? s.coinSelectActive : s.coinSelect}>
+    <img
+      key={props.coinId}
+      src={coinLogos[`${props.coinId}.png`]}
+      className={s.coinLogo}
+      alt={props.coinId}
+    />
+    <span className={s.coinName}>
+      {coinDetails[props.coinId]['Stablecoin Project']}
+    </span>
+  </div>
+);
 
 const mapState = state => ({});
 

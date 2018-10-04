@@ -52,6 +52,18 @@ h1 {
   cursor: pointer;
 }
 
+.coinSelectActive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
+  border-radius: 1em;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  background-color: #d2eaff;
+}
+
 .coinSelect:hover {
   border-radius: 1em;
   background-color: aliceblue;
