@@ -19,6 +19,7 @@ import Navbar from '../../components/Navbar';
 import _ from 'lodash';
 import * as coinDetails from '../../stablecoinInfo';
 import classNames from 'classnames';
+import history from '../../history'
 
 function importAll(r) {
   const images = {};
@@ -33,14 +34,8 @@ const coinLogos = importAll(
 );
 
 class Coins extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      coinId: null
-    };
-  }
   handleCoinSelect(coinId) {
-    (coinId === this.state.coinId) ? this.setState({coinId: null}) : this.setState({coinId});
+    (coinId === this.props.selectedCoinId) ? history.push('/coins') : history.push(`/coins/${coinId}`);
   }
 
   render() {
@@ -53,7 +48,7 @@ class Coins extends React.Component {
             <div className={s.coinSelectContainer}>
               {_.keys(coinDetails).map(coinId => (
                 <CoinSelector
-                  isActive={coinId === this.state.coinId}
+                  isActive={coinId === this.props.selectedCoinId}
                   onClick={() => this.handleCoinSelect(coinId)}
                   coinId={coinId}
                 />
@@ -61,8 +56,8 @@ class Coins extends React.Component {
             </div>
             <div className={s.coinDetails}>
               {/*TODO: Adding coin details sections*/}
-              {!this.state.coinId ? <p>Select a coin from the left.</p> :
-                <CoinDetails coinId={this.state.coinId} />}
+              {!this.props.selectedCoinId ? <p>Select a coin from the left.</p> :
+                <CoinDetails coinId={this.props.selectedCoinId} />}
             </div>
           </div>
         </div>

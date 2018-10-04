@@ -8,6 +8,9 @@
  */
 
 /* eslint-disable global-require */
+import React from 'react';
+import Coins from './coins/Coins';
+import Layout from "../components/Layout";
 
 // The top-level (parent) route
 const routes = {
@@ -20,22 +23,28 @@ const routes = {
       load: () => import(/* webpackChunkName: 'home' */ './home')
     },
     {
+      path: '/coins/:coinId',
+      // action: (context) => <Coins selectedCoinId={context.params.coinId} />
+      action: (context) => ({
+        chunks: ['home'],
+        title: 'React Starter Kit',
+        component: (
+          <Layout>
+            <Coins selectedCoinId={context.params.coinId} />
+          </Layout>
+        )
+      })
+    },
+    {
       path: '/coins',
-      load: () => import(/* webpackChunkName: 'coins' */ './coins')
+      load: () => import(/* webpackChunkName: 'coins' */ './coins'),
+      // children: [
+      //   {
+      //     path: '/:coinId',
+      //     action: (context) => `<h1>${context}</h1>`
+      //   }
+      // ]
     },
-    {
-      path: '/login',
-      load: () => import(/* webpackChunkName: 'login' */ './login')
-    },
-    {
-      path: '/signup',
-      load: () => import(/* webpackChunkName: 'signup' */ './signup')
-    },
-    {
-      path: '/admin',
-      load: () => import(/* webpackChunkName: 'admin' */ './admin')
-    },
-
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
       path: '(.*)',
