@@ -39,6 +39,9 @@ h1 {
 }
 
 .coinLogo {
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
 }
 
 .coinSelect {
@@ -53,9 +56,11 @@ h1 {
 }
 
 .coinSelectLogoWrapper {
-  width: 100px;
-  height: 100px;
+  width: 5em;
+  height: 5em;
   align-self: center;
+  display: flex;
+  justify-content: center;
 }
 .coinSelectActive {
   display: flex;
@@ -96,6 +101,10 @@ h1 {
   margin: .6em 0em;
   font-weight: 400;
   font-size: 1.5em;
+}
+.coinSelectImage {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .coinSelectWrapper {

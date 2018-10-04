@@ -71,6 +71,7 @@ const CoinSelector = props => (
     <div className={s.coinSelectWrapper}>
       <div className={s.coinSelectLogoWrapper}>
         <img
+          className={s.coinSelectImage}
           key={props.coinId}
           src={coinLogos[`${props.coinId}.png`]}
           className={s.coinLogo}
