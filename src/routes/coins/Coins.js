@@ -73,37 +73,43 @@ class Coins extends React.Component {
 
 const CoinSelector = props => (
   <div onClick={props.onClick} className={props.isActive ? s.coinSelectActive : s.coinSelect}>
-    <img
-      key={props.coinId}
-      src={coinLogos[`${props.coinId}.png`]}
-      className={s.coinLogo}
-      alt={props.coinId}
-    />
-    <span className={s.coinName}>
-      {coinDetails[props.coinId]['Stablecoin Project']}
-    </span>
-  </div>
-);
-
-const shownDetails = ['Founders']
-const CoinDetails = props => (
-  <div className={s.coinDetailHeader}>
-    <div className={s.coinDetailRow}>
-      <div className={s.coinDetailLogo}>
+    <div className={s.coinSelectWrapper}>
+      <div className={s.coinSelectLogoWrapper}>
         <img
+          key={props.coinId}
           src={coinLogos[`${props.coinId}.png`]}
+          className={s.coinLogo}
           alt={props.coinId}
         />
       </div>
-      <span className={s.coinDetailTitle}>
+      <span className={s.coinName}>
+      {coinDetails[props.coinId]['Stablecoin Project']}
+    </span>
+    </div>
+  </div>
+);
+
+const shownDetails = ['Founders', 'Company', 'Backers', 'Stability Method', 'Short Description']
+const CoinDetails = props => (
+  <div className={s.coinDetailsWrapper}>
+    <div className={s.coinDetailHeader}>
+      <div className={s.coinDetailRow}>
+        <div className={s.coinDetailLogo}>
+          <img
+            src={coinLogos[`${props.coinId}.png`]}
+            alt={props.coinId}
+          />
+        </div>
+        <span className={s.coinDetailTitle}>
       {coinDetails[props.coinId]['Stablecoin Project']}
       </span>
+      </div>
     </div>
-    <div>
+    <div className={s.fieldContainer}>
       {shownDetails.map(field => (
-        <div>
-          <span>{field}:</span>
-          <span>{coinDetails[props.coinId][field]}</span>
+        <div className={s.fieldEntry}>
+          <span className={s.fieldKey}>{field}:</span>
+          <span className={s.fieldValue}>{coinDetails[props.coinId][field]}</span>
         </div>
       ))}
     </div>
