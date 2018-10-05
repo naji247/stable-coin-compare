@@ -19,7 +19,7 @@ import Navbar from '../../components/Navbar';
 import _ from 'lodash';
 import * as coinDetails from '../../stablecoinInfo';
 import classNames from 'classnames';
-import history from '../../history'
+import history from '../../history';
 
 function importAll(r) {
   const images = {};
@@ -35,7 +35,9 @@ const coinLogos = importAll(
 
 class Coins extends React.Component {
   handleCoinSelect(coinId) {
-    (coinId === this.props.selectedCoinId) ? history.push('/coins') : history.push(`/coins/${coinId}`);
+    coinId === this.props.selectedCoinId
+      ? history.push('/coins')
+      : history.push(`/coins/${coinId}`);
   }
 
   render() {
@@ -54,10 +56,13 @@ class Coins extends React.Component {
                 />
               ))}
             </div>
-            <div className={s.coinDetails}>
+            <div className={s.coinDescriptionContainer}>
               {/*TODO: Adding coin details sections*/}
-              {!this.props.selectedCoinId ? <p>Select a coin from the left.</p> :
-                <CoinDetails coinId={this.props.selectedCoinId} />}
+              {!this.props.selectedCoinId ? (
+                <p>Select a coin from the left.</p>
+              ) : (
+                <CoinDetails coinId={this.props.selectedCoinId} />
+              )}
             </div>
           </div>
         </div>
@@ -67,7 +72,10 @@ class Coins extends React.Component {
 }
 
 const CoinSelector = props => (
-  <div onClick={props.onClick} className={props.isActive ? s.coinSelectActive : s.coinSelect}>
+  <div
+    onClick={props.onClick}
+    className={s.coinSelect + ' ' + (props.isActive ? s.coinSelectActive : '')}
+  >
     <div className={s.coinSelectWrapper}>
       <div className={s.coinSelectLogoWrapper}>
         <img
@@ -79,38 +87,41 @@ const CoinSelector = props => (
         />
       </div>
       <span className={s.coinName}>
-      {coinDetails[props.coinId]['Stablecoin Project']}
-    </span>
+        {coinDetails[props.coinId]['Stablecoin Project']}
+      </span>
     </div>
   </div>
 );
 
-const shownDetails = ['Founders', 'Company', 'Backers', 'Stability Method', 'Short Description']
+const shownDetails = [
+  'Founders',
+  'Company',
+  'Backers',
+  'Stability Method',
+  'Description'
+];
 const CoinDetails = props => (
-  <div className={s.coinDetailsWrapper}>
-    <div className={s.coinDetailHeader}>
-      <div className={s.coinDetailRow}>
-        <div className={s.coinDetailLogo}>
-          <img
-            src={coinLogos[`${props.coinId}.png`]}
-            alt={props.coinId}
-          />
-        </div>
-        <span className={s.coinDetailTitle}>
-      {coinDetails[props.coinId]['Stablecoin Project']}
-      </span>
+  <div>
+    <div className={s.coinDescriptionHeader}>
+      <div className={s.coinDescriptionLogo}>
+        <img src={coinLogos[`${props.coinId}.png`]} alt={props.coinId} />
       </div>
+      <span className={s.coinDescriptionTitle}>
+        {coinDetails[props.coinId]['Stablecoin Project']}
+      </span>
     </div>
     <div className={s.fieldContainer}>
       {shownDetails.map(field => (
         <div className={s.fieldEntry}>
           <span className={s.fieldKey}>{field}:</span>
-          <span className={s.fieldValue}>{coinDetails[props.coinId][field]}</span>
+          <span className={s.fieldValue}>
+            {coinDetails[props.coinId][field]}
+          </span>
         </div>
       ))}
     </div>
   </div>
-)
+);
 
 const mapState = state => ({});
 

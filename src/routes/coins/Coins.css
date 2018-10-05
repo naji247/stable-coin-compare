@@ -20,22 +20,17 @@ body {
   font-weight: 100;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
+  padding: 3% 0 10%;
+  max-width: 90%;
 }
 
 h1 {
   font-family: var(--font-family-base);
-  font-weight: 100;
-  font-size: 3em;
+  font-weight: 200;
+  font-size: 2.4em;
   margin: 0;
   align-self: center;
-}
-
-@media only screen and (min-width: 700px) {
-  .container {
-    margin: 0 auto;
-    padding: 3% 0 10%;
-    max-width: 90%;
-  }
 }
 
 .coinLogo {
@@ -48,57 +43,48 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em 1em 1em 1em;
-  margin: 1em 1em 1em 1em;
-  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 0.5em;
   transition: background-color 0.15s ease;
   cursor: pointer;
 }
+.coinSelectActive {
+  background-color: #d2eaff;
+}
 
 .coinSelectLogoWrapper {
-  width: 5em;
-  height: 5em;
+  width: 4em;
+  height: 4em;
   align-self: center;
   display: flex;
   justify-content: center;
 }
-.coinSelectActive {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1em 1em 1em 1em;
-  margin: 1em 1em 1em 1em;
-  border-radius: 1em;
-  transition: background-color 0.15s ease;
-  cursor: pointer;
-  background-color: #d2eaff;
-}
 
 .coinSelect:hover {
-  border-radius: 1em;
   background-color: aliceblue;
 }
 
 .coinName {
   text-align: center;
-  font-size: 1em;
+  font-size: 0.8em;
   margin-top: 1.25em;
   max-width: 5em;
 }
 
-.coinDetailHeader {
+.coinDescriptionHeader {
   display: flex;
   flex-direction: column;
 }
-.coinDetailLogo {
+.coinDescriptionLogo {
   width: 100px;
   height: 100px;
   align-self: center;
 }
 
-.coinDetailTitle {
+.coinDescriptionTitle {
   text-align: center;
-  margin: .6em 0em;
+  margin: 0.6em 0em;
   font-weight: 400;
   font-size: 1.5em;
 }
@@ -114,54 +100,22 @@ h1 {
 
 .coinSelectContainer {
   display: flex;
-  width: 45em;
+  max-width: 45%;
   margin: 2em;
   justify-content: center;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.coinDetailsWrapper {
+.coinDescriptionContainer {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  margin: 2em;
+  justify-content: center;
 }
+
 .coinDetailsContainer {
   display: flex;
   width: 100%;
-}
-
-.coinDetailRow {
-  display: flex;
-  flex-direction: column;
-}
-
-.coinDetails {
-  display: flex;
-  width: 45em;
-  margin: 2em;
-  justify-content: center;
-}
-
-.widgetContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.coinmarketcapWidgetWrapper {
-  margin: 1em;
-}
-.widgetNotice {
-  text-align: center;
-  font-size: 0.8em;
-}
-
-@media only screen and (max-width: 700px) {
-  .container {
-    margin: 0 auto;
-    padding: 10% 0 10%;
-    max-width: 80%;
-  }
 }
 
 .fieldContainer {
@@ -170,13 +124,13 @@ h1 {
 }
 .fieldKey {
   font-weight: 400;
-  margin-right: 2em;
-  font-size: .8em;
+  margin-right: 1.2em;
+  font-size: 0.8em;
 }
 
 .fieldValue {
   max-width: 25em;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 .fieldEntry {
   display: flex;
