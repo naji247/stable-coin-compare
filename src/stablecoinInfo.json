@@ -1,13 +1,15 @@
 {
-  "bitusd": {
-    "Stablecoin Project": "BitUSD",
-    "Company": "Bitshares",
-    "Backers": "None",
-    "Founders": "Dan Larimar",
-    "Website": "bitshares.org",
-    "Whitepaper": "http://docs.bitshares.org/bitshares/papers/",
-    "Stability Method": "Crypto Collatoralized",
-    "Short Description": "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
+  "tether": {
+    "Stablecoin Project": "Tether",
+    "Company": "Tether",
+    "Backers": "Probably Bitfinex",
+    "Founders": "JL Van Der Velde, Giancarlo Devasini, Stuart Hoegner",
+    "Website": "https://tether.to/",
+    "Whitepaper":
+      "https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf",
+    "Stability Method": "Fiat Collateralized",
+    "Description":
+      "Tether was the first stablecoin to achieve widespread adoption. It was intended largely to facilitate cryptocurrency trading as the organization has deep ties to the major exchange Bitfinex. Given its importance and visibility, it has received significant scrutiny from regulators (and criticism) for the lack of transparency in reporting the US Dollars it claims to hold in reserve."
   },
   "dai": {
     "Stablecoin Project": "DAI",
@@ -17,27 +19,20 @@
     "Website": "https://makerdao.com/",
     "Whitepaper": "https://makerdao.com/whitepaper/",
     "Stability Method": "Crypto Collatoralized",
-    "Short Description": "MakerDao is well known to be one of the earliest market competitors, with a strong community presence. You can find their founders and developers frequently participating on their subreddit, r/MakerDao."
+    "Description":
+      "MakerDao is well known to be one of the earliest market competitors, with a strong community presence. You can find their founders and developers frequently participating on their subreddit, r/MakerDao."
   },
-  "bridgecoin": {
-    "Stablecoin Project": "Bridgecoin",
-    "Company": "Sweetbridge",
-    "Backers": "None",
-    "Founders": "Scott Nelson, David Henderson",
-    "Website": "https://sweetbridge.com/",
-    "Whitepaper": "https://sweetbridge.com/whitepaper",
-    "Stability Method": "Crypto Collatoralized",
-    "Short Description": "Sweetbridge is a rewards marketplace for crypto-based transactions. The more you transact on their chain, the more you rewards you earn. Bridgecoin was created to entice adoption for the risk averse."
-  },
-  "trueusd": {
-    "Stablecoin Project": "TrueUSD",
-    "Company": "TrustToken",
-    "Backers": "Andreessen Horowitz, Foundation Capital, Founders Fund",
-    "Founders": "Danny An, Rafael Cosman, Stephen Kade, Tory Reiss",
-    "Website": "https://www.trusttoken.com/",
-    "Whitepaper": "None",
-    "Stability Method": "Fiat Collateralized",
-    "Short Description": "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
+  "basis": {
+    "Stablecoin Project": "Basis",
+    "Company": "Intangible Labs",
+    "Backers":
+      "Lightspeed, Andreesen Horowitz, Google Ventures, Foundation Capital",
+    "Founders": "Nader Al-Naji, Lawrence Diao, Josh Chen",
+    "Website": "https://basis.io",
+    "Whitepaper": "https://www.basis.io/basis_whitepaper_en.pdf",
+    "Stability Method": "Algorithmic Central Bank",
+    "Description":
+      "With some of the strongest VC backing and an enormous funding round of $133M, Basis comes in as a strong competitor to the stablecoin market. This puts them significantly ahead the other algorithmic central bank competitors."
   },
   "usdcoin": {
     "Stablecoin Project": "USD//Coin",
@@ -47,37 +42,20 @@
     "Website": "https://www.centre.io/",
     "Whitepaper": "https://www.centre.io/pdfs/centre-whitepaper.pdf",
     "Stability Method": "Fiat Collateralized",
-    "Short Description": "Circle, also known as the owner of major crypto exchange Poloneix, is creating USD//Coin to increase adoption of their exchange. Having their own stablecoin means that their users can more readily cash out their earnings or keep them with Circle to fractional reserve bank."
+    "Description":
+      "Circle, also known as the owner of major crypto exchange Poloneix, is creating USD//Coin to increase adoption of their exchange. Having their own stablecoin means that their users can more readily cash out their earnings or keep them with Circle to fractional reserve bank."
   },
-  "basis": {
-    "Stablecoin Project": "Basis",
-    "Company": "Intangible Labs",
-    "Backers": "Lightspeed, Andreesen Horowitz, Google Ventures, Foundation Capital",
-    "Founders": "Nader Al-Naji, Lawrence Diao, Josh Chen",
-    "Website": "https://basis.io",
-    "Whitepaper": "https://www.basis.io/basis_whitepaper_en.pdf",
-    "Stability Method": "Algorithmic Central Bank",
-    "Short Description": "With some of the strongest VC backing and an enormous funding round of $133M, Basis comes in as a strong competitor to the stablecoin market. This puts them significantly ahead the other algorithmic central bank competitors."
-  },
-  "stronghold": {
-    "Stablecoin Project": "Stronghold",
-    "Company": "Stellar & IBM",
-    "Backers": "Plug and Play, Stripe",
-    "Founders": "Jed McCaleb",
-    "Website": "https://stronghold.co/",
-    "Whitepaper": "None",
-    "Stability Method": "Fiat Collateralized",
-    "Short Description": "Stellar, a very popular competitor to Ripple, has been a focus of the crypto community with one of the largest market caps in their main offering. They are developing Stronghold to help promote adoption of their main network. Their partner with IBM is an interesting pairing, as IBM historically is not the most innovative player in the tech market."
-  },
-  "whitestandard": {
-    "Stablecoin Project": "The White Standard",
-    "Company": "The White Company",
+  "geminidollar": {
+    "Stablecoin Project": "Gemini Dollar",
+    "Company": "Gemini",
     "Backers": "None",
-    "Founders": "Elizabeth White",
-    "Website": "https://thewhitecompanyus.com/",
-    "Whitepaper": "https://thewhitecompanyus.com/white-paper#white-standard",
+    "Founders": "Cameron Winklevoss, Tyler Winklevoss",
+    "Website": "https://gemini.com/dollar/",
+    "Whitepaper":
+      "https://gemini.com/wp-content/themes/gemini/assets/img/dollar/gemini-dollar-whitepaper.pdf",
     "Stability Method": "Fiat Collateralized",
-    "Short Description": "The White Company has a long running history helping rich crypto owners acquire luxury retail goods. Their entry into the stablecoin market seems like a pivot or spinoff with a value prop, very similar to the Gemini Dollar, of being audited periodically by a 3rd party."
+    "Description":
+      "Gemini Dollar is issued by Gemini exchange to facilitate trading on the exchange. Gemini particularly values compliance with regulation and transparency, making its monthly audits widely available."
   },
   "carbon": {
     "Stablecoin Project": "CarbonUSD",
@@ -87,7 +65,8 @@
     "Website": "https://www.carbon.money/",
     "Whitepaper": "https://www.carbon.money/whitepaper.pdf",
     "Stability Method": "Algorithmic Central Bank",
-    "Short Description": "Carbon utilizes \"Hashgraphs\", a new Blockchain technology advancement that makes for faster transaction clearing."
+    "Description":
+      "Carbon utilizes \"Hashgraphs\", a new Blockchain technology advancement that makes for faster transaction clearing."
   },
   "reserve": {
     "Stablecoin Project": "Reserve",
@@ -97,27 +76,30 @@
     "Website": "https://www.reserve.org/",
     "Whitepaper": "None",
     "Stability Method": "Unknown",
-    "Short Description": "Not much is known about this project, besides the fact that it has some peculiar investors. One could imagine this is Coinbase's attempt at entering the stablecoin market with their own version of a USD-backed cryptocurrency."
+    "Description":
+      "Not much is known about this project, besides the fact that it has some peculiar investors. One could imagine this is Coinbase's attempt at entering the stablecoin market with their own version of a USD-backed cryptocurrency."
   },
-  "celo": {
-    "Stablecoin Project": "Celo",
-    "Company": "Celo",
-    "Backers": "Coinbase, Polychain Capital",
-    "Founders": "Sepandar Kamvar, Rene Reinsberg, Marek Olszewski",
-    "Website": "https://celo.org/",
-    "Whitepaper": "Request via email at whitepaper@celo.org",
-    "Stability Method": "Crypto Collatoralized",
-    "Short Description": "Celo is a mobile platform based Blockchain, meaning that people can earn tokens just by downloading their app. Thier aim is to use a stablecoin offering to help accelerate adoption of sending and receiving payments through their mobile apps. Their intended launch markets are third world countries."
+  "stronghold": {
+    "Stablecoin Project": "Stronghold",
+    "Company": "Stellar & IBM",
+    "Backers": "Plug and Play, Stripe",
+    "Founders": "Jed McCaleb",
+    "Website": "https://stronghold.co/",
+    "Whitepaper": "None",
+    "Stability Method": "Fiat Collateralized",
+    "Description":
+      "Stellar, a very popular competitor to Ripple, has been a focus of the crypto community with one of the largest market caps in their main offering. They are developing Stronghold to help promote adoption of their main network. Their partner with IBM is an interesting pairing, as IBM historically is not the most innovative player in the tech market."
   },
-  "kusd": {
-    "Stablecoin Project": "kUSD",
-    "Company": "KOWALA",
+  "bitusd": {
+    "Stablecoin Project": "BitUSD",
+    "Company": "Bitshares",
     "Backers": "None",
-    "Founders": "Eiland Glover",
-    "Website": "https://www.kowala.tech/",
-    "Whitepaper": "https://www.kowala.tech/pdf/kowala-protocol-white-paper.pdf",
-    "Stability Method": "Algorithmic Central Bank",
-    "Short Description": "The Kowala Protocol has its own Blockchain where people who participate in mining are rewarded with kUSD. This differentiates them from other Blockchains like Bitcoin and Ethereum, as neither of them reward their miners with stablecoins."
+    "Founders": "Dan Larimar",
+    "Website": "bitshares.org",
+    "Whitepaper": "http://docs.bitshares.org/bitshares/papers/",
+    "Stability Method": "Crypto Collatoralized",
+    "Description":
+      "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
   },
   "paxos": {
     "Stablecoin Project": "PAX",
@@ -127,57 +109,20 @@
     "Website": "https://www.paxos.com/",
     "Whitepaper": "https://standard.paxos.com/whitepaper.pdf",
     "Stability Method": "Fiat Collateralized",
-    "Short Description": "PAX is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
+    "Description":
+      "PAX is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
   },
-  "geminidollar": {
-    "Stablecoin Project": "Gemini Dollar",
-    "Company": "Gemini",
-    "Backers": "None",
-    "Founders": "Cameron Winklevoss, Tyler Winklevoss",
-    "Website": "https://gemini.com/dollar/",
-    "Whitepaper": "https://gemini.com/wp-content/themes/gemini/assets/img/dollar/gemini-dollar-whitepaper.pdf",
+
+  "trueusd": {
+    "Stablecoin Project": "TrueUSD",
+    "Company": "TrustToken",
+    "Backers": "Andreessen Horowitz, Foundation Capital, Founders Fund",
+    "Founders": "Danny An, Rafael Cosman, Stephen Kade, Tory Reiss",
+    "Website": "https://www.trusttoken.com/",
+    "Whitepaper": "None",
     "Stability Method": "Fiat Collateralized",
-    "Short Description": "Gemini Dollar is issued by Gemini exchange to facilitate trading on the exchange. Gemini particularly values compliance with regulation and transparency, making its monthly audits widely available."
-  },
-  "boreal": {
-    "Stablecoin Project": "Boreal",
-    "Company": "Aurora",
-    "Backers": "None",
-    "Founders": "Alex Wearn, Phil Wearn",
-    "Website": "https://auroradao.com/platform/boreal/",
-    "Whitepaper": "https://auroradao.com/assets/Aurora-Labs-Whitepaper-V0.9.5.pdf",
-    "Stability Method": "Crypto Collatoralized",
-    "Short Description": "Boreal is initially intended to facilitate trading on the IDEX exchange with the eventual goal of issuing Boreal-denominated loans through a cryptobank. It will initially be collateralized by ERC20 tokens, with an aim to move towards being partially collateralized by Boreal-denominated loan obligations."
-  },
-  "stableusd": {
-    "Stablecoin Project": "StableUSD",
-    "Company": "Stably",
-    "Backers": "500 Startups, Beenext",
-    "Founders": "Kory Hoang, David Zhang, Amiya Diwan, Bryan Guy",
-    "Website": "https://www.stably.io/",
-    "Whitepaper": "https://s3.ca-central-1.amazonaws.com/stably-public-documents/whitepapers/Stably+Whitepaper+v7.3.pdf",
-    "Stability Method": "Fiat Collateralized",
-    "Short Description": "A new entrant into the USD backed stablecoin competition. Stably has yet to differentiate itself from competitors like the Gemini Dollar and Tether."
-  },
-  "tether": {
-    "Stablecoin Project": "Tether",
-    "Company": "Tether",
-    "Backers": "Probably Bitfinex",
-    "Founders": "JL Van Der Velde, Giancarlo Devasini, Stuart Hoegner",
-    "Website": "https://tether.to/",
-    "Whitepaper": "https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf",
-    "Stability Method": "Fiat Collateralized",
-    "Short Description": "Tether was the first stablecoin to achieve widespread adoption. It was intended largely to facilitate cryptocurrency trading as the organization has deep ties to the major exchange Bitfinex. Given its importance and visibility, it has received significant scrutiny from regulators (and criticism) for the lack of transparency in reporting the US Dollars it claims to hold in reserve."
-  },
-  "fragment": {
-    "Stablecoin Project": "USD Fragment",
-    "Company": "Fragments",
-    "Backers": "Not Disclosed",
-    "Founders": "Brandon Iles, Evan Kuo",
-    "Website": "https://www.fragments.org/",
-    "Whitepaper": "https://www.fragments.org/protocol/",
-    "Stability Method": "Algorithmic Central Bank",
-    "Short Description": "Fragments has retained a relatively secretive position, choosing not to reveal its backers. Fragments takes an identical approach to Basis, and does not seem to offer anything more than minor tweaks despite being created after Basis."
+    "Description":
+      "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
   },
   "steemdollar": {
     "Stablecoin Project": "SteemDollar",
@@ -187,6 +132,86 @@
     "Website": "https://steem.io",
     "Whitepaper": "https://steem.io/steem-whitepaper.pdf",
     "Stability Method": "Other",
-    "Short Description": "Steemit is a social media platform that functions much like Reddit which uses a cryptocurrency called Steem to reward its users for popular posts. To make payouts for its users maintain consistent value they created the SteemDollar, which has done a somewhat decent job at maintaining itself to one US dollar."
+    "Description":
+      "Steemit is a social media platform that functions much like Reddit which uses a cryptocurrency called Steem to reward its users for popular posts. To make payouts for its users maintain consistent value they created the SteemDollar, which has done a somewhat decent job at maintaining itself to one US dollar."
+  },
+  "whitestandard": {
+    "Stablecoin Project": "The White Standard",
+    "Company": "The White Company",
+    "Backers": "None",
+    "Founders": "Elizabeth White",
+    "Website": "https://thewhitecompanyus.com/",
+    "Whitepaper": "https://thewhitecompanyus.com/white-paper#white-standard",
+    "Stability Method": "Fiat Collateralized",
+    "Description":
+      "The White Company has a long running history helping rich crypto owners acquire luxury retail goods. Their entry into the stablecoin market seems like a pivot or spinoff with a value prop, very similar to the Gemini Dollar, of being audited periodically by a 3rd party."
+  },
+  "celo": {
+    "Stablecoin Project": "Celo",
+    "Company": "Celo",
+    "Backers": "Coinbase, Polychain Capital",
+    "Founders": "Sepandar Kamvar, Rene Reinsberg, Marek Olszewski",
+    "Website": "https://celo.org/",
+    "Whitepaper": "Request via email at whitepaper@celo.org",
+    "Stability Method": "Crypto Collatoralized",
+    "Description":
+      "Celo is a mobile platform based Blockchain, meaning that people can earn tokens just by downloading their app. Thier aim is to use a stablecoin offering to help accelerate adoption of sending and receiving payments through their mobile apps. Their intended launch markets are third world countries."
+  },
+  "kusd": {
+    "Stablecoin Project": "kUSD",
+    "Company": "KOWALA",
+    "Backers": "None",
+    "Founders": "Eiland Glover",
+    "Website": "https://www.kowala.tech/",
+    "Whitepaper": "https://www.kowala.tech/pdf/kowala-protocol-white-paper.pdf",
+    "Stability Method": "Algorithmic Central Bank",
+    "Description":
+      "The Kowala Protocol has its own Blockchain where people who participate in mining are rewarded with kUSD. This differentiates them from other Blockchains like Bitcoin and Ethereum, as neither of them reward their miners with stablecoins."
+  },
+  "boreal": {
+    "Stablecoin Project": "Boreal",
+    "Company": "Aurora",
+    "Backers": "None",
+    "Founders": "Alex Wearn, Phil Wearn",
+    "Website": "https://auroradao.com/platform/boreal/",
+    "Whitepaper":
+      "https://auroradao.com/assets/Aurora-Labs-Whitepaper-V0.9.5.pdf",
+    "Stability Method": "Crypto Collatoralized",
+    "Description":
+      "Boreal is initially intended to facilitate trading on the IDEX exchange with the eventual goal of issuing Boreal-denominated loans through a cryptobank. It will initially be collateralized by ERC20 tokens, with an aim to move towards being partially collateralized by Boreal-denominated loan obligations."
+  },
+  "stableusd": {
+    "Stablecoin Project": "StableUSD",
+    "Company": "Stably",
+    "Backers": "500 Startups, Beenext",
+    "Founders": "Kory Hoang, David Zhang, Amiya Diwan, Bryan Guy",
+    "Website": "https://www.stably.io/",
+    "Whitepaper":
+      "https://s3.ca-central-1.amazonaws.com/stably-public-documents/whitepapers/Stably+Whitepaper+v7.3.pdf",
+    "Stability Method": "Fiat Collateralized",
+    "Description":
+      "A new entrant into the USD backed stablecoin competition. Stably has yet to differentiate itself from competitors like the Gemini Dollar and Tether."
+  },
+  "fragment": {
+    "Stablecoin Project": "USD Fragment",
+    "Company": "Fragments",
+    "Backers": "Not Disclosed",
+    "Founders": "Brandon Iles, Evan Kuo",
+    "Website": "https://www.fragments.org/",
+    "Whitepaper": "https://www.fragments.org/protocol/",
+    "Stability Method": "Algorithmic Central Bank",
+    "Description":
+      "Fragments has retained a relatively secretive position, choosing not to reveal its backers. Fragments takes an identical approach to Basis, and does not seem to offer anything more than minor tweaks despite being created after Basis."
+  },
+  "bridgecoin": {
+    "Stablecoin Project": "Bridgecoin",
+    "Company": "Sweetbridge",
+    "Backers": "None",
+    "Founders": "Scott Nelson, David Henderson",
+    "Website": "https://sweetbridge.com/",
+    "Whitepaper": "https://sweetbridge.com/whitepaper",
+    "Stability Method": "Crypto Collatoralized",
+    "Description":
+      "Sweetbridge is a rewards marketplace for crypto-based transactions. The more you transact on their chain, the more you rewards you earn. Bridgecoin was created to entice adoption for the risk averse."
   }
 }
