@@ -39,6 +39,9 @@ h1 {
 }
 
 .coinLogo {
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
 }
 
 .coinSelect {
@@ -52,6 +55,13 @@ h1 {
   cursor: pointer;
 }
 
+.coinSelectLogoWrapper {
+  width: 5em;
+  height: 5em;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
 .coinSelectActive {
   display: flex;
   flex-direction: column;
@@ -73,7 +83,33 @@ h1 {
   text-align: center;
   font-size: 1em;
   margin-top: 1.25em;
+  max-width: 5em;
+}
+
+.coinDetailHeader {
+  display: flex;
+  flex-direction: column;
+}
+.coinDetailLogo {
   width: 100px;
+  height: 100px;
+  align-self: center;
+}
+
+.coinDetailTitle {
+  text-align: center;
+  margin: .6em 0em;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+.coinSelectImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.coinSelectWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .coinSelectContainer {
@@ -84,16 +120,26 @@ h1 {
   flex-wrap: wrap;
 }
 
+.coinDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .coinDetailsContainer {
   display: flex;
   width: 100%;
 }
+
+.coinDetailRow {
+  display: flex;
+  flex-direction: column;
+}
+
 .coinDetails {
   display: flex;
   width: 45em;
   margin: 2em;
   justify-content: center;
-
 }
 
 .widgetContainer {
@@ -116,4 +162,23 @@ h1 {
     padding: 10% 0 10%;
     max-width: 80%;
   }
+}
+
+.fieldContainer {
+  padding: 1em;
+  border: lightgray solid 1px;
+}
+.fieldKey {
+  font-weight: 400;
+  margin-right: 2em;
+  font-size: .8em;
+}
+
+.fieldValue {
+  max-width: 25em;
+  font-size: .8em;
+}
+.fieldEntry {
+  display: flex;
+  margin-bottom: 2em;
 }
