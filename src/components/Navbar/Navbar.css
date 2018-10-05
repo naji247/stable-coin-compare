@@ -8,19 +8,27 @@
  */
 @import '../variables.css';
 
+.root {
+  font-family: var(--font-family-logo);
+  color: var(--text-color-white);
+}
+
 nav {
   display: flex;
   background-color: #1a1d1e;
   justify-content: space-between;
-  padding: 0.3em 1em;
+  padding: 0.5em 3%;
+}
+.transparent {
+  background: none;
 }
 
 ul {
+  max-width: 90%;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #1a1d1e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,39 +49,12 @@ li {
   text-decoration: none;
 }
 
+.hideLogo {
+  visibility: hidden;
+}
+
 li a:hover {
   font-weight: 200;
-}
-
-.homeLink {
-  padding: 0.3em 0;
-  margin-left: 0.8em;
-  display: block;
-  color: var(--text-color-white);
-  text-align: center;
-  font-size: 1em;
-  font-weight: 100;
-  font-family: var(--font-family-base);
-  text-decoration: none;
-}
-
-.root {
-  font-family: var(--font-family-logo);
-  color: var(--text-color-white);
-}
-
-.brand {
-  text-decoration: none;
-  font-size: 1.5em; /* ~28px */
-}
-
-.brandTxt {
-  color: var(--text-color-white);
-  vertical-align: middle;
-  font-family: var(--font-family-logo);
-  font-weight: 400;
-  font-size: 1em;
-  margin-left: 12px;
 }
 
 .logo {

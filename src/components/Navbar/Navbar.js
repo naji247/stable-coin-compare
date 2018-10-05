@@ -18,10 +18,15 @@ class Navbar extends React.Component {
   render() {
     return (
       <header className={s.root}>
-        <nav>
+        <nav className={this.props.homePage ? s.transparent : ''}>
           <ul>
             <li>
-              <a className={s.homeLink} href="/">
+              <a
+                className={
+                  s.navOption + ' ' + (this.props.homePage ? s.hideLogo : '')
+                }
+                href="/"
+              >
                 <img src={logoUrl} alt="Logo" className={s.logo} />
                 Stablecoin Compare
               </a>

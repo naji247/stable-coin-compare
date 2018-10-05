@@ -12,6 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
+import Navbar from '..//Navbar';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { APP_URL } from '../../secrets';
@@ -23,7 +24,8 @@ class Header extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <Navigation />
+          {/* <Navigation /> */}
+          <Navbar homePage="True" />
           <div className={s.headlineContainer}>
             <h1 className={s.headlineName}>Stablecoin Compare</h1>
             <h3 className={s.description}>
