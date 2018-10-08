@@ -16,10 +16,53 @@ import { connect } from 'react-redux';
 import Header from '../../components/Header';
 import { Element } from 'react-scroll';
 import { APP_URL } from '../../secrets';
+import _ from 'lodash';
+import request from 'request-promise';
+
+const coinIds = [825, 2563, 2308, 624, 3330, 1312, 623, 2927, 3306];
+const specialCoinIds = {
+  '3330': {
+    ethContract: '0x8e870d67f660d95d5be530380d0ec0bd388289e1'
+  },
+  '3306': {
+    ethContract: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd'
+  }
+};
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      '3330': null,
+      '3306': null
+    };
+  }
+
+  async componentDidMount() {
+    _.keys(specialCoinIds).forEach(async coinId => {
+      const resp = await request.get({
+        url: `${APP_URL}/api/token-supply/${
+          specialCoinIds[coinId].ethContract
+        }`,
+        json: true
+      });
+      let temp = {};
+      temp[coinId] = resp.result;
+      this.setState({
+        ...this.state,
+        ...temp
+      });
+    });
+  }
+
   render() {
-    const coinIds = [825, 2563, 2308, 624, 1312, 623, 2927];
+    if (typeof window !== 'undefined') {
+      const script = document.createElement("script");
+      script.src = "./currency.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
     return (
       <div>
         <Header />
@@ -39,12 +82,12 @@ class Home extends React.Component {
               </div>
             </Fade>
           </div>
-          <script type="text/javascript" src="./currency.js" />
+          {/*<script type="text/javascript" src="./currency.js" />*/}
           <h1 className={s.constructionHeading}>
             Currently Released Stablecoins
           </h1>
           <div className={s.widgetContainer}>
-            {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId} />)}
+            {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId}  inputSupply={this.state[`${coinId}`]} />)}
           </div>
           <p className={s.widgetNotice}>These numbers are updated real time.</p>
         </Element>
@@ -142,6 +185,7 @@ class CoinMarketCapWidget extends React.Component {
           data-base="USD"
           data-secondary=""
           data-ticker="true"
+          data-inputsupply={this.props.inputSupply || ''}
           data-rank="false"
           data-marketcap="true"
           data-volume="true"

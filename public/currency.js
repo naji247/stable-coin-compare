@@ -258,11 +258,13 @@
       M('.coinmarketcap-currency-widget').each(function() {
         var v = M(this).attr('data-currency'),
           f = M(this).data('currencyid'),
+          inputSupply = M(this).data('inputsupply'),
           x = M(this)
             .attr('data-base')
             .toUpperCase(),
           b = M(this).attr('data-secondary');
         b = 'BTC' == (b = b ? b.toUpperCase() : null) || 'USD' == b ? b : null;
+        console.log(inputSupply);
         var y = M(this).attr('data-stats');
         y = (y = y ? y.toUpperCase() : null) == x ? x : 'USD';
         var e,
@@ -305,6 +307,16 @@
                   (o = parseInt(e[p])),
                   (c = Number(e.percent_change_24h));
               }
+              if (isNaN(n)) {
+                if (f === 3330) {
+                  // i is the price of a token
+                  n = inputSupply / 1000000000000000000 * i;
+                } else {
+                  n = inputSupply / 100 * i;
+                }
+                console.log('n', n);
+              }
+
               var m = e.name,
                 u = e.symbol,
                 h = e.rank,
