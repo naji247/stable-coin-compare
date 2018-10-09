@@ -17,8 +17,9 @@
 
 .constructionText {
   text-align: center;
-  font-weight: lighter;
+  font-weight: 200;
   color: var(--text-color-black);
+  font-size: 1em;
 }
 
 .emailSignupContainer {
