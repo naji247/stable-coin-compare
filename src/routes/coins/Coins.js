@@ -53,7 +53,7 @@ class Coins extends React.Component {
               this.props.selectedCoinId ? s.backToCoinsVisible : ''
             }`}
           >
-            <span>Back to Coins</span>
+            <button>Back to Coins</button>
           </div>
           <h1 className={this.props.selectedCoinId ? s.coinsHeader : null}>Coins</h1>
           <div className={s.coinDetailsContainer}>
