@@ -45,6 +45,7 @@ h1 {
     color: var(--text-color-white);
     border-radius: .2em;
     cursor: pointer;
+    border: none;
   }
 }
 
