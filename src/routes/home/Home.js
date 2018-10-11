@@ -21,9 +21,6 @@ import request from 'request-promise';
 
 const coinIds = [825, 2563, 2308, 624, 3330, 1312, 623, 2927, 3306];
 const specialCoinIds = {
-  '3330': {
-    ethContract: '0x8e870d67f660d95d5be530380d0ec0bd388289e1'
-  },
   '3306': {
     ethContract: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd'
   }
@@ -33,7 +30,6 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      '3330': null,
       '3306': null
     };
   }
