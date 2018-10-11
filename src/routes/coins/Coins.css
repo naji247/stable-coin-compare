@@ -38,10 +38,22 @@ h1 {
   margin: 0;
   height: 0;
   font-weight: 200;
+
+  span {
+    background-color: var(--text-color-black);
+    padding: .6em;
+    color: var(--text-color-white);
+    border-radius: .2em;
+    cursor: pointer;
+    box-shadow: 5px 10px 18px #888888;
+  }
 }
 
+
 .backToCoins:hover {
-  font-weight: 400;
+    span {
+      background-color: #202D30;
+    }
 }
 
 .coinLogo {
@@ -129,10 +141,14 @@ h1 {
   margin: 2em auto;
   justify-content: center;
 }
+.coinsHeader {
+
+}
 
 @media only screen and (min-width: 700px) {
   .mobileHidden {
   }
+
   .fullWidth {
     max-width: 45%;
   }
@@ -153,6 +169,10 @@ h1 {
     text-align: left;
     height: auto;
     margin: 0.5em;
+  }
+
+  .coinsHeader {
+    display: none;
   }
 }
 

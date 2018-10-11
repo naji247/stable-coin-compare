@@ -45,25 +45,22 @@ class Coins extends React.Component {
       <Element>
         <Navbar />
         <div className={s.container}>
-          <a href="/coins">
-            <h4
-              className={
-                s.backToCoins +
-                ' ' +
-                (this.props.selectedCoinId ? s.backToCoinsVisible : '')
-              }
-            >
-              Back to Coins
-            </h4>
-          </a>
-          <h1>Coins</h1>
+          <div
+            onClick={() => {
+              this.handleCoinSelect(this.props.selectedCoinId);
+            }}
+            className={`${s.backToCoins} ${
+              this.props.selectedCoinId ? s.backToCoinsVisible : ''
+            }`}
+          >
+            <span>Back to Coins</span>
+          </div>
+          <h1 className={this.props.selectedCoinId ? s.coinsHeader : null}>Coins</h1>
           <div className={s.coinDetailsContainer}>
             <div
-              className={
-                s.coinSelectContainer +
-                ' ' +
-                (this.props.selectedCoinId ? s.mobileHidden : s.fullWidth)
-              }
+              className={`${s.coinSelectContainer} ${
+                this.props.selectedCoinId ? s.mobileHidden : s.fullWidth
+              }`}
             >
               {_.keys(coinDetails).map(coinId => (
                 <CoinSelector
@@ -74,13 +71,11 @@ class Coins extends React.Component {
               ))}
             </div>
             <div
-              className={
-                s.coinDescriptionContainer +
-                ' ' +
-                (this.props.selectedCoinId ? '' : s.mobileHidden)
-              }
+              className={`${s.coinDescriptionContainer} ${
+                this.props.selectedCoinId ? '' : s.mobileHidden
+              }`}
             >
-              {/*TODO: Adding coin details sections*/}
+              {/* TODO: Adding coin details sections */}
               {!this.props.selectedCoinId ? (
                 <p>Select a coin from the left.</p>
               ) : (
@@ -97,7 +92,7 @@ class Coins extends React.Component {
 const CoinSelector = props => (
   <div
     onClick={props.onClick}
-    className={s.coinSelect + ' ' + (props.isActive ? s.coinSelectActive : '')}
+    className={`${s.coinSelect} ${props.isActive ? s.coinSelectActive : ''}`}
   >
     <div className={s.coinSelectWrapper}>
       <div className={s.coinSelectLogoWrapper}>
