@@ -57,8 +57,8 @@ class Home extends React.Component {
 
   render() {
     if (typeof window !== 'undefined') {
-      const script = document.createElement("script");
-      script.src = "./currency.js";
+      const script = document.createElement('script');
+      script.src = './currency.js';
       script.async = true;
       document.body.appendChild(script);
     }
@@ -87,7 +87,12 @@ class Home extends React.Component {
             Currently Released Stablecoins
           </h1>
           <div className={s.widgetContainer}>
-            {coinIds.map(coinId => <CoinMarketCapWidget currencyId={coinId}  inputSupply={this.state[`${coinId}`]} />)}
+            {coinIds.map(coinId => (
+              <CoinMarketCapWidget
+                currencyId={coinId}
+                inputSupply={this.state[`${coinId}`]}
+              />
+            ))}
           </div>
           <p className={s.widgetNotice}>These numbers are updated real time.</p>
         </Element>

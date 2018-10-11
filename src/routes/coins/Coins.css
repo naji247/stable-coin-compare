@@ -33,6 +33,17 @@ h1 {
   align-self: center;
 }
 
+.backToCoins {
+  visibility: hidden;
+  margin: 0;
+  height: 0;
+  font-weight: 200;
+}
+
+.backToCoins:hover {
+  font-weight: 400;
+}
+
 .coinLogo {
   max-width: 100%;
   max-height: 100%;
@@ -65,7 +76,17 @@ h1 {
   background-color: #f0f8ff;
 }
 
-.coinName {
+.coinSelectImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.coinSelectWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.coinSelectName {
   text-align: center;
   font-size: 0.8em;
   margin-top: 1.25em;
@@ -77,9 +98,13 @@ h1 {
   flex-direction: column;
 }
 .coinDescriptionLogo {
-  width: 100px;
-  height: 100px;
+  width: 6em;
+  height: 6em;
   align-self: center;
+}
+.coinDescriptionImg {
+  width: 100%;
+  height: 100%;
 }
 
 .coinDescriptionTitle {
@@ -88,19 +113,10 @@ h1 {
   font-weight: 400;
   font-size: 1.5em;
 }
-.coinSelectImage {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.coinSelectWrapper {
-  display: flex;
-  flex-direction: column;
-}
 
 .coinSelectContainer {
-  display: flex;
   max-width: 45%;
+  display: flex;
   margin: 2em;
   justify-content: center;
   flex-wrap: wrap;
@@ -108,9 +124,36 @@ h1 {
 }
 
 .coinDescriptionContainer {
+  visibility: visible;
   display: flex;
-  margin: 2em;
+  margin: 2em auto;
   justify-content: center;
+}
+
+@media only screen and (min-width: 700px) {
+  .mobileHidden {
+  }
+  .fullWidth {
+    max-width: 45%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .mobileHidden {
+    width: 0;
+    margin: 0;
+    visibility: hidden;
+  }
+  .fullWidth {
+    max-width: 100%;
+  }
+  .backToCoinsVisible {
+    visibility: visible;
+    font-weight: 200;
+    text-align: left;
+    height: auto;
+    margin: 0.5em;
+  }
 }
 
 .coinDetailsContainer {

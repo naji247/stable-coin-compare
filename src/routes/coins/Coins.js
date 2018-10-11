@@ -45,9 +45,26 @@ class Coins extends React.Component {
       <Element>
         <Navbar />
         <div className={s.container}>
+          <a href="/coins">
+            <h4
+              className={
+                s.backToCoins +
+                ' ' +
+                (this.props.selectedCoinId ? s.backToCoinsVisible : '')
+              }
+            >
+              Back to Coins
+            </h4>
+          </a>
           <h1>Coins</h1>
           <div className={s.coinDetailsContainer}>
-            <div className={s.coinSelectContainer}>
+            <div
+              className={
+                s.coinSelectContainer +
+                ' ' +
+                (this.props.selectedCoinId ? s.mobileHidden : s.fullWidth)
+              }
+            >
               {_.keys(coinDetails).map(coinId => (
                 <CoinSelector
                   isActive={coinId === this.props.selectedCoinId}
@@ -56,7 +73,13 @@ class Coins extends React.Component {
                 />
               ))}
             </div>
-            <div className={s.coinDescriptionContainer}>
+            <div
+              className={
+                s.coinDescriptionContainer +
+                ' ' +
+                (this.props.selectedCoinId ? '' : s.mobileHidden)
+              }
+            >
               {/*TODO: Adding coin details sections*/}
               {!this.props.selectedCoinId ? (
                 <p>Select a coin from the left.</p>
@@ -86,7 +109,7 @@ const CoinSelector = props => (
           alt={props.coinId}
         />
       </div>
-      <span className={s.coinName}>
+      <span className={s.coinSelectName}>
         {coinDetails[props.coinId]['Stablecoin Project']}
       </span>
     </div>
@@ -104,7 +127,11 @@ const CoinDetails = props => (
   <div>
     <div className={s.coinDescriptionHeader}>
       <div className={s.coinDescriptionLogo}>
-        <img src={coinLogos[`${props.coinId}.png`]} alt={props.coinId} />
+        <img
+          className={s.coinDescriptionImg}
+          src={coinLogos[`${props.coinId}.png`]}
+          alt={props.coinId}
+        />
       </div>
       <span className={s.coinDescriptionTitle}>
         {coinDetails[props.coinId]['Stablecoin Project']}
