@@ -18,7 +18,7 @@
     "Founders": "Rune Christensen",
     "Website": "https://makerdao.com/",
     "Whitepaper": "https://makerdao.com/whitepaper/",
-    "Stability Method": "Crypto Collatoralized",
+    "Stability Method": "Crypto Collateralized",
     "Description":
       "MakerDao is well known to be one of the earliest market competitors, with a strong community presence. You can find their founders and developers frequently participating on their subreddit, r/MakerDao."
   },
@@ -97,7 +97,7 @@
     "Founders": "Dan Larimar",
     "Website": "bitshares.org",
     "Whitepaper": "http://docs.bitshares.org/bitshares/papers/",
-    "Stability Method": "Crypto Collatoralized",
+    "Stability Method": "Crypto Collateralized",
     "Description":
       "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
   },
@@ -153,7 +153,7 @@
     "Founders": "Sepandar Kamvar, Rene Reinsberg, Marek Olszewski",
     "Website": "https://celo.org/",
     "Whitepaper": "Request via email at whitepaper@celo.org",
-    "Stability Method": "Crypto Collatoralized",
+    "Stability Method": "Crypto Collateralized",
     "Description":
       "Celo is a mobile platform based Blockchain, meaning that people can earn tokens just by downloading their app. Thier aim is to use a stablecoin offering to help accelerate adoption of sending and receiving payments through their mobile apps. Their intended launch markets are third world countries."
   },
@@ -176,7 +176,7 @@
     "Website": "https://auroradao.com/platform/boreal/",
     "Whitepaper":
       "https://auroradao.com/assets/Aurora-Labs-Whitepaper-V0.9.5.pdf",
-    "Stability Method": "Crypto Collatoralized",
+    "Stability Method": "Crypto Collateralized",
     "Description":
       "Boreal is initially intended to facilitate trading on the IDEX exchange with the eventual goal of issuing Boreal-denominated loans through a cryptobank. It will initially be collateralized by ERC20 tokens, with an aim to move towards being partially collateralized by Boreal-denominated loan obligations."
   },
@@ -210,7 +210,7 @@
     "Founders": "Scott Nelson, David Henderson",
     "Website": "https://sweetbridge.com/",
     "Whitepaper": "https://sweetbridge.com/whitepaper",
-    "Stability Method": "Crypto Collatoralized",
+    "Stability Method": "Crypto Collateralized",
     "Description":
       "Sweetbridge is a rewards marketplace for crypto-based transactions. The more you transact on their chain, the more you rewards you earn. Bridgecoin was created to entice adoption for the risk averse."
   }
