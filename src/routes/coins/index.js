@@ -9,13 +9,12 @@
 
 import React from 'react';
 import Coins from './Coins';
-import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
+import Layout from "../../components/Layout";
 
-async function action({ fetch }) {
+function action() {
   return {
-    chunks: ['home'],
-    title: 'React Starter Kit',
+    chunks: ['coins'],
+    title: 'Coins',
     component: (
       <Layout>
         <Coins />
