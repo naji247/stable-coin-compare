@@ -49,6 +49,11 @@ h1 {
   }
 }
 
+.tickerInfo {
+  font-size: .5em;
+  text-align: center;
+}
+
 
 .backToCoins:hover {
     button {
@@ -198,4 +203,8 @@ h1 {
 .fieldEntry {
   display: flex;
   margin-bottom: 2em;
+}
+
+.subscribeText {
+  font-size: .8em;
 }

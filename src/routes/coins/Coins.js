@@ -20,6 +20,7 @@ import _ from 'lodash';
 import * as coinDetails from '../../stablecoinInfo';
 import classNames from 'classnames';
 import history from '../../history';
+import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
 
 function importAll(r) {
   const images = {};
@@ -55,7 +56,9 @@ class Coins extends React.Component {
           >
             <button>Back to Coins</button>
           </div>
-          <h1 className={this.props.selectedCoinId ? s.coinsHeader : null}>Coins</h1>
+          <h1 className={this.props.selectedCoinId ? s.coinsHeader : null}>
+            Coins
+          </h1>
           <div className={s.coinDetailsContainer}>
             <div
               className={`${s.coinSelectContainer} ${
@@ -118,32 +121,51 @@ const shownDetails = [
   'Stability Method',
   'Description'
 ];
-const CoinDetails = props => (
-  <div>
-    <div className={s.coinDescriptionHeader}>
-      <div className={s.coinDescriptionLogo}>
-        <img
-          className={s.coinDescriptionImg}
-          src={coinLogos[`${props.coinId}.png`]}
-          alt={props.coinId}
-        />
-      </div>
-      <span className={s.coinDescriptionTitle}>
-        {coinDetails[props.coinId]['Stablecoin Project']}
-      </span>
-    </div>
-    <div className={s.fieldContainer}>
-      {shownDetails.map(field => (
-        <div className={s.fieldEntry}>
-          <span className={s.fieldKey}>{field}:</span>
-          <span className={s.fieldValue}>
-            {coinDetails[props.coinId][field]}
-          </span>
+
+const CoinDetails = props => {
+  if (typeof window !== 'undefined') {
+    const script = document.createElement('script');
+    script.src = '../currency.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+
+  return (
+    <div>
+      <div className={s.coinDescriptionHeader}>
+        <div className={s.coinDescriptionLogo}>
+          <img
+            className={s.coinDescriptionImg}
+            src={coinLogos[`${props.coinId}.png`]}
+            alt={props.coinId}
+          />
         </div>
-      ))}
+        <span className={s.coinDescriptionTitle}>
+          {coinDetails[props.coinId]['Stablecoin Project']}
+        </span>
+      </div>
+      <div className={s.fieldContainer}>
+        {shownDetails.map(field => (
+          <div className={s.fieldEntry}>
+            <span className={s.fieldKey}>{field}:</span>
+            <span className={s.fieldValue}>
+              {coinDetails[props.coinId][field]}
+            </span>
+          </div>
+        ))}
+        {COIN_IDS[props.coinId] && (
+          <CoinMarketCapWidget currencyId={COIN_IDS[props.coinId]} />
+        )}
+        {COIN_IDS[props.coinId] && (
+          <p className={s.tickerInfo}>Ticker updated real-time.</p>
+        )}
+
+        <p className={s.subscribeText}>We're constantly adding new features! Subscribe for updates to see our latest changes and express your interest!</p>
+        <EmailSignUp />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const mapState = state => ({});
 

@@ -11,15 +11,15 @@ import React from 'react';
 import Home from './Home';
 import Layout from '../../components/Layout';
 
-async function action({ fetch }) {
+function action() {
   return {
     chunks: ['home'],
-    title: 'React Starter Kit',
+    title: 'Home',
     component: (
       <Layout>
         <Home />
       </Layout>
-    ),
+    )
   };
 }
 

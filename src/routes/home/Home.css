@@ -95,3 +95,7 @@
     max-width: 80%;
   }
 }
+
+.subscribeForm {
+  display: flex;
+}

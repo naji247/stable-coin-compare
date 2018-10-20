@@ -19,7 +19,8 @@ import { APP_URL } from '../../secrets';
 import _ from 'lodash';
 import request from 'request-promise';
 
-const coinIds = [825, 2563, 2308, 624, 3330, 1312, 623, 2927, 3306];
+export const COIN_IDS = {tether: 825, trueusd: 2563, dai: 2308, bitcny: 624, paxos: 3330, steemdollar: 1312, bitusd: 623, nusd: 2927, geminidollar: 3306};
+// const coinIds = [825, 2563, 2308, 624, 3330, 1312, 623, 2927, 3306];
 const specialCoinIds = {
   '3306': {
     ethContract: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd'
@@ -83,7 +84,7 @@ class Home extends React.Component {
             Currently Released Stablecoins
           </h1>
           <div className={s.widgetContainer}>
-            {coinIds.map(coinId => (
+            {_.values(COIN_IDS).map(coinId => (
               <CoinMarketCapWidget
                 currencyId={coinId}
                 inputSupply={this.state[`${coinId}`]}
@@ -97,7 +98,7 @@ class Home extends React.Component {
   }
 }
 
-class EmailSignUp extends React.Component {
+class EmailSignUpComp extends React.Component {
   constructor(props) {
     super(props);
     this.emailInput = React.createRef();
@@ -147,7 +148,7 @@ class EmailSignUp extends React.Component {
         {duplicateErrorNotice}
         {!this.state.subscribed ? (
           <Shake spy={duplicateErrorNotice}>
-            <form onSubmit={this.handleSubmit}>
+            <form className={s.subscribeForm} onSubmit={this.handleSubmit}>
               <input
                 type="email"
                 ref={this.emailInput}
@@ -173,7 +174,9 @@ class EmailSignUp extends React.Component {
   }
 }
 
-class CoinMarketCapWidget extends React.Component {
+const EmailSignUp = withStyles(s)(EmailSignUpComp);
+
+export class CoinMarketCapWidget extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -201,4 +204,7 @@ const mapState = state => ({});
 
 const mapDispatch = {};
 
+export {
+  EmailSignUp
+}
 export default connect(mapState, mapDispatch)(withStyles(s)(Home));
