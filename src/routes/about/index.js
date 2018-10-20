@@ -12,10 +12,10 @@ import Layout from '../../components/Layout';
 import Navbar from '../../components/Navbar';
 import About from './About';
 
-async function action({ fetch }) {
+function action() {
   return {
-    chunks: ['home'],
-    title: 'React Starter Kit',
+    chunks: ['about'],
+    title: 'About',
     component: (
       <Layout>
         <About />
