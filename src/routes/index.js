@@ -10,7 +10,7 @@
 /* eslint-disable global-require */
 import React from 'react';
 import Coins from './coins/Coins';
-import Layout from "../components/Layout";
+import Layout from '../components/Layout';
 
 // The top-level (parent) route
 const routes = {
@@ -25,7 +25,7 @@ const routes = {
     {
       path: '/coins/:coinId',
       // action: (context) => <Coins selectedCoinId={context.params.coinId} />
-      action: (context) => ({
+      action: context => ({
         chunks: ['home'],
         title: 'React Starter Kit',
         component: (
@@ -37,7 +37,17 @@ const routes = {
     },
     {
       path: '/coins',
-      load: () => import(/* webpackChunkName: 'coins' */ './coins'),
+      load: () => import(/* webpackChunkName: 'coins' */ './coins')
+      // children: [
+      //   {
+      //     path: '/:coinId',
+      //     action: (context) => `<h1>${context}</h1>`
+      //   }
+      // ]
+    },
+    {
+      path: '/about',
+      load: () => import(/* webpackChunkName: 'coins' */ './about')
       // children: [
       //   {
       //     path: '/:coinId',

@@ -1,0 +1,145 @@
+/**
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+@import '../../components/variables.css';
+
+p {
+  font-family: Times;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: var(--text-color-black);
+}
+
+.container {
+  padding-top: 1em;
+  background-image: url('./double_background.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.sectionContainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionHeader {
+  text-align: center;
+  font-family: var(--font-family-base);
+  color: var(--text-color-black);
+
+  font-weight: 100;
+  font-size: 3.5em;
+  margin: 0.6em 0;
+}
+
+.threeDots {
+  font-size: 1.4em;
+  margin: 2.3em 0 1em;
+}
+
+.definitionWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.definitionStart {
+  margin: 0;
+  text-align: center;
+}
+
+.definitionText {
+  margin: 0;
+  text-align: center;
+  width: 40%;
+}
+
+.overview {
+  margin: 0;
+  text-align: center;
+  width: 60%;
+}
+
+@media only screen and (min-width: 480px) {
+  .methodologyCardsContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .methodologyCard {
+    width: 31%;
+    margin: 1em 0;
+    background-image: url('./algorithmic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .methodologyCardsContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .methodologyCard {
+    width: 70%;
+    margin: 1em 0;
+    background-image: url('./algorithmic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.opacityLayer {
+  padding: 1em 0.5em 0;
+  height: 14em;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.opacityLayer:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.methodologyCardText {
+  font-weight: 100;
+  color: var(--text-color-white);
+  font-size: 2em;
+  margin: 0;
+}
+
+.methodologyDescContainer {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.methodogyExplainContainer {
+  width: 47%;
+  padding: 1%;
+}
+
+.advDisadvContainer {
+  width: 47%;
+  padding: 1%;
+}
+
+.methodologyContentHeader {
+}
+
+.methodologyContentText {
+  margin: 0.5em 0 0 0;
+}
