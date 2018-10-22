@@ -47,13 +47,7 @@ const routes = {
     },
     {
       path: '/about',
-      load: () => import(/* webpackChunkName: 'coins' */ './about')
-      // children: [
-      //   {
-      //     path: '/:coinId',
-      //     action: (context) => `<h1>${context}</h1>`
-      //   }
-      // ]
+      load: () => import(/* webpackChunkName: 'about' */ './about')
     },
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
