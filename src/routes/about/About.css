@@ -10,9 +10,8 @@
 @import '../../components/variables.css';
 
 p {
-  font-family: Times;
-  font-size: 1.1em;
-  font-weight: 400;
+  font-size: 1em;
+  font-weight: 200;
   color: var(--text-color-black);
 }
 
@@ -75,6 +74,16 @@ p {
   text-align: center;
 }
 
+.fiat {
+  background-image: url('./fiat.jpg');
+}
+.crypto {
+  background-image: url('./crypto.jpg');
+}
+.algorithmic {
+  background-image: url('./algorithmic.jpg');
+}
+
 @media only screen and (min-width: 480px) {
   .methodologyCardsContainer {
     width: 90%;
@@ -86,7 +95,6 @@ p {
   .methodologyCard {
     width: 31%;
     margin: 1em 0;
-    background-image: url('./algorithmic.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -105,7 +113,6 @@ p {
   .methodologyCard {
     width: 70%;
     margin: 1em 0;
-    background-image: url('./algorithmic.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -137,6 +144,7 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: auto;
 }
 
 .methodogyExplainContainer {
