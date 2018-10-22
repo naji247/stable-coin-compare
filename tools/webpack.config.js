@@ -214,10 +214,24 @@ const config = {
 
           // Or return public URL to image resource
           {
-            loader: 'file-loader',
-            options: {
-              name: staticAssetName,
-            },
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: staticAssetName,
+                },
+              },
+
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  mozjpeg: {
+                    progressive: true,
+                    quality: 15
+                  },
+                  disable: isDebug, // webpack@2.x and newer
+                },
+              }]
           },
         ],
       },

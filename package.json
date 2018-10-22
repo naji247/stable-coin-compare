@@ -107,6 +107,7 @@
     "glob": "^7.1.2",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
+    "image-webpack-loader": "^4.4.0",
     "jest": "^22.0.4",
     "lint-staged": "^6.0.0",
     "markdown-it": "^8.4.0",
