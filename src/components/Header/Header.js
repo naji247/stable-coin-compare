@@ -23,9 +23,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className={s.root}>
+        <Navbar homePage="True" />
+
         <div className={s.container}>
-          {/* <Navigation /> */}
-          <Navbar homePage="True" />
           <div className={s.headlineContainer}>
             <h1 className={s.headlineName}>Stablecoin Compare</h1>
             <h3 className={s.description}>
