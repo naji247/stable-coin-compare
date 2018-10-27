@@ -9,12 +9,120 @@
 
 @import '../../components/variables.css';
 
+p {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .blogHeader {
   text-align: center;
   font-family: var(--font-family-base);
   color: var(--text-color-black);
 
   font-weight: 100;
-  font-size: 3.5em;
-  margin: 0.6em 0;
+  font-size: 3em;
+  margin: 0.3em 0;
+}
+
+.currentArticleHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2em;
+  margin: auto;
+  width: 80%;
+  height: 16em;
+  background-image: url('./SkylineAlt.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.currentArticleTitle {
+  font-family: var(--font-family-base);
+  color: var(--text-color-white);
+  font-weight: 100;
+  margin: 0.2em 0;
+  font-size: 1.6em;
+}
+
+.currentArticleDate {
+  font-family: var(--font-family-base);
+  color: var(--text-color-white);
+  font-weight: 100;
+  margin: 0 1em;
+  font-size: 1.1 em;
+}
+
+.currentArticleTeaserText {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+  padding: 1.5em 0;
+}
+
+.readMoreButton {
+  margin: 1em auto;
+  background-color: #cccccc; /* Green */
+  border: none;
+  color: var(--text-color-black);
+  padding: 0.5em 2em;
+  font-size: 0.9em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.3em;
+}
+
+.previousArticlesContainer {
+  width: 85%;
+}
+.previousArticlesHeader {
+  font-weight: 400;
+}
+
+.previousArticlesOutsideContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.previousArticlesCardsContainer {
+  margin-left: 4%;
+  padding-top: 0.5em;
+  background-image: url('./pipes.png');
+  background-repeat: repeat-y;
+  background-size: 8em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.prevArticleCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1em;
+  margin: 1em 1em 1em 4em;
+  width: 84%;
+  max-width: 40em;
+  height: 11em;
+  background-image: url('./SkylineAlt.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.prevArticleTitle {
+  font-family: var(--font-family-base);
+  color: var(--text-color-white);
+  font-weight: 100;
+  margin: 0.2em 0;
+  font-size: 1.2em;
+}
+
+.prevArticleDate {
+  font-family: var(--font-family-base);
+  color: var(--text-color-white);
+  font-weight: 100;
+  margin: 0 1em;
+  font-size: 0.8em;
 }
