@@ -9,10 +9,20 @@
 
 @import '../../components/variables.css';
 
+a {
+  text-decoration: none;
+}
+
 p {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.root {
+  /* background-image: url('./double_background.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+}
 .blogHeader {
   text-align: center;
   font-family: var(--font-family-base);
@@ -23,17 +33,32 @@ p {
   margin: 0.3em 0;
 }
 
-.currentArticleHeader {
+.currentArticleCard {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 2em;
   margin: auto;
   width: 80%;
-  height: 16em;
+  height: 18em;
   background-image: url('./SkylineAlt.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+.currentArticleCard:hover {
+  text-decoration: underline;
+  color: var(--text-color-white);
+}
+
+.currentArticleOpacity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.currentArticleOpacity:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .currentArticleTitle {
@@ -72,6 +97,9 @@ p {
   display: inline-block;
   border-radius: 0.3em;
 }
+.readMoreButton:hover {
+  background-color: #aaaaaa;
+}
 
 .previousArticlesContainer {
   width: 85%;
@@ -101,14 +129,30 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1em;
   margin: 1em 1em 1em 4em;
   width: 84%;
   max-width: 40em;
-  height: 11em;
+  height: 13em;
   background-image: url('./SkylineAlt.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+.prevArticleCard:hover {
+  text-decoration: underline;
+  color: var(--text-color-white);
+}
+
+.prevArticleOpacity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 1.3em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.prevArticleOpacity:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .prevArticleTitle {
