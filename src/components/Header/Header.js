@@ -23,7 +23,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className={s.root}>
-        <Navbar homePage="True" />
+        <Navbar hideLogo="True" transparent="True" />
 
         <div className={s.container}>
           <div className={s.headlineContainer}>

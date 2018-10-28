@@ -53,6 +53,11 @@ const routes = {
       path: '/blog',
       load: () => import(/* webpackChunkName: 'blog' */ './blog')
     },
+    {
+      path: '/blog-post-example',
+      load: () =>
+        import(/* webpackChunkName: 'blog-post-example' */ './blog-post-example')
+    },
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
       path: '(.*)',

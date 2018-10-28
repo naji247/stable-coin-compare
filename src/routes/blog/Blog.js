@@ -14,7 +14,7 @@ class Blog extends React.Component {
         <Navbar />
         <div className={s.root}>
           <h1 className={s.blogHeader}>Blog</h1>
-          <a href="/about" className={s.currentArticleCard}>
+          <a href="/blog-post-example" className={s.currentArticleCard}>
             <div className={s.currentArticleOpacity}>
               <h2 className={s.currentArticleTitle}>
                 Tether price crashes as selling tests stablecoin's dollar peg
@@ -38,7 +38,7 @@ class Blog extends React.Component {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat...
             </p>
-            <a href="/about" className={s.readMoreButton}>
+            <a href="/blog-post-example" className={s.readMoreButton}>
               Read More
             </a>
           </div>
@@ -76,7 +76,7 @@ class Blog extends React.Component {
 }
 
 const PrevArticleCard = props => (
-  <a href="about" className={s.prevArticleCard}>
+  <a href="/blog-post-example" className={s.prevArticleCard}>
     <div className={s.prevArticleOpacity}>
       <h2 className={s.prevArticleTitle}>{props.title}</h2>
       <h3 className={s.prevArticleDate}>{props.date}</h3>

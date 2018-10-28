@@ -18,12 +18,12 @@ class Navbar extends React.Component {
   render() {
     return (
       <header className={s.root}>
-        <nav className={this.props.homePage ? s.transparent : ''}>
+        <nav className={this.props.transparent ? s.transparent : ''}>
           <ul>
             <li>
               <a
                 className={
-                  s.navOption + ' ' + (this.props.homePage ? s.hideLogo : '')
+                  s.navOption + ' ' + (this.props.hideLogo ? s.hideLogo : '')
                 }
                 href="/"
               >

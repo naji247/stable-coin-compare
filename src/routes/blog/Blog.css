@@ -14,6 +14,7 @@ a {
 }
 
 p {
+  color: var(--text-color-black);
   font-family: 'Times New Roman', Times, serif;
 }
 
