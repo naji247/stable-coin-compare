@@ -11,6 +11,7 @@
 import React from 'react';
 import Coins from './coins/Coins';
 import Layout from '../components/Layout';
+import BlogPostExample from './blog-post/BlogPostExample';
 
 // The top-level (parent) route
 const routes = {
@@ -50,13 +51,26 @@ const routes = {
       load: () => import(/* webpackChunkName: 'about' */ './about')
     },
     {
+      path: '/blog/:blogId',
+      action: context => {
+        return {
+          chunks: ['blog-post'],
+          title: 'Blog Post',
+          component: (
+            <Layout>
+              <BlogPostExample blogId={context.params.blogId}/>
+            </Layout>
+          )
+        };
+      }
+    },
+    {
       path: '/blog',
       load: () => import(/* webpackChunkName: 'blog' */ './blog')
     },
     {
-      path: '/blog-post-example',
-      load: () =>
-        import(/* webpackChunkName: 'blog-post-example' */ './blog-post-example')
+      path: '/blog-post',
+      load: () => import(/* webpackChunkName: 'blog-post' */ './blog-post')
     },
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {

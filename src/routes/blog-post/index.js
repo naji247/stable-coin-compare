@@ -13,7 +13,7 @@ import BlogPostExample from './BlogPostExample';
 
 function action() {
   return {
-    chunks: ['blog-post-example'],
+    chunks: ['blog-post'],
     title: 'BlogPostExample',
     component: (
       <Layout>

@@ -6,15 +6,37 @@ import { Element } from 'react-scroll';
 import _ from 'lodash';
 import Navbar from '../../components/Navbar';
 import Fade from 'react-reveal/Fade';
+import blogPostMetadata from './blogPostMetadata.json';
+import blogExampleHtml from './posts/blog-post-example.html';
+
+function importAll(r) {
+  const blogs = {};
+  r.keys().map((item, index) => {
+    blogs[item.replace('./', '')] = r(item);
+  });
+  return blogs;
+}
+
+const blogPosts = importAll(
+  require.context('../blog/posts', false, /\.(png|jpe?g|svg|html)$/)
+);
 
 class Blog extends React.Component {
   render() {
+    const headerArticle = _.first(_.values(blogPostMetadata));
+    const previousArticles = _.values(blogPostMetadata).slice(1);
     return (
       <div>
         <Navbar />
         <div className={s.root}>
           <h1 className={s.blogHeader}>Blog</h1>
-          <a href="/blog-post-example" className={s.currentArticleCard}>
+          <a
+            href={`/blog/${headerArticle.id}`}
+            className={s.currentArticleCard}
+            style={{
+              backgroundImage: `url("${blogPosts[`${headerArticle.id}.jpg`]}")`
+            }}
+          >
             <div className={s.currentArticleOpacity}>
               <h2 className={s.currentArticleTitle}>
                 Tether price crashes as selling tests stablecoin's dollar peg
@@ -23,22 +45,13 @@ class Blog extends React.Component {
             </div>
           </a>
           <div className={s.currentArticleTeaserText}>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat...
-            </p>
-            <a href="/blog-post-example" className={s.readMoreButton}>
+            <div
+              className={s.currentArticleContent}
+              dangerouslySetInnerHTML={{
+                __html: blogPosts[`${headerArticle.id}.html`]
+              }}
+            />
+            <a href={`/blog/${headerArticle.id}`} className={s.readMoreButton}>
               Read More
             </a>
           </div>
@@ -46,26 +59,9 @@ class Blog extends React.Component {
             <div className={s.previousArticlesContainer}>
               <h2 className={s.previousArticlesHeader}>Previous Articles</h2>
               <div className={s.previousArticlesCardsContainer}>
-                <PrevArticleCard
-                  title="Coinbase releases a new stablecoin USD Circle"
-                  date="Oct 20, 2018"
-                />
-                <PrevArticleCard
-                  title="Coinbase releases a new stablecoin USD Circle MORE EXAMPLE TEXT"
-                  date="Oct 20, 2018"
-                />
-                <PrevArticleCard
-                  title="Coinbase releases a new stablecoin USD Circle MORE EXAMPLE TEXT"
-                  date="Oct 20, 2018"
-                />
-                <PrevArticleCard
-                  title="Coinbase releases a new stablecoin USD Circle MORE EXAMPLE TEXT"
-                  date="Oct 20, 2018"
-                />
-                <PrevArticleCard
-                  title="Coinbase releases a new stablecoin USD Circle MORE EXAMPLE TEXT"
-                  date="Oct 20, 2018"
-                />
+                {_.map(previousArticles, prevArticle => (
+                  <PrevArticleCard {...prevArticle} />
+                ))}
               </div>
             </div>
           </div>
@@ -76,7 +72,13 @@ class Blog extends React.Component {
 }
 
 const PrevArticleCard = props => (
-  <a href="/blog-post-example" className={s.prevArticleCard}>
+  <a
+    href={`/blog/${props.id}`}
+    className={s.prevArticleCard}
+    style={{
+      backgroundImage: `url("${blogPosts[`${props.id}.jpg`]}")`
+    }}
+  >
     <div className={s.prevArticleOpacity}>
       <h2 className={s.prevArticleTitle}>{props.title}</h2>
       <h3 className={s.prevArticleDate}>{props.date}</h3>

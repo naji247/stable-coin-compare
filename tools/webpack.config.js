@@ -248,10 +248,21 @@ const config = {
         loader: path.resolve(__dirname, './lib/markdown-loader.js'),
       },
 
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: [':data-src']
+          }
+        }
+      },
+
+
       // Return public URL for all assets unless explicitly excluded
       // DO NOT FORGET to update `exclude` list when you adding a new loader
       {
-        exclude: [reScript, reStyle, reImage, /\.json$/, /\.txt$/, /\.md$/],
+        exclude: [reScript, reStyle, reImage, /\.json$/, /\.txt$/, /\.md$/, /\.html$/],
         loader: 'file-loader',
         options: {
           name: staticAssetName,
