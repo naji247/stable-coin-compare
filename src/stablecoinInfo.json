@@ -45,6 +45,17 @@
     "Description":
       "Circle, also known as the owner of major crypto exchange Poloneix, is creating USD//Coin to increase adoption of their exchange. Having their own stablecoin means that their users can more readily cash out their earnings or keep them with Circle to fractional reserve bank."
   },
+  "paxos": {
+    "Stablecoin Project": "Paxos Standard",
+    "Company": "Paxos",
+    "Backers": "None",
+    "Founders": "Charles Cascarilla",
+    "Website": "https://www.paxos.com/",
+    "Whitepaper": "https://standard.paxos.com/whitepaper.pdf",
+    "Stability Method": "Fiat Collateralized",
+    "Description":
+      "Paxos Standard is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
+  },
   "geminidollar": {
     "Stablecoin Project": "Gemini Dollar",
     "Company": "Gemini",
@@ -56,6 +67,28 @@
     "Stability Method": "Fiat Collateralized",
     "Description":
       "Gemini Dollar is issued by Gemini exchange to facilitate trading on the exchange. Gemini particularly values compliance with regulation and transparency, making its monthly audits widely available."
+  },
+  "trueusd": {
+    "Stablecoin Project": "TrueUSD",
+    "Company": "TrustToken",
+    "Backers": "Andreessen Horowitz, Foundation Capital, Founders Fund",
+    "Founders": "Danny An, Rafael Cosman, Stephen Kade, Tory Reiss",
+    "Website": "https://www.trusttoken.com/",
+    "Whitepaper": "None",
+    "Stability Method": "Fiat Collateralized",
+    "Description":
+      "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
+  },
+  "steemdollar": {
+    "Stablecoin Project": "SteemDollar",
+    "Company": "Steemit",
+    "Backers": "None",
+    "Founders": " Ned Scott, Dan Larimer",
+    "Website": "https://steem.io",
+    "Whitepaper": "https://steem.io/steem-whitepaper.pdf",
+    "Stability Method": "Other",
+    "Description":
+      "Steemit is a social media platform that functions much like Reddit which uses a cryptocurrency called Steem to reward its users for popular posts. To make payouts for its users maintain consistent value they created the SteemDollar, which has done a somewhat decent job at maintaining itself to one US dollar."
   },
   "carbon": {
     "Stablecoin Project": "CarbonUSD",
@@ -100,40 +133,6 @@
     "Stability Method": "Crypto Collateralized",
     "Description":
       "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
-  },
-  "paxos": {
-    "Stablecoin Project": "PAX",
-    "Company": "Paxos Standard",
-    "Backers": "None",
-    "Founders": "Charles Cascarilla",
-    "Website": "https://www.paxos.com/",
-    "Whitepaper": "https://standard.paxos.com/whitepaper.pdf",
-    "Stability Method": "Fiat Collateralized",
-    "Description":
-      "PAX is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
-  },
-
-  "trueusd": {
-    "Stablecoin Project": "TrueUSD",
-    "Company": "TrustToken",
-    "Backers": "Andreessen Horowitz, Foundation Capital, Founders Fund",
-    "Founders": "Danny An, Rafael Cosman, Stephen Kade, Tory Reiss",
-    "Website": "https://www.trusttoken.com/",
-    "Whitepaper": "None",
-    "Stability Method": "Fiat Collateralized",
-    "Description":
-      "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
-  },
-  "steemdollar": {
-    "Stablecoin Project": "SteemDollar",
-    "Company": "Steemit",
-    "Backers": "None",
-    "Founders": " Ned Scott, Dan Larimer",
-    "Website": "https://steem.io",
-    "Whitepaper": "https://steem.io/steem-whitepaper.pdf",
-    "Stability Method": "Other",
-    "Description":
-      "Steemit is a social media platform that functions much like Reddit which uses a cryptocurrency called Steem to reward its users for popular posts. To make payouts for its users maintain consistent value they created the SteemDollar, which has done a somewhat decent job at maintaining itself to one US dollar."
   },
   "whitestandard": {
     "Stablecoin Project": "The White Standard",

@@ -16,6 +16,10 @@ p {
   font-family: 'Times New Roman', Times, serif;
   color: var(--text-color-black);
 }
+blockquote {
+  font-family: 'Times New Roman', Times, serif;
+  color: var(--text-color-black);
+}
 
 .bannerImage {
   /*background-image: url('./blog-post-example.jpg');*/

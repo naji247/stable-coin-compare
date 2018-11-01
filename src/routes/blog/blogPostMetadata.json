@@ -1,4 +1,11 @@
 {
+  "tether-vs-usdc-paxos-gemini-dollar-trueusd": {
+    "id": "tether-vs-usdc-paxos-gemini-dollar-trueusd",
+    "title":
+      "Will Tether be able to survive competition from Paxos Standard, Gemini Dollar, TrueUSD, and USD Coin?",
+    "date": "Oct 31, 2018",
+    "relatedArticleIds": []
+  },
   "blog-post-example": {
     "id": "blog-post-example",
     "title": "Tether price crashes as selling tests stablecoin's dollar peg",
