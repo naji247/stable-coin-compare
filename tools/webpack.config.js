@@ -11,6 +11,7 @@ import path from 'path';
 import webpack from 'webpack';
 import AssetsPlugin from 'assets-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
+const CompressionPlugin = require('compression-webpack-plugin');
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import overrideRules from './lib/overrideRules';
 import pkg from '../package.json';
@@ -372,6 +373,15 @@ const clientConfig = {
             },
             sourceMap: true,
           }),
+
+          new CompressionPlugin({
+            // asset: '[path].gz[query]',
+            // algorithm: 'gzip',
+            test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+            // deleteOriginalAssets: true
+            // threshold: 10240,
+            // minRatio: 0.8
+          })
         ]),
 
     // Webpack Bundle Analyzer
