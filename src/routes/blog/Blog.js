@@ -39,9 +39,9 @@ class Blog extends React.Component {
           >
             <div className={s.currentArticleOpacity}>
               <h2 className={s.currentArticleTitle}>
-                Tether price crashes as selling tests stablecoin's dollar peg
+                {headerArticle.title}
               </h2>
-              <h3 className={s.currentArticleDate}>Oct 25, 2018</h3>
+              <h3 className={s.currentArticleDate}>{headerArticle.date}</h3>
             </div>
           </a>
           <div className={s.currentArticleTeaserText}>

@@ -5,17 +5,5 @@
       "Will Tether be able to survive competition from Paxos Standard, Gemini Dollar, TrueUSD, and USD Coin?",
     "date": "Oct 31, 2018",
     "relatedArticleIds": []
-  },
-  "blog-post-example": {
-    "id": "blog-post-example",
-    "title": "Tether price crashes as selling tests stablecoin's dollar peg",
-    "date": "Oct 25, 2018",
-    "relatedArticleIds": ["blog-post-example-2"]
-  },
-  "blog-post-example-2": {
-    "id": "blog-post-example-2",
-    "title": "tETHER PRICE CRASHES AS SELLING TESTS STABLECOIN'S DOLLAR PEG",
-    "date": "Oct 25, 2018",
-    "relatedArticleIds": ["blog-post-example"]
   }
 }

@@ -99,6 +99,7 @@ blockquote {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .relatedArticleCard:hover {
   text-decoration: underline;
   color: var(--text-color-white);
