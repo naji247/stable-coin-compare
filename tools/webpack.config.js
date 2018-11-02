@@ -228,7 +228,7 @@ const config = {
                 options: {
                   mozjpeg: {
                     progressive: true,
-                    quality: 15
+                    quality: 85
                   },
                   disable: isDebug, // webpack@2.x and newer
                 },

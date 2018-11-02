@@ -35,8 +35,8 @@ class Navbar extends React.Component {
 
           <ul>
             <li>
-              <a href="/about" className={s.navOption}>
-                About
+              <a href="/knowledge-base" className={s.navOption}>
+                Knowledge Base
               </a>
             </li>
             <li>

@@ -1,33 +1,45 @@
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import React from 'react';
-import s from './About.css';
+import s from './KnowledgeBase.css';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
 import _ from 'lodash';
 import Navbar from '../../components/Navbar';
 import Fade from 'react-reveal/Fade';
+import history from '../../history';
 
-class About extends React.Component {
+class KnowledgeBase extends React.Component {
   constructor(props) {
     super(props);
     this.state = { methodologyType: null };
     this.myRef = React.createRef();
   }
+
   selectMethodology(methodology) {
     if (this.state.methodologyType == methodology) {
       this.setState({ methodologyType: null });
+      history.push('/knowledge-base');
     } else {
       this.setState({ methodologyType: methodology });
+      history.push(`/knowledge-base/${methodology}`);
+    }
+  }
+
+  componentDidMount() {
+    const { methodologyType } = this.props;
+    if (methodologyType) {
+      this.setState({ methodologyType });
     }
   }
 
   componentDidUpdate() {
-    if (this.state.methodologyType) {
-      console.log(this.myRef);
-      window.scrollTo({
-        top: this.myRef.current.offsetTop,
-        behavior: 'smooth'
-      });
+    if (this.props.methodologyType || this.state.methodologyType) {
+      setTimeout(()=> {
+        window.scrollTo({
+          top: this.myRef.current.offsetTop,
+          behavior: 'smooth'
+        });
+      }, 200)
     }
   }
 
@@ -84,7 +96,9 @@ class About extends React.Component {
                   }`}
                 >
                   <h2 className={s.methodologyCardText}>
-                    Fiat<br />Collateralized
+                    Fiat
+                    <br />
+                    Collateralized
                   </h2>
                 </div>
               </div>
@@ -102,7 +116,9 @@ class About extends React.Component {
                   }`}
                 >
                   <h2 className={s.methodologyCardText}>
-                    Crypto<br />Collateralized
+                    Crypto
+                    <br />
+                    Collateralized
                   </h2>
                 </div>
               </div>
@@ -120,7 +136,11 @@ class About extends React.Component {
                   }`}
                 >
                   <h2 className={s.methodologyCardText}>
-                    Algorithmic<br />Central<br />Bank
+                    Algorithmic
+                    <br />
+                    Central
+                    <br />
+                    Bank
                   </h2>
                 </div>
               </div>
@@ -138,7 +158,7 @@ class About extends React.Component {
 
 class MethodologyDesc extends React.Component {
   render() {
-    var content = null;
+    let content = null;
     if (!this.props.methodologyType) {
       content = null;
     } else if (this.props.methodologyType == 'fiat') {
@@ -340,4 +360,7 @@ const mapState = state => ({});
 
 const mapDispatch = {};
 
-export default connect(mapState, mapDispatch)(withStyles(s)(About));
+export default connect(
+  mapState,
+  mapDispatch
+)(withStyles(s)(KnowledgeBase));

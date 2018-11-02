@@ -10,15 +10,15 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Navbar from '../../components/Navbar';
-import About from './About';
+import KnowledgeBase from './KnowledgeBase';
 
 function action() {
   return {
-    chunks: ['about'],
-    title: 'About',
+    chunks: ['knowledge-base'],
+    title: 'Knowledge Base',
     component: (
       <Layout>
-        <About />
+        <KnowledgeBase />
       </Layout>
     )
   };

@@ -12,6 +12,7 @@ import React from 'react';
 import Coins from './coins/Coins';
 import Layout from '../components/Layout';
 import BlogPostExample from './blog-post/BlogPostExample';
+import KnowledgeBase from './knowledge-base/KnowledgeBase';
 
 // The top-level (parent) route
 const routes = {
@@ -47,22 +48,32 @@ const routes = {
       // ]
     },
     {
-      path: '/about',
-      load: () => import(/* webpackChunkName: 'about' */ './about')
+      path: '/knowledge-base/:methodologyType',
+      action: context => ({
+        chunks: ['knowledge-base'],
+        title: 'About',
+        component: (
+          <Layout>
+            <KnowledgeBase methodologyType={context.params.methodologyType} />
+          </Layout>
+        )
+      })
+    },
+    {
+      path: '/knowledge-base',
+      load: () => import(/* webpackChunkName: 'knowledge-base' */ './knowledge-base')
     },
     {
       path: '/blog/:blogId',
-      action: context => {
-        return {
-          chunks: ['blog-post'],
-          title: 'Blog Post',
-          component: (
-            <Layout>
-              <BlogPostExample blogId={context.params.blogId}/>
-            </Layout>
-          )
-        };
-      }
+      action: context => ({
+        chunks: ['blog-post'],
+        title: 'Blog Post',
+        component: (
+          <Layout>
+            <BlogPostExample blogId={context.params.blogId} />
+          </Layout>
+        )
+      })
     },
     {
       path: '/blog',
