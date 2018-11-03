@@ -55,11 +55,11 @@ p {
   justify-content: flex-end;
   height: 100%;
   padding: 2em;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .currentArticleOpacity:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .currentArticleTitle {
@@ -167,11 +167,11 @@ p {
   justify-content: flex-end;
   height: 100%;
   padding: 1.3em;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .prevArticleOpacity:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .prevArticleTitle {

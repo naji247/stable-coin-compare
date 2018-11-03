@@ -4,6 +4,12 @@
     "title":
       "Will Tether be able to survive competition from Paxos Standard, Gemini Dollar, TrueUSD, and USD Coin?",
     "date": "Oct 31, 2018",
-    "relatedArticleIds": []
+    "relatedArticleIds": ["what-are-stablecoins"]
+  },
+  "what-are-stablecoins": {
+    "id": "what-are-stablecoins",
+    "title": "What are Stablecoins?: An Overview",
+    "date": "Oct 30, 2018",
+    "relatedArticleIds": ["tether-vs-usdc-paxos-gemini-dollar-trueusd"]
   }
 }

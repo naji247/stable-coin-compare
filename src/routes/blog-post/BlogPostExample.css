@@ -33,7 +33,7 @@ blockquote {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .titleWrapper {
@@ -111,11 +111,11 @@ blockquote {
   justify-content: flex-end;
   height: 100%;
   padding: 1.3em;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .relatedArticleOpacity:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .relatedArticleTitle {
