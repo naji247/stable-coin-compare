@@ -100,6 +100,7 @@ class KnowledgeBase extends React.Component {
                     <br />
                     Collateralized
                   </h2>
+                  <a href='fiat'></a>
                 </div>
               </div>
               <div
@@ -120,6 +121,7 @@ class KnowledgeBase extends React.Component {
                     <br />
                     Collateralized
                   </h2>
+                  <a href='crypto'></a>
                 </div>
               </div>
               <div
@@ -142,6 +144,7 @@ class KnowledgeBase extends React.Component {
                     <br />
                     Bank
                   </h2>
+                  <a href='algorithmic'></a>
                 </div>
               </div>
             </div>

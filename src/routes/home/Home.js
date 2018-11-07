@@ -19,7 +19,17 @@ import { APP_URL } from '../../secrets';
 import _ from 'lodash';
 import request from 'request-promise';
 
-export const COIN_IDS = {tether: 825, trueusd: 2563, dai: 2308, bitcny: 624, paxos: 3330, steemdollar: 1312, bitusd: 623, nusd: 2927, geminidollar: 3306};
+export const COIN_IDS = {
+  tether: 825,
+  trueusd: 2563,
+  dai: 2308,
+  bitcny: 624,
+  paxos: 3330,
+  steemdollar: 1312,
+  bitusd: 623,
+  nusd: 2927,
+  geminidollar: 3306
+};
 // const coinIds = [825, 2563, 2308, 624, 3330, 1312, 623, 2927, 3306];
 const specialCoinIds = {
   '3306': {
@@ -37,18 +47,22 @@ class Home extends React.Component {
 
   async componentDidMount() {
     _.keys(specialCoinIds).forEach(async coinId => {
-      const resp = await request.get({
-        url: `${APP_URL}/api/token-supply/${
-          specialCoinIds[coinId].ethContract
-        }`,
-        json: true
-      });
-      let temp = {};
-      temp[coinId] = resp.result;
-      this.setState({
-        ...this.state,
-        ...temp
-      });
+      try {
+        const resp = await request.get({
+          url: `${APP_URL}/api/token-supply/${
+            specialCoinIds[coinId].ethContract
+          }`,
+          json: true
+        });
+        const temp = {};
+        temp[coinId] = resp.result;
+        this.setState({
+          ...this.state,
+          ...temp
+        });
+      } catch (e) {
+        console.log(e);
+      }
     });
   }
 
@@ -79,7 +93,7 @@ class Home extends React.Component {
               </div>
             </Fade>
           </div>
-          {/*<script type="text/javascript" src="./currency.js" />*/}
+          {/* <script type="text/javascript" src="./currency.js" /> */}
           <h1 className={s.constructionHeading}>
             Currently Released Stablecoins
           </h1>
@@ -204,7 +218,8 @@ const mapState = state => ({});
 
 const mapDispatch = {};
 
-export {
-  EmailSignUp
-}
-export default connect(mapState, mapDispatch)(withStyles(s)(Home));
+export { EmailSignUp };
+export default connect(
+  mapState,
+  mapDispatch
+)(withStyles(s)(Home));

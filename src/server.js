@@ -39,6 +39,8 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import { api } from './api/index';
 import { auth } from './auth/index';
 
+import sitemap from './sitemap.txt';
+
 const app = express();
 
 //
@@ -67,12 +69,18 @@ if (__DEV__) {
 app.use('/api', api);
 app.use('/auth', auth);
 
-app.get('/profile', passport.authenticate('jwt', { session: false }), function(
-  req,
-  res,
-) {
-  res.json(req.user);
+app.get('/sitemap.xml', (req, res) => {
+  res.set('Content-Type', 'text/xml');
+  res.send(sitemap);
 });
+
+app.get(
+  '/profile',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.json(req.user);
+  }
+);
 
 //
 // Register server-side rendering middleware
@@ -84,23 +92,23 @@ app.get('*', async (req, res, next) => {
     // Universal HTTP client
     const fetch = createFetch(nodeFetch, {
       baseUrl: config.api.serverUrl,
-      cookie: req.headers.cookie,
+      cookie: req.headers.cookie
     });
 
     const initialState = {
-      user: req.user || null,
+      user: req.user || null
     };
 
     const store = configureStore(initialState, {
-      fetch,
+      fetch
       // I should not use `history` on server.. but how I do redirection? follow universal-router
     });
 
     store.dispatch(
       setRuntimeVariable({
         name: 'initialNow',
-        value: Date.now(),
-      }),
+        value: Date.now()
+      })
     );
 
     // Global (context) variables that can be easily accessed from any React component
@@ -115,13 +123,13 @@ app.get('*', async (req, res, next) => {
       fetch,
       // You can access redux through react-redux connect
       store,
-      storeSubscription: null,
+      storeSubscription: null
     };
 
     const route = await router.resolve({
       ...context,
       pathname: req.path,
-      query: req.query,
+      query: req.query
     });
 
     if (route.redirect) {
@@ -131,7 +139,7 @@ app.get('*', async (req, res, next) => {
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(
-      <App context={context}>{route.component}</App>,
+      <App context={context}>{route.component}</App>
     );
     data.styles = [{ id: 'css', cssText: [...css].join('') }];
     data.scripts = [assets.vendor.js];
@@ -141,7 +149,7 @@ app.get('*', async (req, res, next) => {
     data.scripts.push(assets.client.js);
     data.app = {
       apiUrl: config.api.clientUrl,
-      state: context.store.getState(),
+      state: context.store.getState()
     };
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
@@ -169,7 +177,7 @@ app.use((err, req, res, next) => {
       styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
     >
       {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
-    </Html>,
+    </Html>
   );
   res.status(err.status || 500);
   res.send(`<!doctype html>${html}`);

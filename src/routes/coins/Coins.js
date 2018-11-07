@@ -106,6 +106,7 @@ const CoinSelector = props => (
           className={s.coinLogo}
           alt={props.coinId}
         />
+        <a href={props.coinId}></a>
       </div>
       <span className={s.coinSelectName}>
         {coinDetails[props.coinId]['Stablecoin Project']}

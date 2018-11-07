@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://stablecoincompare.com/</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/knowledge-base</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/blog</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/blog/tether-vs-usdc-paxos-gemini-dollar-trueusd</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/geminidollar</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/paxos</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/knowledge-base/fiat</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/dai</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/blog/what-are-stablecoins</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/tether</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/basis</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/usdcoin</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/trueusd</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/steemdollar</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/carbon</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/reserve</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/stronghold</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/bitusd</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/whitestandard</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/celo</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/kusd</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/boreal</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/stableusd</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/fragment</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/coins/bridgecoin</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/knowledge-base/crypto</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://stablecoincompare.com/knowledge-base/algorithmic</loc>
+  <lastmod>2018-11-06T04:51:10+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
