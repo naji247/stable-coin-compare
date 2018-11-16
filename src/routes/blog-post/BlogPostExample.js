@@ -31,9 +31,12 @@ class BlogPostExample extends React.Component {
 
     return (
       <div>
-        <div className={s.bannerImage} style={{backgroundImage: `url("${blogPosts[id+'.jpg']}")`}} >
+        <div
+          className={s.bannerImage}
+          style={{ backgroundImage: `url("${blogPosts[id + '.jpg']}")` }}
+        >
           <div className={s.bannerOpacity}>
-            <Navbar transparent="True" />
+            <Navbar background="transparent" />
             <div className={s.titleWrapper}>
               <h2 className={s.articleTitle}>{blogPostMetadata[id].title}</h2>
               <h3 className={s.articleDate}>{blogPostMetadata[id].date}</h3>
@@ -46,7 +49,9 @@ class BlogPostExample extends React.Component {
             dangerouslySetInnerHTML={{ __html: blogPosts[`${id}.html`] }}
           />
           <div className={s.relatedContainer}>
-            {relatedArticles.length > 0 ? <h2 className={s.textHeader}>Related Articles</h2> : null}
+            {relatedArticles.length > 0 ? (
+              <h2 className={s.textHeader}>Related Articles</h2>
+            ) : null}
             {_.map(relatedArticles, article => (
               <RelatedArticleCard {...article} />
             ))}
@@ -58,7 +63,11 @@ class BlogPostExample extends React.Component {
 }
 
 const RelatedArticleCard = props => (
-  <a href={`${props.id}`} className={s.relatedArticleCard} style={{backgroundImage: `url("${blogPosts[props.id+'.jpg']}")`}}>
+  <a
+    href={`${props.id}`}
+    className={s.relatedArticleCard}
+    style={{ backgroundImage: `url("${blogPosts[props.id + '.jpg']}")` }}
+  >
     <div className={s.relatedArticleOpacity}>
       <h2 className={s.relatedArticleTitle}>{props.title}</h2>
       <h3 className={s.relatedArticleDate}>{props.date}</h3>

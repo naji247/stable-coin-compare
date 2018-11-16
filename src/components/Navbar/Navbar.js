@@ -16,9 +16,14 @@ import logoUrl from './logo-white.png';
 
 class Navbar extends React.Component {
   render() {
+    var background;
+    if (this.props.background == 'transparent') background = s.transparent;
+    else if (this.props.background == 'translucent') background = s.translucent;
+    else background = '';
+
     return (
       <header className={s.root}>
-        <nav className={this.props.transparent ? s.transparent : ''}>
+        <nav className={background}>
           <ul>
             <li>
               <a

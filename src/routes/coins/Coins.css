@@ -38,16 +38,17 @@ h1 {
   margin: 0;
   height: 0;
   font-weight: 200;
-
-  button {
-    background-color: var(--text-color-black);
-    padding: .6em;
-    color: var(--text-color-white);
-    border-radius: .2em;
-    cursor: pointer;
-    border: none;
-  }
 }
+
+button {
+  background-color: var(--text-color-black);
+  padding: .6em;
+  color: var(--text-color-white);
+  border-radius: .2em;
+  cursor: pointer;
+  border: none;
+}
+
 
 .tickerInfo {
   font-size: .5em;

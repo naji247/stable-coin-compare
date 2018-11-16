@@ -48,6 +48,16 @@ const routes = {
       // ]
     },
     {
+      path: '/analytics',
+      load: () => import(/* webpackChunkName: 'analytics' */ './analytics')
+      // children: [
+      //   {
+      //     path: '/:coinId',
+      //     action: (context) => `<h1>${context}</h1>`
+      //   }
+      // ]
+    },
+    {
       path: '/knowledge-base/:methodologyType',
       action: context => ({
         chunks: ['knowledge-base'],
@@ -61,7 +71,8 @@ const routes = {
     },
     {
       path: '/knowledge-base',
-      load: () => import(/* webpackChunkName: 'knowledge-base' */ './knowledge-base')
+      load: () =>
+        import(/* webpackChunkName: 'knowledge-base' */ './knowledge-base')
     },
     {
       path: '/blog/:blogId',

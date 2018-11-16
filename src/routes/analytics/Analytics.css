@@ -1,0 +1,134 @@
+/**
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+@import '../../components/variables.css';
+
+.gradientLayer {
+  background-image: linear-gradient(135deg, #4CA1AF, #c4e0e5);
+  min-height: 100vh;
+}
+
+.root {
+  padding-bottom: 4em;
+}
+
+.titleContainer {
+
+}
+
+.titleText {
+  color: var(--text-color-white);
+  text-align: center;
+  font-family: var(--font-family-base);
+  font-weight: 100;
+  font-size: 3.5em;
+  margin: 0.6em 0;
+  font-size: 2.4em;
+  margin: 0.7em 0;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 2%;
+
+}
+
+.cardContainer {
+  width: 35%;
+}
+
+.innerCardWrapper {
+  margin: auto;
+  max-width: 23em;
+  width: 100%;
+}
+
+.card {
+  width:95%;
+  height: 9em;
+  background-color: rgba(26, 29, 30, 0.5);
+  color: var(--text-color-white);
+  border: 1px solid #BBBBBB;
+  cursor: pointer;
+}
+.activeCard {
+  width: 100%;
+  height: 9.5em;
+  background-color: #F4F4F4;
+  color: var(--text-color-black);
+  box-shadow: 0px 5px 15px 1px #777777;
+}
+.innerCard {
+  height: 9em;
+}
+.activeInnerCard {
+  width:95%;
+}
+
+.cardTitleImg {
+  width: 1em;
+  height: 1em;
+}
+.cardTitleWrapper {
+  padding-top: 0.5em;
+  margin-left: 2em;
+  display:flex;
+  align-items: center;
+}
+.cardTitleText {
+  font-weight: 100;
+  font-size: 1em;
+  margin:0 0.5em;
+}
+
+.dataContainer{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  margin: 0.5em 1em;
+}
+
+.datum {
+  text-align: center;
+}
+
+.datumLabel {
+  font-size: 1em;
+  font-weight: 100;
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.datumValueActive {
+  font-weight: 100;
+  margin: 0.1em 0;
+  font-size: 3.6em;
+  line-height: 1em;
+}
+
+.datumValue {
+  font-weight: 100;
+  margin: 0.8em 0;
+  font-size: 1em;
+}
+
+.chartContainer {
+  width: 65%;
+}
+
+.chartArea {
+  width: 90%;
+  margin: auto;
+  height: 30em;
+  background-color: rgba(26, 29, 30, 0.5);
+  border: 1px solid #BBBBBB;
+  box-shadow: 0px 5px 15px 1px #777777;
+}

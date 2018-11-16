@@ -22,6 +22,9 @@ nav {
 .transparent {
   background: none;
 }
+.translucent {
+  background-color: rgba(26, 29, 30, 0.7);
+}
 
 ul {
   max-width: 90%;
