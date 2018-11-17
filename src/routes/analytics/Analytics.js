@@ -10,13 +10,11 @@
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import React from 'react';
 import s from './Analytics.css';
-import Fade from 'react-reveal/Fade';
-import Shake from 'react-reveal/Shake';
 import { connect } from 'react-redux';
-import { Element } from 'react-scroll';
 import { APP_URL } from '../../secrets';
 import Navbar from '../../components/Navbar';
 import _ from 'lodash';
+import { Chart } from 'react-charts';
 import * as coinDetails from '../../stablecoinInfo';
 import classNames from 'classnames';
 import history from '../../history';
@@ -80,8 +78,29 @@ class Analytics extends React.Component {
                 ))}
               </div>
             </div>
-            <div className={s.chartContainer}>
-              <div className={s.chartArea}>hello</div>
+            <div className={s.chartSection}>
+              <div className={s.chartContainer}>
+                <div className={s.chartArea}>
+                  <Chart
+                    data={[
+                      {
+                        label: 'Score',
+                        data: _.map(_.values(coinData), singleCoinData => [
+                          singleCoinData.name,
+                          singleCoinData.score
+                        ])
+                      }
+                    ]}
+                    series={{ type: 'bar' }}
+                    axes={[
+                      { primary: true, type: 'ordinal', position: 'bottom' },
+                      { position: 'left', type: 'linear', stacked: true }
+                    ]}
+                    tooltip
+                    dark
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

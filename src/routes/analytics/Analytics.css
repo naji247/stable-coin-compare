@@ -84,7 +84,7 @@
   align-items: center;
 }
 .cardTitleText {
-  font-weight: 100;
+  font-weight: 200;
   font-size: 1em;
   margin:0 0.5em;
 }
@@ -102,7 +102,7 @@
 
 .datumLabel {
   font-size: 1em;
-  font-weight: 100;
+  font-weight: 200;
   margin: 0;
   font-size: 0.8em;
 }
@@ -115,20 +115,25 @@
 }
 
 .datumValue {
-  font-weight: 100;
+  font-weight: 200;
   margin: 0.8em 0;
   font-size: 1em;
 }
 
-.chartContainer {
+.chartSection {
   width: 65%;
 }
 
-.chartArea {
-  width: 90%;
+.chartContainer {
+  width: 80%;
   margin: auto;
-  height: 30em;
+  height: 25em;
   background-color: rgba(26, 29, 30, 0.5);
   border: 1px solid #BBBBBB;
   box-shadow: 0px 5px 15px 1px #777777;
+  display:flex;
+  padding: 3% 5%
+}
+.chartArea {
+ width: 100%
 }
