@@ -41,7 +41,7 @@ class Navbar extends React.Component {
           <ul>
             <li>
               <a href="/analytics" className={s.navOption}>
-                Aanalytics
+                Analytics
               </a>
             </li>
             <li>
