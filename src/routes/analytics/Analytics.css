@@ -42,11 +42,54 @@
 .cardContainer {
   width: 35%;
 }
-
-.innerCardWrapper {
+.innerCardContainer {
   margin: auto;
   max-width: 21em;
   width: 100%;
+}
+
+.cardOptionsContainer {
+  margin: auto;
+  max-width: 21em;
+  width: 100%;
+}
+
+.optionsPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0.5em 0 1.5em 0.7em;
+}
+
+.optionTitle {
+  color: var(--text-color-white);
+  font-size: 0.9em;
+  margin: 0 0.4em;
+  height: 1.7em;
+  line-height: 1.7em;
+}
+
+.optionButton {
+  text-align: center;
+  color: var(--text-color-white);
+  font-size: 0.8em;
+  font-weight: 100;
+  border: 1px solid #bbbbbb;
+  border-radius: 0.5em;
+  width: 4.2em;
+  height: 1.7em;
+  line-height: 1.7em;
+  vertical-align: middle;
+  background-color: rgba(140, 140, 140, 0.5);
+  margin: 0 0.4em;
+  cursor: pointer;
+}
+
+.optionButton:hover {
+  background: rgba(26, 29, 30, 0.5);
+}
+.selectedButton {
+  background: rgba(26, 29, 30, 0.5);
 }
 
 .card {
@@ -129,6 +172,11 @@
 
 .chartSection {
   width: 65%;
+}
+
+.chartOptionsContainer {
+  width: 90%;
+  margin: auto;
 }
 
 .chartContainer {
