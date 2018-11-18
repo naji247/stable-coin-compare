@@ -127,8 +127,10 @@ const Card = props => (
       </div>
       <div className={s.dataContainer}>
         <div className={s.datum}>
-          <h3 className={s.datumLabel}>Score</h3>
-          <h4 className={s.datumValueActive}>{coinData[props.coinId].score}</h4>
+          <h3 className={`${s.datumLabel} ${s.activeDatumLabel}`}>Score</h3>
+          <h4 className={`${s.datumValue} ${s.activeDatum}`}>
+            {coinData[props.coinId].score}
+          </h4>
         </div>
         <div className={s.datum}>
           <h3 className={s.datumLabel}>Cap</h3>
@@ -147,4 +149,7 @@ const mapState = state => ({});
 
 const mapDispatch = {};
 
-export default connect(mapState, mapDispatch)(withStyles(s)(Analytics));
+export default connect(
+  mapState,
+  mapDispatch
+)(withStyles(s)(Analytics));
