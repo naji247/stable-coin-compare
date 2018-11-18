@@ -33,6 +33,30 @@ h1 {
   align-self: center;
 }
 
+.feedbackForm {
+  border: 1px solid black;
+  p {
+    font-weight: bolder;
+  }
+
+  button {
+    /*display: inline-block;*/
+    /*margin: .2em;*/
+    /*padding: 0.3em 1em;*/
+    /*text-decoration: none;*/
+    /*color: #67c5ff;*/
+    /*border: solid 2px #67c5ff;*/
+    /*border-radius: 3px;*/
+    /*transition: .4s;*/
+    margin: .2em;
+  }
+
+  /*button:hover {*/
+    /*background: #67c5ff;*/
+    /*color: white;*/
+  /*}*/
+}
+
 .backToCoins {
   visibility: hidden;
   margin: 0;

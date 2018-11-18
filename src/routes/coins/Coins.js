@@ -21,6 +21,7 @@ import * as coinDetails from '../../stablecoinInfo';
 import classNames from 'classnames';
 import history from '../../history';
 import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
+import request from 'request-promise';
 
 function importAll(r) {
   const images = {};
@@ -106,7 +107,7 @@ const CoinSelector = props => (
           className={s.coinLogo}
           alt={props.coinId}
         />
-        <a href={props.coinId}></a>
+        <a href={props.coinId} />
       </div>
       <span className={s.coinSelectName}>
         {coinDetails[props.coinId]['Stablecoin Project']}
@@ -123,53 +124,132 @@ const shownDetails = [
   'Description'
 ];
 
-const CoinDetails = props => {
-  if (typeof window !== 'undefined') {
-    const script = document.createElement('script');
-    script.src = '../currency.js';
-    script.async = true;
-    document.body.appendChild(script);
+class CoinDetails extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      submitted: false,
+      otherValue: ''
+    };
+  }
+  async handleFeedbackClick(reason) {
+    this.setState({ submitted: true });
+    try {
+      await request({
+        url: `${APP_URL}/api/feedback`,
+        method: 'POST',
+        json: { reason }
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
-  return (
-    <div>
-      <div className={s.coinDescriptionHeader}>
-        <div className={s.coinDescriptionLogo}>
-          <img
-            className={s.coinDescriptionImg}
-            src={coinLogos[`${props.coinId}.png`]}
-            alt={props.coinId}
-          />
-        </div>
-        <span className={s.coinDescriptionTitle}>
-          {coinDetails[props.coinId]['Stablecoin Project']}
-        </span>
-      </div>
-      <div className={s.fieldContainer}>
-        {shownDetails.map(field => (
-          <div className={s.fieldEntry}>
-            <span className={s.fieldKey}>{field}:</span>
-            <span className={s.fieldValue}>
-              {coinDetails[props.coinId][field]}
-            </span>
-          </div>
-        ))}
-        {COIN_IDS[props.coinId] && (
-          <CoinMarketCapWidget currencyId={COIN_IDS[props.coinId]} />
-        )}
-        {COIN_IDS[props.coinId] && (
-          <p className={s.tickerInfo}>Ticker updated real-time.</p>
-        )}
+  handleKeyPress(e) {
+    if (event.key == 'Enter') {
+      this.handleFeedbackClick(this.state.otherValue);
+    }
+  }
+  render() {
+    const props = this.props;
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.src = '../currency.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
-        <p className={s.subscribeText}>We're constantly adding new features! Subscribe for updates to see our latest changes and express your interest!</p>
-        <EmailSignUp />
+    const reasons = [
+      'a list of stablecoins',
+      'a ranking of stablecoins',
+      'stablecoin market caps',
+      'an analytics tool'
+    ];
+
+    return (
+      <div>
+        <div className={s.coinDescriptionHeader}>
+          <div className={s.coinDescriptionLogo}>
+            <img
+              className={s.coinDescriptionImg}
+              src={coinLogos[`${props.coinId}.png`]}
+              alt={props.coinId}
+            />
+          </div>
+          <span className={s.coinDescriptionTitle}>
+            {coinDetails[props.coinId]['Stablecoin Project']}
+          </span>
+        </div>
+        <div className={s.fieldContainer}>
+          {shownDetails.map(field => (
+            <div className={s.fieldEntry}>
+              <span className={s.fieldKey}>{field}:</span>
+              <span className={s.fieldValue}>
+                {coinDetails[props.coinId][field]}
+              </span>
+            </div>
+          ))}
+          {COIN_IDS[props.coinId] && (
+            <CoinMarketCapWidget currencyId={COIN_IDS[props.coinId]} />
+          )}
+          {COIN_IDS[props.coinId] && (
+            <p className={s.tickerInfo}>Ticker updated real-time.</p>
+          )}
+
+          <div className={s.feedbackForm}>
+            {this.state.submitted ? (
+              <p>
+                Thank you for the feedback! We'll do our best to bring you
+                better features.
+              </p>
+            ) : (
+              <div>
+                <p>
+                  We're trying to build a product that fits your needs! Would
+                  you like to help? Click on the button that matches your needs!
+                </p>
+                <p>I was just looking for:</p>
+                {_.map(reasons, reason => (
+                  <button
+                    onClick={() => {
+                      this.handleFeedbackClick(reason);
+                    }}
+                  >
+                    {reason}
+                  </button>
+                ))}
+                <div>
+                  <input
+                    value={this.state.otherValue}
+                    onKeyPress={(e)=>{this.handleKeyPress(e)}}
+                    onChange={e => {
+                      this.setState({ otherValue: e.target.value });
+                    }}
+                    placeholder="Other reason"
+                    type="text"
+                  />
+                  <button
+                    onClick={() => {
+                      this.handleFeedbackClick(this.state.otherValue);
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 const mapState = state => ({});
 
 const mapDispatch = {};
 
-export default connect(mapState, mapDispatch)(withStyles(s)(Coins));
+export default connect(
+  mapState,
+  mapDispatch
+)(withStyles(s)(Coins));
