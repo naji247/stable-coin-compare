@@ -121,7 +121,7 @@ class Analytics extends React.Component {
             <div className={s.chartSection}>
               <div className={s.chartOptionsContainer}>
                 <div className={s.optionsPanel}>
-                  <div className={s.optionTitle}> Sort: </div>
+                  <div className={s.optionTitle}> Chart: </div>
                   <div
                     className={`${s.optionButton} ${
                       this.state.chartType == 'bar' ? s.selectedButton : ''
@@ -162,6 +162,7 @@ class Analytics extends React.Component {
                   />
                 </div>
               </div>
+              <CoinDescription coinId={this.state.selectedCoinId} />
             </div>
           </div>
         </div>
@@ -239,6 +240,41 @@ const Card = props => (
     </div>
   </div>
 );
+
+const shownDetails = [
+  'Founders',
+  'Company',
+  'Backers',
+  'Stability Method',
+  'Description'
+];
+const CoinDescription = props => {
+  if (!props.coinId) return null;
+  else {
+    return (
+      <div className={s.descriptionSection}>
+        <div className={s.descriptionTitle}>
+          <img
+            className={s.descriptionTitleImg}
+            src={coinLogos[`${props.coinId}.png`]}
+            alt={props.coinId}
+          />
+          <h2 className={s.descriptionTitleText}>
+            {coinData[props.coinId].name}
+          </h2>
+        </div>
+        {shownDetails.map(field => (
+          <div className={s.fieldEntry}>
+            <span className={s.fieldKey}>{field}:</span>
+            <span className={s.fieldValue}>
+              {coinDetails[props.coinId][field]}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+};
 
 const mapState = state => ({});
 

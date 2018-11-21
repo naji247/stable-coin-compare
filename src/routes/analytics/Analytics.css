@@ -192,3 +192,42 @@
 .chartArea {
   width: 100%;
 }
+
+.descriptionSection {
+  width: 80%;
+  margin: 2em auto;
+  background-color: rgba(26, 29, 30, 0.5);
+  border: 1px solid #bbbbbb;
+  box-shadow: 0px 5px 15px 1px #777777;
+  padding: 3% 5%;
+}
+
+.descriptionTitle {
+  display: flex;
+  color: var(--text-color-white);
+}
+
+.descriptionTitleImg {
+  width: 1.8em;
+  height: 1.8em;
+}
+.descriptionTitleText {
+  font-size: 1.2em;
+  font-weight: 200;
+  margin: 0 0.5em;
+}
+
+.fieldKey {
+  font-weight: 400;
+  margin-right: 1.2em;
+  font-size: 0.8em;
+}
+.fieldValue {
+  max-width: 35em;
+  font-size: 0.8em;
+}
+.fieldEntry {
+  color: var(--text-color-white);
+  display: flex;
+  margin: 1em 0;
+}
