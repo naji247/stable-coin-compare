@@ -160,10 +160,12 @@ class CoinDetails extends React.Component {
     }
 
     const reasons = [
-      'a list of stablecoins',
-      'a ranking of stablecoins',
-      'stablecoin market caps',
-      'an analytics tool'
+      'Stability analytics',
+      'Comprehensive list',
+      'Rankings',
+      'Side-by-side comparisons',
+      'Market cap/volume info',
+      'News and updates'
     ];
 
     return (
@@ -195,50 +197,56 @@ class CoinDetails extends React.Component {
           {COIN_IDS[props.coinId] && (
             <p className={s.tickerInfo}>Ticker updated real-time.</p>
           )}
-
-          <div className={s.feedbackForm}>
-            {this.state.submitted ? (
-              <p>
-                Thank you for the feedback! We'll do our best to bring you
-                better features.
+        </div>
+        <div className={s.feedbackForm}>
+          {this.state.submitted ? (
+            <p>
+              Thank you for the feedback! We appreciate your input will do our
+              best to bring you these features.
+            </p>
+          ) : (
+            <div>
+              <p className={s.boldText}>
+                Didn't find exactly what you were looking for?
               </p>
-            ) : (
-              <div>
-                <p>
-                  We're trying to build a product that fits your needs! Would
-                  you like to help? Click on the button that matches your needs!
-                </p>
-                <p>I was just looking for:</p>
-                {_.map(reasons, reason => (
-                  <button
-                    onClick={() => {
-                      this.handleFeedbackClick(reason);
-                    }}
-                  >
-                    {reason}
-                  </button>
-                ))}
-                <div>
-                  <input
-                    value={this.state.otherValue}
-                    onKeyPress={(e)=>{this.handleKeyPress(e)}}
-                    onChange={e => {
-                      this.setState({ otherValue: e.target.value });
-                    }}
-                    placeholder="Other reason"
-                    type="text"
-                  />
-                  <button
-                    onClick={() => {
-                      this.handleFeedbackClick(this.state.otherValue);
-                    }}
-                  >
-                    Submit
-                  </button>
-                </div>
+              <p>
+                Help us build a product that better fits your needs by letting
+                us know what features you would like to have implemented. Click
+                on one of the following features you would like most to see or
+                type in a suggestion.
+              </p>
+              {_.map(reasons, reason => (
+                <button
+                  onClick={() => {
+                    this.handleFeedbackClick(reason);
+                  }}
+                >
+                  {reason}
+                </button>
+              ))}
+              <div className={s.otherOptionForm}>
+                <input
+                  value={this.state.otherValue}
+                  onKeyPress={e => {
+                    this.handleKeyPress(e);
+                  }}
+                  onChange={e => {
+                    this.setState({ otherValue: e.target.value });
+                  }}
+                  placeholder="Other reason"
+                  type="text"
+                />
+                <button
+                  className={s.submit}
+                  onClick={() => {
+                    this.handleFeedbackClick(this.state.otherValue);
+                  }}
+                >
+                  Submit
+                </button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     );
