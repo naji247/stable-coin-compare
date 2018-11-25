@@ -10,7 +10,7 @@
   "test": {
     "username": "postgres",
     "password": "admin",
-    "database": "stable_coin_compare",
+    "database": "stable_coin_compare_test",
     "host": "localhost",
     "dialect": "postgres",
     "port": 32768

@@ -31,7 +31,7 @@ module.exports = {
 
   // Database
   // TODO: Get database man...
-  databaseName: 'stable_coin_compare',
+  databaseName: process.env.NODE_ENV === 'test' ? 'stable_coin_compare_test': 'stable_coin_compare',
   databasePort: 32768,
   databaseUser: 'postgres',
   databasePassword: process.env.DATABASE_PASSWORD,

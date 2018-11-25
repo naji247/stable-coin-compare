@@ -34,13 +34,13 @@ module.exports = {
   rules: {
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
-    'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
+    'import/no-extraneous-dependencies': ['warn', { packageDir: '.' }],
 
     // Recommend not to leave any console.log in your code
     // Use console.error, console.warn and console.info instead
     // https://eslint.org/docs/rules/no-console
     'no-console': [
-      'error',
+      'warn',
       {
         allow: ['warn', 'error', 'info'],
       },
@@ -49,7 +49,7 @@ module.exports = {
     // Prefer destructuring from arrays and objects
     // http://eslint.org/docs/rules/prefer-destructuring
     'prefer-destructuring': [
-      'error',
+      'warn',
       {
         VariableDeclarator: {
           array: false,
@@ -68,7 +68,7 @@ module.exports = {
     // Ensure <a> tags are valid
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md
     'jsx-a11y/anchor-is-valid': [
-      'error',
+      'warn',
       {
         components: ['Link'],
         specialLink: ['to'],
@@ -78,7 +78,7 @@ module.exports = {
 
     // Allow .js files to use JSX syntax
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
 
     // Functional and class components are equivalent from React’s point of view
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
@@ -86,7 +86,7 @@ module.exports = {
 
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
   },
 
   settings: {
