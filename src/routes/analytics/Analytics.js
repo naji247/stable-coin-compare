@@ -48,14 +48,24 @@ const coinData = {
 class Analytics extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedCoinId: null };
+    this.state = { selectedCoinId: null, chartType: 'bar', sortBy: 'score' };
   }
 
   handleCoinSelect(coinId) {
     if (coinId === this.state.selectedCoinId) {
-      this.setState({ selectedCoinId: null });
+      this.setState({ ...this.state, selectedCoinId: null });
     } else {
-      this.setState({ selectedCoinId: coinId });
+      this.setState({ ...this.state, selectedCoinId: coinId });
+    }
+  }
+  handleSortByChange(sortBy) {
+    if (sortBy != this.state.sortBy) {
+      this.setState({ ...this.state, sortBy: sortBy });
+    }
+  }
+  handleChartTypeChange(chartType) {
+    if (chartType != this.state.chartType) {
+      this.setState({ ...this.state, chartType: chartType });
     }
   }
   render() {
@@ -68,17 +78,68 @@ class Analytics extends React.Component {
           </div>
           <div className={s.contentContainer}>
             <div className={s.cardContainer}>
-              <div className={s.innerCardWrapper}>
+              <div className={s.innerCardContainer}>
+                <div className={s.optionsPanel}>
+                  <div className={s.optionTitle}> Sort: </div>
+                  <div
+                    className={`${s.optionButton} ${
+                      this.state.sortBy == 'score' ? s.selectedButton : ''
+                    }`}
+                    onClick={() => this.handleSortByChange('score')}
+                  >
+                    Score
+                  </div>
+                  <div
+                    className={`${s.optionButton} ${
+                      this.state.sortBy == 'cap' ? s.selectedButton : ''
+                    }`}
+                    onClick={() => this.handleSortByChange('cap')}
+                  >
+                    Cap
+                  </div>
+                  <div
+                    className={`${s.optionButton} ${
+                      this.state.sortBy == 'volume' ? s.selectedButton : ''
+                    }`}
+                    onClick={() => this.handleSortByChange('volume')}
+                  >
+                    Volume
+                  </div>
+                </div>
+              </div>
+              <div className={s.innerCardContainer}>
                 {_.keys(coinData).map(coinId => (
                   <Card
                     coinId={coinId}
                     isActive={coinId === this.state.selectedCoinId}
                     onClick={() => this.handleCoinSelect(coinId)}
+                    sortBy={this.state.sortBy}
                   />
                 ))}
               </div>
             </div>
             <div className={s.chartSection}>
+              <div className={s.chartOptionsContainer}>
+                <div className={s.optionsPanel}>
+                  <div className={s.optionTitle}> Chart: </div>
+                  <div
+                    className={`${s.optionButton} ${
+                      this.state.chartType == 'bar' ? s.selectedButton : ''
+                    }`}
+                    onClick={() => this.handleChartTypeChange('bar')}
+                  >
+                    Bar
+                  </div>
+                  <div
+                    className={`${s.optionButton} ${
+                      this.state.chartType == 'line' ? s.selectedButton : ''
+                    }`}
+                    onClick={() => this.handleChartTypeChange('line')}
+                  >
+                    Line
+                  </div>
+                </div>
+              </div>
               <div className={s.chartContainer}>
                 <div className={s.chartArea}>
                   <Chart
@@ -101,6 +162,7 @@ class Analytics extends React.Component {
                   />
                 </div>
               </div>
+              <CoinDescription coinId={this.state.selectedCoinId} />
             </div>
           </div>
         </div>
@@ -127,24 +189,98 @@ const Card = props => (
       </div>
       <div className={s.dataContainer}>
         <div className={s.datum}>
-          <h3 className={s.datumLabel}>Score</h3>
-          <h4 className={s.datumValueActive}>{coinData[props.coinId].score}</h4>
+          <h3
+            className={`${s.datumLabel} ${
+              props.sortBy == 'score' ? s.activeDatumLabel : ''
+            }`}
+          >
+            Score
+          </h3>
+          <h4
+            className={`${s.datumValue} ${
+              props.sortBy == 'score' ? s.activeDatum : ''
+            }`}
+          >
+            {coinData[props.coinId].score}
+          </h4>
         </div>
         <div className={s.datum}>
-          <h3 className={s.datumLabel}>Cap</h3>
-          <h4 className={s.datumValue}>{coinData[props.coinId].cap}</h4>
+          <h3
+            className={`${s.datumLabel} ${
+              props.sortBy == 'cap' ? s.activeDatumLabel : ''
+            }`}
+          >
+            Cap
+          </h3>
+          <h4
+            className={`${s.datumLabel} ${
+              props.sortBy == 'cap' ? s.activeDatum : ''
+            }`}
+          >
+            {coinData[props.coinId].cap}
+          </h4>
         </div>
         <div className={s.datum}>
-          <h3 className={s.datumLabel}>Volume</h3>
-          <h4 className={s.datumValue}>{coinData[props.coinId].volume}</h4>
+          <h3
+            className={`${s.datumLabel} ${
+              props.sortBy == 'volume' ? s.activeDatumLabel : ''
+            }`}
+          >
+            Volume
+          </h3>
+          <h4
+            className={`${s.datumLabel} ${
+              props.sortBy == 'volume' ? s.activeDatum : ''
+            }`}
+          >
+            {coinData[props.coinId].volume}
+          </h4>
         </div>
       </div>
     </div>
   </div>
 );
 
+const shownDetails = [
+  'Founders',
+  'Company',
+  'Backers',
+  'Stability Method',
+  'Description'
+];
+const CoinDescription = props => {
+  if (!props.coinId) return null;
+  else {
+    return (
+      <div className={s.descriptionSection}>
+        <div className={s.descriptionTitle}>
+          <img
+            className={s.descriptionTitleImg}
+            src={coinLogos[`${props.coinId}.png`]}
+            alt={props.coinId}
+          />
+          <h2 className={s.descriptionTitleText}>
+            {coinData[props.coinId].name}
+          </h2>
+        </div>
+        {shownDetails.map(field => (
+          <div className={s.fieldEntry}>
+            <span className={s.fieldKey}>{field}:</span>
+            <span className={s.fieldValue}>
+              {coinDetails[props.coinId][field]}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+};
+
 const mapState = state => ({});
 
 const mapDispatch = {};
 
-export default connect(mapState, mapDispatch)(withStyles(s)(Analytics));
+export default connect(
+  mapState,
+  mapDispatch
+)(withStyles(s)(Analytics));

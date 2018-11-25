@@ -34,26 +34,54 @@ h1 {
 }
 
 .feedbackForm {
-  border: 1px solid black;
-  p {
+  border: lightgray solid 1px;
+  margin: 2em 0;
+  padding: 1em;
+
+  .boldText {
     font-weight: bolder;
   }
 
+  p {
+    font-size: 0.8em;
+  }
+
   button {
-    /*display: inline-block;*/
-    /*margin: .2em;*/
-    /*padding: 0.3em 1em;*/
-    /*text-decoration: none;*/
-    /*color: #67c5ff;*/
-    /*border: solid 2px #67c5ff;*/
-    /*border-radius: 3px;*/
-    /*transition: .4s;*/
-    margin: .2em;
+    background-color: #eeeeee;
+    border: 1px solid #999999;
+    font-weight: 100;
+    padding: 0.5em;
+    color: var(--text-color-black);
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin: 0.2em;
+    font-size: 0.8em;
+  }
+  button:hover {
+    background-color: #dddddd;
+  }
+  input {
+    font-weight: 100;
+    color: var(--text-color-black);
+    font-size: 0.8em;
+    padding: 0.5em;
+  }
+  .submit {
+    background-color: var(--text-color-black);
+    color: var(--text-color-white);
+    border-radius: 0em;
+    margin: 0;
+  }
+  .submit:hover {
+    background-color: #555555;
+  }
+  .otherOptionForm {
+    margin: 1em 0;
   }
 
   /*button:hover {*/
-    /*background: #67c5ff;*/
-    /*color: white;*/
+  /*background: #67c5ff;*/
+  /*color: white;*/
   /*}*/
 }
 
@@ -66,24 +94,22 @@ h1 {
 
 button {
   background-color: var(--text-color-black);
-  padding: .6em;
+  padding: 0.6em;
   color: var(--text-color-white);
-  border-radius: .2em;
+  border-radius: 0.2em;
   cursor: pointer;
   border: none;
 }
 
-
 .tickerInfo {
-  font-size: .5em;
+  font-size: 0.5em;
   text-align: center;
 }
 
-
 .backToCoins:hover {
-    button {
-      background-color: #202D30;
-    }
+  button {
+    background-color: #202d30;
+  }
 }
 
 .coinLogo {
@@ -172,7 +198,6 @@ button {
   justify-content: center;
 }
 .coinsHeader {
-
 }
 
 @media only screen and (min-width: 700px) {
@@ -231,5 +256,5 @@ button {
 }
 
 .subscribeText {
-  font-size: .8em;
+  font-size: 0.8em;
 }

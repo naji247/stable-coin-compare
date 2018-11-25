@@ -10,7 +10,7 @@
 @import '../../components/variables.css';
 
 .gradientLayer {
-  background-image: linear-gradient(135deg, #4CA1AF, #c4e0e5);
+  background-image: linear-gradient(135deg, #4ca1af, #c4e0e5);
   min-height: 100vh;
 }
 
@@ -19,7 +19,6 @@
 }
 
 .titleContainer {
-
 }
 
 .titleText {
@@ -38,62 +37,108 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin: 0 2%;
-
 }
 
 .cardContainer {
   width: 35%;
 }
-
-.innerCardWrapper {
+.innerCardContainer {
   margin: auto;
-  max-width: 23em;
+  max-width: 21em;
   width: 100%;
 }
 
+.cardOptionsContainer {
+  margin: auto;
+  max-width: 21em;
+  width: 100%;
+}
+
+.optionsPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0.5em 0 1.5em 0.7em;
+}
+
+.optionTitle {
+  color: var(--text-color-white);
+  font-size: 0.9em;
+  margin: 0 0.4em;
+  height: 1.7em;
+  line-height: 1.7em;
+}
+
+.optionButton {
+  text-align: center;
+  color: var(--text-color-white);
+  font-size: 0.8em;
+  font-weight: 100;
+  border: 1px solid #bbbbbb;
+  border-radius: 0.5em;
+  width: 4.2em;
+  height: 1.7em;
+  line-height: 1.7em;
+  vertical-align: middle;
+  background-color: rgba(140, 140, 140, 0.5);
+  margin: 0 0.4em;
+  cursor: pointer;
+}
+
+.optionButton:hover {
+  background: rgba(26, 29, 30, 0.5);
+}
+.selectedButton {
+  background: rgba(26, 29, 30, 0.5);
+}
+
 .card {
-  width:95%;
-  height: 9em;
+  width: 95%;
+  height: 8.5em;
   background-color: rgba(26, 29, 30, 0.5);
   color: var(--text-color-white);
-  border: 1px solid #BBBBBB;
+  border: 1px solid #bbbbbb;
   cursor: pointer;
+  font-weight: 100;
 }
 .activeCard {
   width: 100%;
   height: 9.5em;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   color: var(--text-color-black);
   box-shadow: 0px 5px 15px 1px #777777;
+  font-weight: 200;
 }
 .innerCard {
-  height: 9em;
+  height: 8.5em;
 }
 .activeInnerCard {
-  width:95%;
+  width: 95%;
 }
 
 .cardTitleImg {
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
 }
 .cardTitleWrapper {
   padding-top: 0.5em;
-  margin-left: 2em;
-  display:flex;
+  margin-left: 1.2em;
+  display: flex;
   align-items: center;
 }
 .cardTitleText {
-  font-weight: 200;
+  /* font-weight: 100; */
+  font-weight: inherit;
   font-size: 1em;
-  margin:0 0.5em;
+  margin: 0 0.5em;
 }
 
-.dataContainer{
+.dataContainer {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-around;
-  margin: 0.5em 1em;
+  margin: 0.7em auto;
+  width: 86%;
 }
 
 .datum {
@@ -102,38 +147,87 @@
 
 .datumLabel {
   font-size: 1em;
-  font-weight: 200;
-  margin: 0;
+  /* font-weight: 100; */
+  font-weight: inherit;
+  margin: 0.7em 0 0;
   font-size: 0.8em;
 }
 
-.datumValueActive {
-  font-weight: 100;
-  margin: 0.1em 0;
-  font-size: 3.6em;
-  line-height: 1em;
+.activeDatumLabel {
+  margin: 0;
 }
 
 .datumValue {
-  font-weight: 200;
+  /* font-weight: 100; */
+  font-weight: inherit;
   margin: 0.8em 0;
-  font-size: 1em;
+  font-size: 0.8em;
+}
+
+.activeDatum {
+  margin: 0.1em 0;
+  font-size: 3.4em;
+  line-height: 1em;
 }
 
 .chartSection {
   width: 65%;
 }
 
+.chartOptionsContainer {
+  width: 90%;
+  margin: auto;
+}
+
 .chartContainer {
   width: 80%;
   margin: auto;
-  height: 25em;
+  height: 24em;
   background-color: rgba(26, 29, 30, 0.5);
-  border: 1px solid #BBBBBB;
+  border: 1px solid #bbbbbb;
   box-shadow: 0px 5px 15px 1px #777777;
-  display:flex;
-  padding: 3% 5%
+  display: flex;
+  padding: 3% 5%;
 }
 .chartArea {
- width: 100%
+  width: 100%;
+}
+
+.descriptionSection {
+  width: 80%;
+  margin: 2em auto;
+  background-color: rgba(26, 29, 30, 0.5);
+  border: 1px solid #bbbbbb;
+  box-shadow: 0px 5px 15px 1px #777777;
+  padding: 3% 5%;
+}
+
+.descriptionTitle {
+  display: flex;
+  color: var(--text-color-white);
+}
+
+.descriptionTitleImg {
+  width: 1.8em;
+  height: 1.8em;
+}
+.descriptionTitleText {
+  font-size: 1.2em;
+  font-weight: 200;
+  margin: 0 0.5em;
+}
+
+.fieldKey {
+  font-weight: 400;
+  margin-right: 1.2em;
+  font-size: 0.8em;
+}
+.fieldValue {
+  max-width: 35em;
+  font-size: 0.8em;
+}
+.fieldEntry {
+  color: var(--text-color-white);
+  display: flex;
+  margin: 1em 0;
 }
