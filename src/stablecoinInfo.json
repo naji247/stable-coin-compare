@@ -46,7 +46,7 @@
     "Description":
       "With some of the strongest VC backing and an enormous funding round of $133M, Basis comes in as a strong competitor to the stablecoin market. This puts them significantly ahead the other algorithmic central bank competitors."
   },
-  "usdcoin": {
+  "usd-coin": {
     "id": "usdcoin",
     "Stablecoin Project": "USD//Coin",
     "Company": "Circle",
@@ -61,7 +61,7 @@
     "Description":
       "Circle, also known as the owner of major crypto exchange Poloneix, is creating USD//Coin to increase adoption of their exchange. Having their own stablecoin means that their users can more readily cash out their earnings or keep them with Circle to fractional reserve bank."
   },
-  "paxos": {
+  "paxos-standard-token": {
     "id": "paxos",
     "Stablecoin Project": "Paxos Standard",
     "Company": "Paxos",
@@ -76,7 +76,7 @@
     "Description":
       "Paxos Standard is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
   },
-  "geminidollar": {
+  "gemini-dollar": {
     "id": "geminidollar",
     "Stablecoin Project": "Gemini Dollar",
     "Company": "Gemini",
@@ -107,7 +107,7 @@
     "Description":
       "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
   },
-  "steemdollar": {
+  "steem-dollars": {
     "id": "steemdollar",
     "Stablecoin Project": "SteemDollar",
     "Company": "Steemit",
@@ -182,7 +182,7 @@
     "Description":
       "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
   },
-  "whitestandard": {
+  "white-standard": {
     "id": "whitestandard",
     "Stablecoin Project": "The White Standard",
     "Company": "The White Company",

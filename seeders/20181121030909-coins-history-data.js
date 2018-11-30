@@ -23,7 +23,10 @@ module.exports = {
         }
         await queryInterface.bulkInsert('coin_history', buffer, {});
         return true;
-      }),
+      }).catch(e => {
+        console.log(e);
+        console.log(`If there's a missing file error, you need to change the path to cleanedCoinsData.csv`);
+    }),
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('coin_history', null, {});
   }

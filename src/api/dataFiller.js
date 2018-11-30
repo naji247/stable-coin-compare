@@ -18,6 +18,7 @@ export default class CoinMarketCapDataFiller {
     const SQL_STRING = `SELECT * FROM coin_history WHERE coin_id = '${coinId}' ORDER BY timestamp DESC LIMIT 1;`;
     const row = await sequelize.query(SQL_STRING, { type: sequelize.QueryTypes.SELECT }).then(rows => _.first(rows));
     if (!row) {throw new Error(`No row found for coin id ${coinId} while fetching latest coin history.`)}
+    return row;
   };
 
   formatListOfDatePairsForCoinMarketCap = listOfPairs => listOfPairs.map(pair => [pair[0] * 1000, pair[1] * 1000]);
@@ -81,42 +82,46 @@ export default class CoinMarketCapDataFiller {
 
   queryCoinMarketCapForDatePair = async (coinId, date1, date2) => {
     const url = this.coinMarketCapHistoryUrl(coinId, date1, date2);
-
-    const resp = await this.requestToCoinmarketcapWithRetry(url);
-
-    if (!resp) {
-      throw new Error('Response from coinmarketcap.com is null for some reason.');
-    }
-
-    if (!_.has(resp, 'price_usd')) {
-      throw new Error('Response from coinmarketcap.com doesnt cointain the key "price_usd"');
-    }
-
-    let timestampToCap = {}, timestampToPrice = {}, timestampToVolume = {};
-    resp.market_cap_by_available_supply.forEach(dateAndMrktCap => {
-      timestampToCap[dateAndMrktCap[0]] = dateAndMrktCap[1];
-    });
-
-    resp.volume_usd.forEach(dateAndVolume => {
-      timestampToVolume[dateAndVolume[0]] = dateAndVolume[1];
-    });
-
-    resp.price_usd.forEach(dateAndPrice => {
-      timestampToPrice[dateAndPrice[0]] = dateAndPrice[1];
-    });
-
     let result = [];
-    Object.keys(timestampToCap).map(timestamp => {
-      if (timestampToCap[timestamp] && timestampToPrice[timestamp] && timestampToVolume[timestamp]) {
-        result.push({
-          coin_id: coinId,
-          timestamp: moment(parseInt(timestamp)).toISOString(),
-          price: timestampToPrice[timestamp],
-          market_cap: timestampToCap[timestamp],
-          volume: timestampToVolume[timestamp]
-        });
+
+    try {
+      const resp = await this.requestToCoinmarketcapWithRetry(url);
+
+      if (!resp) {
+        throw new Error('Response from coinmarketcap.com is null for some reason.');
       }
-    });
+
+      if (!_.has(resp, 'price_usd')) {
+        throw new Error('Response from coinmarketcap.com doesnt cointain the key "price_usd"');
+      }
+
+      let timestampToCap = {}, timestampToPrice = {}, timestampToVolume = {};
+      resp.market_cap_by_available_supply.forEach(dateAndMrktCap => {
+        timestampToCap[dateAndMrktCap[0]] = dateAndMrktCap[1];
+      });
+
+      resp.volume_usd.forEach(dateAndVolume => {
+        timestampToVolume[dateAndVolume[0]] = dateAndVolume[1];
+      });
+
+      resp.price_usd.forEach(dateAndPrice => {
+        timestampToPrice[dateAndPrice[0]] = dateAndPrice[1];
+      });
+
+      Object.keys(timestampToCap).map(timestamp => {
+        if (timestampToCap[timestamp] && timestampToPrice[timestamp] && timestampToVolume[timestamp]) {
+          result.push({
+            coin_id: coinId,
+            timestamp: moment(parseInt(timestamp)).toISOString(),
+            price: timestampToPrice[timestamp],
+            market_cap: timestampToCap[timestamp],
+            volume: timestampToVolume[timestamp]
+          });
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    }
 
     return result;
   };
@@ -124,11 +129,15 @@ export default class CoinMarketCapDataFiller {
   requestCoinmarketcapForDateList = async (coinId, datePairs) => {
     let coinHistory = [];
     for (const datePair of datePairs) {
-      const coinHistoryForPair = await this.queryCoinMarketCapForDatePair(coinId, datePair[0], datePair[1]);
-      // Faster than concat
-      Array.prototype.push.apply(coinHistory, coinHistoryForPair);
-      // Coin Market Cap throttles us, may as well respect them.
-      this.sleep(1/this.COINMARKETCAP_REQUESTS_PER_SECOND)
+      try {
+        const coinHistoryForPair = await this.queryCoinMarketCapForDatePair(coinId, datePair[0], datePair[1]);
+        // Faster than concat
+        Array.prototype.push.apply(coinHistory, coinHistoryForPair);
+        // Coin Market Cap throttles us, may as well respect them.
+        this.sleep(1 / this.COINMARKETCAP_REQUESTS_PER_SECOND)
+      } catch (e) {
+        console.log(e);
+      }
     }
     return coinHistory;
   };
@@ -151,13 +160,22 @@ export default class CoinMarketCapDataFiller {
     const liveCoins = this.fetchLiveCoins(stablecoinJson);
 
     for (const coinInfo of liveCoins) {
-      const { timestamp } = await this.fetchLatestCoin(coinInfo);
+      try {
+        const {timestamp} = await this.fetchLatestCoin(coinInfo.coinMarketCapId);
 
-      const remainingDateList = this.fetchListOfRemainingDatesToQuery(timestamp);
+        console.log(`Fetching for ${coinInfo.coinMarketCapId} starting from ${timestamp}.`);
+        const remainingDateList = this.fetchListOfRemainingDatesToQuery(timestamp);
+        console.log(`Fetching for ${coinInfo.coinMarketCapId} for ${remainingDateList.length} dates.`);
 
-      const coinHistory = await this.requestCoinmarketcapForDateList(coinInfo.coinMarketCapId, remainingDateList);
+        const coinHistory = await this.requestCoinmarketcapForDateList(coinInfo.coinMarketCapId, remainingDateList);
 
-      if (!dryRun) { await this.batchWriteCoinHistory(coinHistory); }
+        if (!dryRun) {
+          await this.batchWriteCoinHistory(coinHistory);
+        }
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
+  return;
 }

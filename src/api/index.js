@@ -12,3 +12,7 @@ api.route('/subscribe').post(mailApi.subscribeToMailingList);
 api.route('/token-supply/:ethContractAddress').get(getTokenSupply);
 api.route('/feedback').post(postFeedback);
 api.route('/coin-history/:coinId/latest').get(coinHistoryApi.getLatestDataForCoin);
+api.route('/coin-history/cron/run').get(coinHistoryApi.runCoinHistoryCron);
+api.route('/coin-history/cron/start').get(coinHistoryApi.startCoinHistoryCron);
+api.route('/coin-history/cron/status').get(coinHistoryApi.statusCoinHistoryCron);
+api.route('/coin-history/cron/stop').get(coinHistoryApi.stopCoinHistoryCron);

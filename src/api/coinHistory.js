@@ -1,10 +1,8 @@
-import request from 'request-promise';
-import Feedback from '../data/models/Feedback';
-import moment from 'moment';
-import stableCoinInfo from '../stablecoinInfo.json';
-import { COINMARKETCAP_API_KEY } from '../secrets';
+import { CronJob } from 'cron';
 import sequelize from '../data/sequelize';
 import _ from 'lodash';
+import CoinMarketCapDataFiller from "./dataFiller";
+const dataFiller = new CoinMarketCapDataFiller();
 
 const cmcSlugsToIds = {
   tether: 825,
@@ -57,5 +55,56 @@ export const getLatestDataForCoin = async (req, res) => {
     res.send(latest_row);
   } catch (error) {
     res.status(500).send({ message: `Error occurred. ${error.message}` });
+  }
+};
+
+
+const getCoinHistory = async () => {
+  await dataFiller.fillDataSinceMostRecent();
+};
+
+const coinHistoryCron = new CronJob(
+  '*/30 * * * *',
+  getCoinHistory,
+  null,
+  false,
+  'America/Los_Angeles',
+);
+
+export const runCoinHistoryCron = async (req, res, next) => {
+  try {
+    await getCoinHistory();
+    res.send('Seeded coin history.');
+  } catch (error) {
+    console.error(error);
+    res.send('Failed seeding coin history.');
+  }
+};
+
+export const startCoinHistoryCron = (req, res, next) => {
+  try {
+    coinHistoryCron.start();
+    coinHistoryCron.running = true;
+    res.send('Coin History cron started.');
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+export const statusCoinHistoryCron = (req, res, next) => {
+  if (coinHistoryCron.running) {
+    res.send('Coin History cron is RUNNING');
+  } else {
+    res.send('Coin History cron is STOPPED');
+  }
+};
+
+export const stopCoinHistoryCron = (req, res, next) => {
+  try {
+    coinHistoryCron.stop();
+    coinHistoryCron.running = false;
+    res.send('Coin History cron stopped');
+  } catch (error) {
+    res.send(error);
   }
 };
