@@ -9,9 +9,7 @@ module.exports = {
       Example:
     */
     csv()
-      .fromFile(
-        '/Users/naseemal-naji/Projects/stable-coin-compare/cleanedCoinsData.csv'
-      )
+      .fromFile('./cleanedCoinsData.csv')
       .then(async lines => {
         let buffer = [];
         for (const row of lines) {
@@ -27,6 +25,6 @@ module.exports = {
         return true;
       }),
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('coin_history', null, {});
+    return queryInterface.bulkDelete('coin_history', null, {});
   }
 };
