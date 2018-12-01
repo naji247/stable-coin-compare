@@ -13,8 +13,6 @@ module.exports = {
       .then(async lines => {
         let buffer = [];
         for (const row of lines) {
-          row.market_cap = 0;
-          row.volume = 0;
           buffer.push(row);
           if (buffer.length === 10000) {
             await queryInterface.bulkInsert('coin_history', buffer, {});
