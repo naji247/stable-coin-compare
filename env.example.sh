@@ -1,3 +1,4 @@
+export APP_URL=https://stablecoincompare.com
 export DATABASE_NAME=stable_coin_compare
 export DATABASE_PORT=32768
 export DATABASE_HOST=localhost
