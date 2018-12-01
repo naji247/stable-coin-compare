@@ -191,7 +191,7 @@
 .chartContainer {
   width: 80%;
   margin: auto;
-  height: 27em;
+  height: 25em;
   background-color: rgba(26, 29, 30, 0.5);
   border: 1px solid #bbbbbb;
   box-shadow: 0px 5px 15px 1px #777777;
@@ -208,6 +208,7 @@
   text-align: center;
   color: var(--text-color-white);
   font-weight: 200;
+  font-size: 1.4em;
 }
 
 .descriptionSection {

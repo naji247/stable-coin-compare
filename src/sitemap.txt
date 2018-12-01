@@ -13,6 +13,11 @@
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://stablecoincompare.com/analytics</loc>
+  <lastmod>2018-12-01T04:51:10+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
   <loc>https://stablecoincompare.com/knowledge-base</loc>
   <lastmod>2018-11-06T04:51:10+00:00</lastmod>
   <priority>0.80</priority>
