@@ -16,6 +16,8 @@ import Navbar from '../../components/Navbar';
 import _ from 'lodash';
 import { Chart } from 'react-charts';
 import * as coinDetails from '../../stablecoinInfo';
+import { getLatest } from '../../actions/runtime';
+import numeral from 'numeral';
 import classNames from 'classnames';
 import history from '../../history';
 import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
@@ -32,23 +34,20 @@ const coinLogos = importAll(
   require.context('./icons', false, /\.(png|jpe?g|svg)$/)
 );
 
-const coinData = {
-  tether: { name: 'Tether', score: 9.8, cap: '$2.1B', volume: '$3.1B' },
-  trueusd: { name: 'TrueUSD', score: 8.8, cap: '$50M', volume: '$180M' },
-  usdcoin: { name: 'USDCoin', score: 3.4, cap: '$200M', volume: '$400M' },
-  geminidollar: {
-    name: 'Gemini Dollar',
-    score: 2.4,
-    cap: '$100M',
-    volume: '$120M'
-  },
-  paxos: { name: 'Paxos Standard', score: 2.3, cap: '$120M', volume: '$200M' }
-};
-
 class Analytics extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedCoinId: null, chartType: 'bar', sortBy: 'score' };
+    this.state = {
+      selectedCoinId: null,
+      chartType: 'bar',
+      sortBy: 'avg_deviation'
+    };
+  }
+
+  componentDidMount() {
+    const activeCoinDetails = _.filter(coinDetails, 'isLive');
+    const coinIds = _.map(activeCoinDetails, 'id');
+    this.props.getLatest(coinIds);
   }
 
   handleCoinSelect(coinId) {
@@ -69,6 +68,17 @@ class Analytics extends React.Component {
     }
   }
   render() {
+    var coinData = _.map(this.props.analytics, elem => ({
+      ...elem,
+      name: coinDetails[elem.coin_id]['Stablecoin Project']
+    }));
+
+    coinData = _.orderBy(
+      coinData,
+      this.state.sortBy,
+      this.state.sortBy == 'avg_deviation' ? 'asc' : 'desc'
+    );
+
     return (
       <div className={s.gradientLayer}>
         <Navbar background="translucent" />
@@ -83,17 +93,19 @@ class Analytics extends React.Component {
                   <div className={s.optionTitle}> Sort: </div>
                   <div
                     className={`${s.optionButton} ${
-                      this.state.sortBy == 'score' ? s.selectedButton : ''
+                      this.state.sortBy == 'avg_deviation'
+                        ? s.selectedButton
+                        : ''
                     }`}
-                    onClick={() => this.handleSortByChange('score')}
+                    onClick={() => this.handleSortByChange('avg_deviation')}
                   >
-                    Score
+                    Deviation
                   </div>
                   <div
                     className={`${s.optionButton} ${
-                      this.state.sortBy == 'cap' ? s.selectedButton : ''
+                      this.state.sortBy == 'market_cap' ? s.selectedButton : ''
                     }`}
-                    onClick={() => this.handleSortByChange('cap')}
+                    onClick={() => this.handleSortByChange('market_cap')}
                   >
                     Cap
                   </div>
@@ -108,12 +120,16 @@ class Analytics extends React.Component {
                 </div>
               </div>
               <div className={s.innerCardContainer}>
-                {_.keys(coinData).map(coinId => (
+                {coinData.map(coinDatum => (
                   <Card
-                    coinId={coinId}
-                    isActive={coinId === this.state.selectedCoinId}
-                    onClick={() => this.handleCoinSelect(coinId)}
+                    coinId={coinDatum.coin_id}
+                    isActive={coinDatum.coin_id === this.state.selectedCoinId}
+                    onClick={() => this.handleCoinSelect(coinDatum.coin_id)}
                     sortBy={this.state.sortBy}
+                    name={coinDatum.name}
+                    avgDeviation={coinDatum.avg_deviation}
+                    marketCap={coinDatum.market_cap}
+                    volume={coinDatum.volume}
                   />
                 ))}
               </div>
@@ -146,9 +162,9 @@ class Analytics extends React.Component {
                     data={[
                       {
                         label: 'Score',
-                        data: _.map(_.values(coinData), singleCoinData => [
-                          singleCoinData.name,
-                          singleCoinData.score
+                        data: coinData.map(coinDatum => [
+                          coinDatum.name,
+                          coinDatum.avg_deviation
                         ])
                       }
                     ]}
@@ -185,39 +201,39 @@ const Card = props => (
           src={coinLogos[`${props.coinId}.png`]}
           alt={props.coinId}
         />
-        <h2 className={s.cardTitleText}>{coinData[props.coinId].name}</h2>
+        <h2 className={s.cardTitleText}>{props.name}</h2>
       </div>
       <div className={s.dataContainer}>
         <div className={s.datum}>
           <h3
             className={`${s.datumLabel} ${
-              props.sortBy == 'score' ? s.activeDatumLabel : ''
+              props.sortBy == 'avg_deviation' ? s.activeDatumLabel : ''
             }`}
           >
-            Score
+            Avg Deviation
           </h3>
           <h4
             className={`${s.datumValue} ${
-              props.sortBy == 'score' ? s.activeDatum : ''
+              props.sortBy == 'avg_deviation' ? s.activeDatum : ''
             }`}
           >
-            {coinData[props.coinId].score}
+            {formatAvgDeviation(props.avgDeviation)}
           </h4>
         </div>
         <div className={s.datum}>
           <h3
             className={`${s.datumLabel} ${
-              props.sortBy == 'cap' ? s.activeDatumLabel : ''
+              props.sortBy == 'market_cap' ? s.activeDatumLabel : ''
             }`}
           >
             Cap
           </h3>
           <h4
             className={`${s.datumLabel} ${
-              props.sortBy == 'cap' ? s.activeDatum : ''
+              props.sortBy == 'market_cap' ? s.activeDatum : ''
             }`}
           >
-            {coinData[props.coinId].cap}
+            {formatVolCap(props.marketCap)}
           </h4>
         </div>
         <div className={s.datum}>
@@ -233,13 +249,24 @@ const Card = props => (
               props.sortBy == 'volume' ? s.activeDatum : ''
             }`}
           >
-            {coinData[props.coinId].volume}
+            {formatVolCap(props.volume)}
           </h4>
         </div>
       </div>
     </div>
   </div>
 );
+
+function formatAvgDeviation(x) {
+  return Number.parseFloat(x).toFixed(0);
+}
+
+function formatVolCap(x) {
+  return numeral(x)
+    .format('$0a')
+    .toString()
+    .toUpperCase();
+}
 
 const shownDetails = [
   'Founders',
@@ -260,7 +287,7 @@ const CoinDescription = props => {
             alt={props.coinId}
           />
           <h2 className={s.descriptionTitleText}>
-            {coinData[props.coinId].name}
+            {coinDetails[props.coinId].name}
           </h2>
         </div>
         {shownDetails.map(field => (
@@ -276,9 +303,11 @@ const CoinDescription = props => {
   }
 };
 
-const mapState = state => ({});
+const mapState = state => ({ ...state.analytics });
 
-const mapDispatch = {};
+const mapDispatch = {
+  getLatest
+};
 
 export default connect(
   mapState,

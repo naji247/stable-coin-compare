@@ -6,14 +6,12 @@
     "Backers": "Bitfinex",
     "Founders": "JL Van Der Velde, Giancarlo Devasini, Stuart Hoegner",
     "Website": "https://tether.to/",
-    "Whitepaper":
-      "https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf",
+    "Whitepaper": "https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf",
     "Stability Method": "Fiat Collateralized",
     "isLive": true,
     "coinMarketCapId": "tether",
     "liveDate": "Wed Feb 25 2015 05:34:26 GMT-0800",
-    "Description":
-      "Tether was the first stablecoin to achieve widespread adoption. It was intended largely to facilitate cryptocurrency trading as the organization has deep ties to the major exchange Bitfinex. Given its importance and visibility, it has received significant scrutiny from regulators (and criticism) for the lack of transparency in reporting the US Dollars it claims to hold in reserve."
+    "Description": "Tether was the first stablecoin to achieve widespread adoption. It was intended largely to facilitate cryptocurrency trading as the organization has deep ties to the major exchange Bitfinex. Given its importance and visibility, it has received significant scrutiny from regulators (and criticism) for the lack of transparency in reporting the US Dollars it claims to hold in reserve."
   },
   "dai": {
     "id": "dai",
@@ -27,15 +25,13 @@
     "isLive": true,
     "coinMarketCapId": "dai",
     "liveDate": "Tue Dec 26 2017 17:34:17 GMT-0800",
-    "Description":
-      "MakerDao is well known to be one of the earliest market competitors, with a strong community presence. You can find their founders and developers frequently participating on their subreddit, r/MakerDao."
+    "Description": "MakerDao is well known to be one of the earliest market competitors, with a strong community presence. You can find their founders and developers frequently participating on their subreddit, r/MakerDao."
   },
   "basis": {
     "id": "basis",
     "Stablecoin Project": "Basis",
     "Company": "Intangible Labs",
-    "Backers":
-      "Lightspeed, Andreesen Horowitz, Google Ventures, Foundation Capital",
+    "Backers": "Lightspeed, Andreesen Horowitz, Google Ventures, Foundation Capital",
     "Founders": "Nader Al-Naji, Lawrence Diao, Josh Chen",
     "Website": "https://basis.io",
     "Whitepaper": "https://www.basis.io/basis_whitepaper_en.pdf",
@@ -43,11 +39,10 @@
     "isLive": false,
     "coinMarketCapId": null,
     "liveDate": null,
-    "Description":
-      "With some of the strongest VC backing and an enormous funding round of $133M, Basis comes in as a strong competitor to the stablecoin market. This puts them significantly ahead the other algorithmic central bank competitors."
+    "Description": "With some of the strongest VC backing and an enormous funding round of $133M, Basis comes in as a strong competitor to the stablecoin market. This puts them significantly ahead the other algorithmic central bank competitors."
   },
   "usd-coin": {
-    "id": "usdcoin",
+    "id": "usd-coin",
     "Stablecoin Project": "USD//Coin",
     "Company": "Circle",
     "Backers": "None",
@@ -58,11 +53,10 @@
     "isLive": true,
     "coinMarketCapId": "usd-coin",
     "liveDate": "Mon Oct 08 2018 11:49:28 GMT-0700",
-    "Description":
-      "Circle, also known as the owner of major crypto exchange Poloneix, is creating USD//Coin to increase adoption of their exchange. Having their own stablecoin means that their users can more readily cash out their earnings or keep them with Circle to fractional reserve bank."
+    "Description": "Circle, also known as the owner of major crypto exchange Poloneix, is creating USD//Coin to increase adoption of their exchange. Having their own stablecoin means that their users can more readily cash out their earnings or keep them with Circle to fractional reserve bank."
   },
   "paxos-standard-token": {
-    "id": "paxos",
+    "id": "paxos-standard-token",
     "Stablecoin Project": "Paxos Standard",
     "Company": "Paxos",
     "Backers": "None",
@@ -73,24 +67,21 @@
     "isLive": true,
     "coinMarketCapId": "paxos-standard-token",
     "liveDate": "Thu Sep 27 2018 13:54:23 GMT-0700",
-    "Description":
-      "Paxos Standard is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
+    "Description": "Paxos Standard is issued by Paxos to facilitate trading on their itBit Exchange. Paxos particularly emphasizes compliance with regulation and transparency of its reserves."
   },
   "gemini-dollar": {
-    "id": "geminidollar",
+    "id": "gemini-dollar",
     "Stablecoin Project": "Gemini Dollar",
     "Company": "Gemini",
     "Backers": "None",
     "Founders": "Cameron Winklevoss, Tyler Winklevoss",
     "Website": "https://gemini.com/dollar/",
-    "Whitepaper":
-      "https://gemini.com/wp-content/themes/gemini/assets/img/dollar/gemini-dollar-whitepaper.pdf",
+    "Whitepaper": "https://gemini.com/wp-content/themes/gemini/assets/img/dollar/gemini-dollar-whitepaper.pdf",
     "Stability Method": "Fiat Collateralized",
     "isLive": true,
     "coinMarketCapId": "gemini-dollar",
     "liveDate": "Fri Oct 05 2018 19:29:29 GMT-0700",
-    "Description":
-      "Gemini Dollar is issued by Gemini exchange to facilitate trading on the exchange. Gemini particularly values compliance with regulation and transparency, making its monthly audits widely available."
+    "Description": "Gemini Dollar is issued by Gemini exchange to facilitate trading on the exchange. Gemini particularly values compliance with regulation and transparency, making its monthly audits widely available."
   },
   "trueusd": {
     "id": "trueusd",
@@ -104,11 +95,10 @@
     "isLive": true,
     "coinMarketCapId": "trueusd",
     "liveDate": "Mon Mar 05 2018 20:34:21 GMT-0800",
-    "Description":
-      "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
+    "Description": "TrustToken is a platform that aims to eventually tokenize every real world asset. TrueUSD is one of TrustToken's earliest attempts at displaying their tokenization capability."
   },
   "steem-dollars": {
-    "id": "steemdollar",
+    "id": "steem-dollars",
     "Stablecoin Project": "SteemDollar",
     "Company": "Steemit",
     "Backers": "None",
@@ -119,8 +109,7 @@
     "isLive": true,
     "coinMarketCapId": "steem-dollars",
     "liveDate": "Mon Jul 18 2016 13:54:29 GMT-0700",
-    "Description":
-      "Steemit is a social media platform that functions much like Reddit which uses a cryptocurrency called Steem to reward its users for popular posts. To make payouts for its users maintain consistent value they created the SteemDollar, which has done a somewhat decent job at maintaining itself to one US dollar."
+    "Description": "Steemit is a social media platform that functions much like Reddit which uses a cryptocurrency called Steem to reward its users for popular posts. To make payouts for its users maintain consistent value they created the SteemDollar, which has done a somewhat decent job at maintaining itself to one US dollar."
   },
   "carbon": {
     "id": "carbon",
@@ -134,8 +123,7 @@
     "isLive": false,
     "coinMarketCapId": null,
     "liveDate": null,
-    "Description":
-      "Carbon utilizes \"Hashgraphs\", a new Blockchain technology advancement that makes for faster transaction clearing."
+    "Description": "Carbon utilizes \"Hashgraphs\", a new Blockchain technology advancement that makes for faster transaction clearing."
   },
   "reserve": {
     "id": "reserve",
@@ -149,8 +137,7 @@
     "isLive": false,
     "coinMarketCapId": null,
     "liveDate": null,
-    "Description":
-      "Not much is known about this project, besides the fact that it has some peculiar investors. One could imagine this is Coinbase's attempt at entering the stablecoin market with their own version of a USD-backed cryptocurrency."
+    "Description": "Not much is known about this project, besides the fact that it has some peculiar investors. One could imagine this is Coinbase's attempt at entering the stablecoin market with their own version of a USD-backed cryptocurrency."
   },
   "stronghold": {
     "id": "stronghold",
@@ -164,8 +151,7 @@
     "isLive": false,
     "coinMarketCapId": null,
     "liveDate": null,
-    "Description":
-      "Stellar, a very popular competitor to Ripple, has been a focus of the crypto community with one of the largest market caps in their main offering. They are developing Stronghold to help promote adoption of their main network. Their partner with IBM is an interesting pairing, as IBM historically is not the most innovative player in the tech market."
+    "Description": "Stellar, a very popular competitor to Ripple, has been a focus of the crypto community with one of the largest market caps in their main offering. They are developing Stronghold to help promote adoption of their main network. Their partner with IBM is an interesting pairing, as IBM historically is not the most innovative player in the tech market."
   },
   "bitusd": {
     "id": "bitusd",
@@ -179,11 +165,10 @@
     "isLive": true,
     "coinMarketCapId": "bitusd",
     "liveDate": "Mon Sep 22 2014 21:24:22 GMT-0700",
-    "Description":
-      "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
+    "Description": "BitUSD is the worlds first stablecoin implementation to date, starting in 2014. They have since partnered with Microsoft Azure's Blockchain as a Service (BaaS)."
   },
   "white-standard": {
-    "id": "whitestandard",
+    "id": "white-standard",
     "Stablecoin Project": "The White Standard",
     "Company": "The White Company",
     "Backers": "None",
@@ -194,8 +179,7 @@
     "isLive": true,
     "coinMarketCapId": "white-standard",
     "liveDate": "Tue Jul 31 2018 10:19:23 GMT-0700",
-    "Description":
-      "The White Company has a long running history helping rich crypto owners acquire luxury retail goods. Their entry into the stablecoin market seems like a pivot or spinoff with a value prop, very similar to the Gemini Dollar, of being audited periodically by a 3rd party."
+    "Description": "The White Company has a long running history helping rich crypto owners acquire luxury retail goods. Their entry into the stablecoin market seems like a pivot or spinoff with a value prop, very similar to the Gemini Dollar, of being audited periodically by a 3rd party."
   },
   "celo": {
     "id": "celo",
@@ -208,8 +192,7 @@
     "Stability Method": "Crypto Collateralized",
     "isLive": false,
     "coinMarketCapId": null,
-    "Description":
-      "Celo is a mobile platform based Blockchain, meaning that people can earn tokens just by downloading their app. Thier aim is to use a stablecoin offering to help accelerate adoption of sending and receiving payments through their mobile apps. Their intended launch markets are third world countries."
+    "Description": "Celo is a mobile platform based Blockchain, meaning that people can earn tokens just by downloading their app. Thier aim is to use a stablecoin offering to help accelerate adoption of sending and receiving payments through their mobile apps. Their intended launch markets are third world countries."
   },
   "kusd": {
     "id": "kusd",
@@ -222,8 +205,7 @@
     "Stability Method": "Algorithmic Central Bank",
     "isLive": false,
     "coinMarketCapId": null,
-    "Description":
-      "The Kowala Protocol has its own Blockchain where people who participate in mining are rewarded with kUSD. This differentiates them from other Blockchains like Bitcoin and Ethereum, as neither of them reward their miners with stablecoins."
+    "Description": "The Kowala Protocol has its own Blockchain where people who participate in mining are rewarded with kUSD. This differentiates them from other Blockchains like Bitcoin and Ethereum, as neither of them reward their miners with stablecoins."
   },
   "boreal": {
     "id": "boreal",
@@ -232,13 +214,11 @@
     "Backers": "None",
     "Founders": "Alex Wearn, Phil Wearn",
     "Website": "https://auroradao.com/platform/boreal/",
-    "Whitepaper":
-      "https://auroradao.com/assets/Aurora-Labs-Whitepaper-V0.9.5.pdf",
+    "Whitepaper": "https://auroradao.com/assets/Aurora-Labs-Whitepaper-V0.9.5.pdf",
     "Stability Method": "Crypto Collateralized",
     "isLive": false,
     "coinMarketCapId": null,
-    "Description":
-      "Boreal is initially intended to facilitate trading on the IDEX exchange with the eventual goal of issuing Boreal-denominated loans through a cryptobank. It will initially be collateralized by ERC20 tokens, with an aim to move towards being partially collateralized by Boreal-denominated loan obligations."
+    "Description": "Boreal is initially intended to facilitate trading on the IDEX exchange with the eventual goal of issuing Boreal-denominated loans through a cryptobank. It will initially be collateralized by ERC20 tokens, with an aim to move towards being partially collateralized by Boreal-denominated loan obligations."
   },
   "stableusd": {
     "id": "stableusd",
@@ -247,13 +227,11 @@
     "Backers": "500 Startups, Beenext",
     "Founders": "Kory Hoang, David Zhang, Amiya Diwan, Bryan Guy",
     "Website": "https://www.stably.io/",
-    "Whitepaper":
-      "https://s3.ca-central-1.amazonaws.com/stably-public-documents/whitepapers/Stably+Whitepaper+v7.3.pdf",
+    "Whitepaper": "https://s3.ca-central-1.amazonaws.com/stably-public-documents/whitepapers/Stably+Whitepaper+v7.3.pdf",
     "Stability Method": "Fiat Collateralized",
     "isLive": false,
     "coinMarketCapId": null,
-    "Description":
-      "A new entrant into the USD backed stablecoin competition. Stably has yet to differentiate itself from competitors like the Gemini Dollar and Tether."
+    "Description": "A new entrant into the USD backed stablecoin competition. Stably has yet to differentiate itself from competitors like the Gemini Dollar and Tether."
   },
   "fragment": {
     "id": "fragment",
@@ -266,8 +244,7 @@
     "Stability Method": "Algorithmic Central Bank",
     "isLive": false,
     "coinMarketCapId": null,
-    "Description":
-      "Fragments has retained a relatively secretive position, choosing not to reveal its backers. Fragments takes an identical approach to Basis, and does not seem to offer anything more than minor tweaks despite being created after Basis."
+    "Description": "Fragments has retained a relatively secretive position, choosing not to reveal its backers. Fragments takes an identical approach to Basis, and does not seem to offer anything more than minor tweaks despite being created after Basis."
   },
   "bridgecoin": {
     "id": "bridgecoin",
@@ -281,7 +258,6 @@
     "isLive": true,
     "coinMarketCapId": "bridgecoin",
     "liveDate": "Mon Oct 09 2017 19:19:54 GMT-0700",
-    "Description":
-      "Sweetbridge is a rewards marketplace for crypto-based transactions. The more you transact on their chain, the more you rewards you earn. Bridgecoin was created to entice adoption for the risk averse."
+    "Description": "Sweetbridge is a rewards marketplace for crypto-based transactions. The more you transact on their chain, the more you rewards you earn. Bridgecoin was created to entice adoption for the risk averse."
   }
 }

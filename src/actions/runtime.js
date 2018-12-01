@@ -9,31 +9,36 @@ export function setRuntimeVariable({ name, value }) {
     type: constants.SET_RUNTIME_VARIABLE,
     payload: {
       name,
-      value,
-    },
+      value
+    }
   };
 }
 
-export function getAllPricesStarted() {
+export function getLatestStarted() {
   return {
-    type: constants.GET_ALL_PRICES_STARTED,
+    type: constants.GET_LATEST_STARTED
   };
 }
 
-export function getAllPricesDone(response) {
+export function getLatestDone(response) {
   return {
-    type: constants.GET_ALL_PRICES_DONE,
-    payload: response,
+    type: constants.GET_LATEST_DONE,
+    payload: response
   };
 }
 
-export function getPrices() {
+export function getLatest(coinIds) {
   return async dispatch => {
-    dispatch(getAllPricesStarted());
-    const response = await request.get({
-      uri: `${APP_URL}/api/analytics`,
-      json: true,
-    });
-    dispatch(getAllPricesDone(response));
+    dispatch(getLatestStarted());
+    const apiRequests = _.map(coinIds, coinId =>
+      request.get({
+        uri: `${APP_URL}/api/coin-history/${coinId}/latest`,
+        json: true
+      })
+    );
+
+    const response = await Promise.all(apiRequests);
+
+    dispatch(getLatestDone(response));
   };
 }
