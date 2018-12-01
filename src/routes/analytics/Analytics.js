@@ -22,6 +22,8 @@ import classNames from 'classnames';
 import history from '../../history';
 import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
 
+const DROP_LIST = ['steem-dollars', 'white-standard', 'bridgecoin'];
+
 function importAll(r) {
   const images = {};
   r.keys().map((item, index) => {
@@ -45,7 +47,13 @@ class Analytics extends React.Component {
   }
 
   componentDidMount() {
-    const activeCoinDetails = _.filter(coinDetails, 'isLive');
+    var activeCoinDetails = _.filter(coinDetails, 'isLive');
+    console.log(activeCoinDetails);
+    activeCoinDetails = _.filter(
+      activeCoinDetails,
+      activeCoin => DROP_LIST.indexOf(activeCoin.id) == -1
+    );
+    console.log('hi', 'steem-dollars' in DROP_LIST);
     const coinIds = _.map(activeCoinDetails, 'id');
     this.props.getLatest(coinIds);
   }
@@ -78,6 +86,12 @@ class Analytics extends React.Component {
       this.state.sortBy,
       this.state.sortBy == 'avg_deviation' ? 'asc' : 'desc'
     );
+
+    const sortByLabels = {
+      avg_deviation: 'Average Deviation',
+      market_cap: 'Market Cap',
+      volume: 'Volume'
+    };
 
     return (
       <div className={s.gradientLayer}>
@@ -136,7 +150,7 @@ class Analytics extends React.Component {
             </div>
             <div className={s.chartSection}>
               <div className={s.chartOptionsContainer}>
-                <div className={s.optionsPanel}>
+                {/* <div className={s.optionsPanel}>
                   <div className={s.optionTitle}> Chart: </div>
                   <div
                     className={`${s.optionButton} ${
@@ -154,17 +168,21 @@ class Analytics extends React.Component {
                   >
                     Line
                   </div>
-                </div>
+                </div> */}
+                <div className={s.optionsPanelEmpty} />
               </div>
               <div className={s.chartContainer}>
+                <h2 className={s.chartTitle}>
+                  {sortByLabels[this.state.sortBy]}
+                </h2>
                 <div className={s.chartArea}>
                   <Chart
                     data={[
                       {
-                        label: 'Score',
+                        label: sortByLabels[this.state.sortBy],
                         data: coinData.map(coinDatum => [
                           coinDatum.name,
-                          coinDatum.avg_deviation
+                          coinDatum[this.state.sortBy]
                         ])
                       }
                     ]}
@@ -210,11 +228,11 @@ const Card = props => (
               props.sortBy == 'avg_deviation' ? s.activeDatumLabel : ''
             }`}
           >
-            Avg Deviation
+            Deviation
           </h3>
           <h4
             className={`${s.datumValue} ${
-              props.sortBy == 'avg_deviation' ? s.activeDatum : ''
+              props.sortBy == 'avg_deviation' ? s.activeDatumDeviation : ''
             }`}
           >
             {formatAvgDeviation(props.avgDeviation)}
@@ -230,7 +248,7 @@ const Card = props => (
           </h3>
           <h4
             className={`${s.datumLabel} ${
-              props.sortBy == 'market_cap' ? s.activeDatum : ''
+              props.sortBy == 'market_cap' ? s.activeDatumDollar : ''
             }`}
           >
             {formatVolCap(props.marketCap)}
@@ -246,7 +264,7 @@ const Card = props => (
           </h3>
           <h4
             className={`${s.datumLabel} ${
-              props.sortBy == 'volume' ? s.activeDatum : ''
+              props.sortBy == 'volume' ? s.activeDatumDollar : ''
             }`}
           >
             {formatVolCap(props.volume)}
@@ -287,7 +305,7 @@ const CoinDescription = props => {
             alt={props.coinId}
           />
           <h2 className={s.descriptionTitleText}>
-            {coinDetails[props.coinId].name}
+            {coinDetails[props.coinId]['Stablecoin Project']}
           </h2>
         </div>
         {shownDetails.map(field => (
