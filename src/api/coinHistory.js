@@ -28,7 +28,6 @@ export const getLatestDataForCoin = async (req, res) => {
   }
 
   try {
-    console.log(coinId);
     const LATEST_SQL_STRING = `SELECT * FROM coin_history WHERE coin_id = '${coinId}' ORDER BY timestamp DESC LIMIT 1;`;
     const latest_row = await sequelize
       .query(LATEST_SQL_STRING, { type: sequelize.QueryTypes.SELECT })
