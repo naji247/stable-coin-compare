@@ -1,4 +1,4 @@
-{
+module.exports = {
   "development": {
     "username": "postgres",
     "password": "admin",
@@ -16,11 +16,11 @@
     "port": 32768
   },
   "production": {
-    "username": "postgres",
-    "password": null,
-    "database": "stable_coin_compare",
-    "host": "localhost",
-    "dialect": "postgres",
-    "port": 32768
+    "database": process.env.DATABASE_NAME,
+    "port": process.env.DATABASE_PORT || 32768,
+    "username": process.env.DATABASE_USERNAME || 'postgres',
+    "password": process.env.DATABASE_PASSWORD || 'admin',
+    "host": process.env.DATABASE_HOST || 'localhost',
+    "dialect": "postgres"
   }
-}
+};
