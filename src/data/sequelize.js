@@ -15,6 +15,7 @@ const sequelize = new Sequelize(
   config.databaseUser,
   config.databasePassword,
   {
+    host: config.databaseHost,
     port: config.databasePort,
     dialect: 'postgres',
     define: {

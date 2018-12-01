@@ -30,11 +30,12 @@ module.exports = {
   },
 
   // Database
-  // TODO: Get database man...
-  databaseName: process.env.NODE_ENV === 'test' ? 'stable_coin_compare_test': 'stable_coin_compare',
-  databasePort: 32768,
-  databaseUser: 'postgres',
-  databasePassword: process.env.DATABASE_PASSWORD,
+  databaseHost: process.env.DATABASE_HOST || 'localhost',
+  databaseName: process.env.DATABASE_NAME || (process.env.NODE_ENV === 'test' ? 'stable_coin_compare_test': 'stable_coin_compare'),
+  databasePort: process.env.DATABASE_PORT || 32768,
+  databaseUser: process.env.DATABASE_USERNAME || 'postgres',
+  databasePassword: process.env.DATABASE_PASSWORD || 'admin',
+  dialect: "postgres",
 
   // Web analytics
   analytics: {
@@ -45,6 +46,6 @@ module.exports = {
 
   // Authentication
   auth: {
-    jwt: { secret: process.env.JWT_SECRET },
+    jwt: { secret: process.env.JWT_SECRET || 'secret' },
   },
 };
