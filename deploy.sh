@@ -20,8 +20,8 @@ ssh -i ~/.ssh/stable_dashboard.pem ec2-user@$EC2_IP_ADDRESS << EOF
   source env.sh
   git pull
   forever stopall
-  yarn install
   forever start build/server.js
   cd ~
   rm -rf build.tar
 EOF
+rm -f build.tar
