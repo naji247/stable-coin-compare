@@ -2,7 +2,7 @@ import * as constants from '../constants';
 
 const initialState = {
   analytics: [],
-  loading: false
+  loading: true
 };
 export default function analytics(state = initialState, action) {
   switch (action.type) {

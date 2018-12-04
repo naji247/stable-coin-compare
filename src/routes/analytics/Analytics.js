@@ -30,6 +30,7 @@ import numeral from 'numeral';
 import classNames from 'classnames';
 import history from '../../history';
 import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
+import { RingLoader } from 'react-spinners';
 
 const DROP_LIST = ['steem-dollars', 'white-standard', 'bridgecoin'];
 
@@ -55,7 +56,7 @@ class Analytics extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     var activeCoinDetails = _.filter(coinDetails, 'isLive');
     activeCoinDetails = _.filter(
       activeCoinDetails,
@@ -64,6 +65,8 @@ class Analytics extends React.Component {
     const coinIds = _.map(activeCoinDetails, 'id');
     this.props.getLatest(coinIds);
   }
+
+  componentDidMount() {}
 
   handleCoinSelect(coinId) {
     if (coinId === this.state.selectedCoinId) {
@@ -104,60 +107,66 @@ class Analytics extends React.Component {
       <div className={s.gradientLayer}>
         <Navbar background="translucent" />
         <div className={s.root}>
-          <div className={s.titleContainer}>
-            <h1 className={s.titleText}>Analytics</h1>
-          </div>
-          <div className={s.contentContainer}>
-            <div className={s.cardContainer}>
-              <div className={s.innerCardContainer}>
-                <div className={s.optionsPanel}>
-                  <div className={s.optionTitle}> Sort: </div>
-                  <div
-                    className={`${s.optionButton} ${
-                      this.state.sortBy == 'avg_deviation'
-                        ? s.selectedButton
-                        : ''
-                    }`}
-                    onClick={() => this.handleSortByChange('avg_deviation')}
-                  >
-                    Deviation
+          <div>
+            <div className={s.titleContainer}>
+              <h1 className={s.titleText}>Analytics</h1>
+            </div>
+            {!this.props.loading ? (
+              <div className={s.contentContainer}>
+                <div className={s.cardContainer}>
+                  <div className={s.innerCardContainer}>
+                    <div className={s.optionsPanel}>
+                      <div className={s.optionTitle}> Sort:</div>
+                      <div
+                        className={`${s.optionButton} ${
+                          this.state.sortBy == 'avg_deviation'
+                            ? s.selectedButton
+                            : ''
+                        }`}
+                        onClick={() => this.handleSortByChange('avg_deviation')}
+                      >
+                        Deviation
+                      </div>
+                      <div
+                        className={`${s.optionButton} ${
+                          this.state.sortBy == 'market_cap'
+                            ? s.selectedButton
+                            : ''
+                        }`}
+                        onClick={() => this.handleSortByChange('market_cap')}
+                      >
+                        Cap
+                      </div>
+                      <div
+                        className={`${s.optionButton} ${
+                          this.state.sortBy == 'volume' ? s.selectedButton : ''
+                        }`}
+                        onClick={() => this.handleSortByChange('volume')}
+                      >
+                        Volume
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    className={`${s.optionButton} ${
-                      this.state.sortBy == 'market_cap' ? s.selectedButton : ''
-                    }`}
-                    onClick={() => this.handleSortByChange('market_cap')}
-                  >
-                    Cap
-                  </div>
-                  <div
-                    className={`${s.optionButton} ${
-                      this.state.sortBy == 'volume' ? s.selectedButton : ''
-                    }`}
-                    onClick={() => this.handleSortByChange('volume')}
-                  >
-                    Volume
+                  <div className={s.innerCardContainer}>
+                    {coinData.map(coinDatum => (
+                      <Card
+                        coinId={coinDatum.coin_id}
+                        isActive={
+                          coinDatum.coin_id === this.state.selectedCoinId
+                        }
+                        onClick={() => this.handleCoinSelect(coinDatum.coin_id)}
+                        sortBy={this.state.sortBy}
+                        name={coinDatum.name}
+                        avgDeviation={coinDatum.avg_deviation}
+                        marketCap={coinDatum.market_cap}
+                        volume={coinDatum.volume}
+                      />
+                    ))}
                   </div>
                 </div>
-              </div>
-              <div className={s.innerCardContainer}>
-                {coinData.map(coinDatum => (
-                  <Card
-                    coinId={coinDatum.coin_id}
-                    isActive={coinDatum.coin_id === this.state.selectedCoinId}
-                    onClick={() => this.handleCoinSelect(coinDatum.coin_id)}
-                    sortBy={this.state.sortBy}
-                    name={coinDatum.name}
-                    avgDeviation={coinDatum.avg_deviation}
-                    marketCap={coinDatum.market_cap}
-                    volume={coinDatum.volume}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className={s.chartSection}>
-              <div className={s.chartOptionsContainer}>
-                {/* <div className={s.optionsPanel}>
+                <div className={s.chartSection}>
+                  <div className={s.chartOptionsContainer}>
+                    {/* <div className={s.optionsPanel}>
                   <div className={s.optionTitle}> Chart: </div>
                   <div
                     className={`${s.optionButton} ${
@@ -176,59 +185,67 @@ class Analytics extends React.Component {
                     Line
                   </div>
                 </div> */}
-                <div className={s.optionsPanelEmpty} />
-              </div>
-              <div className={s.chartContainer}>
-                <h2 className={s.chartTitle}>
-                  {sortByLabels[this.state.sortBy]}
-                </h2>
-                <div className={s.chartArea}>
-                  <ResponsiveContainer>
-                    <BarChart
-                      data={coinData.map(coinDatum => {
-                        var tmp = {
-                          name: coinDatum.name
-                        };
-                        tmp[
-                          sortByLabels[this.state.sortBy]
-                        ] = formatAvgDeviation(coinDatum[this.state.sortBy]);
-                        return tmp;
-                      })}
-                      margin={{ top: 20, bottom: 30 }}
-                    >
-                      <XAxis
-                        dataKey="name"
-                        stroke="#f4f4f4"
-                        fontSize="0.6em"
-                        interval={0}
-                        tick={<CustomizedAxisTick />}
-                      />
-                      <YAxis
-                        stroke="#f4f4f4"
-                        fontSize="0.7em"
-                        width={45}
-                        tickFormatter={
-                          this.state.sortBy == 'avg_deviation'
-                            ? formatAvgDeviation
-                            : formatVolCap
-                        }
-                      />
-                      <Tooltip
-                        cursor={false}
-                        content={
-                          <CustomizedTooltip sortBy={this.state.sortBy} />
-                        }
-                      />
-                      <Bar
-                        dataKey={sortByLabels[this.state.sortBy]}
-                        fill="#00A5CF"
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
+                    <div className={s.optionsPanelEmpty} />
+                  </div>
+                  <div className={s.chartContainer}>
+                    <h2 className={s.chartTitle}>
+                      {sortByLabels[this.state.sortBy]}
+                    </h2>
+                    <div className={s.chartArea}>
+                      <ResponsiveContainer>
+                        <BarChart
+                          data={coinData.map(coinDatum => {
+                            var tmp = {
+                              name: coinDatum.name
+                            };
+                            tmp[
+                              sortByLabels[this.state.sortBy]
+                            ] = formatAvgDeviation(
+                              coinDatum[this.state.sortBy]
+                            );
+                            return tmp;
+                          })}
+                          margin={{ top: 20, bottom: 30 }}
+                        >
+                          <XAxis
+                            dataKey="name"
+                            stroke="#f4f4f4"
+                            fontSize="0.6em"
+                            interval={0}
+                            tick={<CustomizedAxisTick />}
+                          />
+                          <YAxis
+                            stroke="#f4f4f4"
+                            fontSize="0.7em"
+                            width={45}
+                            tickFormatter={
+                              this.state.sortBy == 'avg_deviation'
+                                ? formatAvgDeviation
+                                : formatVolCap
+                            }
+                          />
+                          <Tooltip
+                            cursor={false}
+                            content={
+                              <CustomizedTooltip sortBy={this.state.sortBy} />
+                            }
+                          />
+                          <Bar
+                            dataKey={sortByLabels[this.state.sortBy]}
+                            fill="#00A5CF"
+                          />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                  <CoinDescription coinId={this.state.selectedCoinId} />
                 </div>
               </div>
-              <CoinDescription coinId={this.state.selectedCoinId} />
-            </div>
+            ) : (
+              <div className={s.loadingContainer}>
+                <RingLoader color={'#061316'} size={90} />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -313,7 +330,7 @@ function formatAvgDeviation(x) {
 function formatVolCap(x) {
   if (x >= 1e9) {
     return numeral(x)
-      .format('$0.00a')
+      .format('$0.0a')
       .toString()
       .toUpperCase();
   } else {

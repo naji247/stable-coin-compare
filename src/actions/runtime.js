@@ -2,6 +2,7 @@
 
 import * as constants from '../constants';
 import request from 'request-promise';
+import _ from 'lodash';
 import { APP_URL } from '../secrets';
 
 export function setRuntimeVariable({ name, value }) {
