@@ -217,7 +217,9 @@ class Analytics extends React.Component {
                           <YAxis
                             stroke="#f4f4f4"
                             fontSize="0.7em"
-                            width={this.state.sortBy != 'avg_deviation' ? 60 : 45}
+                            width={
+                              this.state.sortBy != 'avg_deviation' ? 60 : 45
+                            }
                             tickFormatter={
                               this.state.sortBy == 'avg_deviation'
                                 ? formatAvgDeviation
@@ -270,7 +272,11 @@ const Card = props => (
         <h2 className={s.cardTitleText}>{props.name}</h2>
       </div>
       <div className={s.dataContainer}>
-        <div className={s.datum}>
+        <div
+          className={`${s.datum} ${
+            props.sortBy == 'avg_deviation' ? s.activeDatum : ''
+          }`}
+        >
           <h3
             className={`${s.datumLabel} ${
               props.sortBy == 'avg_deviation' ? s.activeDatumLabel : ''
@@ -286,7 +292,11 @@ const Card = props => (
             {formatAvgDeviation(props.avgDeviation)}
           </h4>
         </div>
-        <div className={s.datum}>
+        <div
+          className={`${s.datum} ${
+            props.sortBy == 'market_cap' ? s.activeDatum : ''
+          }`}
+        >
           <h3
             className={`${s.datumLabel} ${
               props.sortBy == 'market_cap' ? s.activeDatumLabel : ''
@@ -302,7 +312,11 @@ const Card = props => (
             {formatVolCap(props.marketCap)}
           </h4>
         </div>
-        <div className={s.datum}>
+        <div
+          className={`${s.datum} ${
+            props.sortBy == 'volume' ? s.activeDatum : ''
+          }`}
+        >
           <h3
             className={`${s.datumLabel} ${
               props.sortBy == 'volume' ? s.activeDatumLabel : ''

@@ -43,13 +43,13 @@ ul {
   align-items: center;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 550px) {
   .siteName {
     display: inline;
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 550px) {
   .siteName {
     display: none;
   }
