@@ -21,6 +21,13 @@
 .titleContainer {
 }
 
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
 .titleText {
   color: var(--text-color-white);
   text-align: center;

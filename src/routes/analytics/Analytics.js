@@ -21,6 +21,7 @@ import numeral from 'numeral';
 import classNames from 'classnames';
 import history from '../../history';
 import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
+import {RingLoader} from "react-spinners";
 
 const DROP_LIST = ['steem-dollars', 'white-standard', 'bridgecoin'];
 
@@ -46,16 +47,17 @@ class Analytics extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     var activeCoinDetails = _.filter(coinDetails, 'isLive');
-    console.log(activeCoinDetails);
     activeCoinDetails = _.filter(
       activeCoinDetails,
       activeCoin => DROP_LIST.indexOf(activeCoin.id) == -1
     );
-    console.log('hi', 'steem-dollars' in DROP_LIST);
     const coinIds = _.map(activeCoinDetails, 'id');
     this.props.getLatest(coinIds);
+  }
+
+  componentDidMount() {
   }
 
   handleCoinSelect(coinId) {
@@ -95,62 +97,65 @@ class Analytics extends React.Component {
 
     return (
       <div className={s.gradientLayer}>
-        <Navbar background="translucent" />
+        <Navbar background="translucent"/>
         <div className={s.root}>
-          <div className={s.titleContainer}>
-            <h1 className={s.titleText}>Analytics</h1>
-          </div>
-          <div className={s.contentContainer}>
-            <div className={s.cardContainer}>
-              <div className={s.innerCardContainer}>
-                <div className={s.optionsPanel}>
-                  <div className={s.optionTitle}> Sort: </div>
-                  <div
-                    className={`${s.optionButton} ${
-                      this.state.sortBy == 'avg_deviation'
-                        ? s.selectedButton
-                        : ''
-                    }`}
-                    onClick={() => this.handleSortByChange('avg_deviation')}
-                  >
-                    Deviation
+          <div>
+            <div className={s.titleContainer}>
+              <h1 className={s.titleText}>Analytics</h1>
+            </div>
+            {!this.props.loading ?
+              <div className={s.contentContainer}>
+
+                <div className={s.cardContainer}>
+                  <div className={s.innerCardContainer}>
+                    <div className={s.optionsPanel}>
+                      <div className={s.optionTitle}> Sort:</div>
+                      <div
+                        className={`${s.optionButton} ${
+                          this.state.sortBy == 'avg_deviation'
+                            ? s.selectedButton
+                            : ''
+                          }`}
+                        onClick={() => this.handleSortByChange('avg_deviation')}
+                      >
+                        Deviation
+                      </div>
+                      <div
+                        className={`${s.optionButton} ${
+                          this.state.sortBy == 'market_cap' ? s.selectedButton : ''
+                          }`}
+                        onClick={() => this.handleSortByChange('market_cap')}
+                      >
+                        Cap
+                      </div>
+                      <div
+                        className={`${s.optionButton} ${
+                          this.state.sortBy == 'volume' ? s.selectedButton : ''
+                          }`}
+                        onClick={() => this.handleSortByChange('volume')}
+                      >
+                        Volume
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    className={`${s.optionButton} ${
-                      this.state.sortBy == 'market_cap' ? s.selectedButton : ''
-                    }`}
-                    onClick={() => this.handleSortByChange('market_cap')}
-                  >
-                    Cap
-                  </div>
-                  <div
-                    className={`${s.optionButton} ${
-                      this.state.sortBy == 'volume' ? s.selectedButton : ''
-                    }`}
-                    onClick={() => this.handleSortByChange('volume')}
-                  >
-                    Volume
+                  <div className={s.innerCardContainer}>
+                    {coinData.map(coinDatum => (
+                      <Card
+                        coinId={coinDatum.coin_id}
+                        isActive={coinDatum.coin_id === this.state.selectedCoinId}
+                        onClick={() => this.handleCoinSelect(coinDatum.coin_id)}
+                        sortBy={this.state.sortBy}
+                        name={coinDatum.name}
+                        avgDeviation={coinDatum.avg_deviation}
+                        marketCap={coinDatum.market_cap}
+                        volume={coinDatum.volume}
+                      />
+                    ))}
                   </div>
                 </div>
-              </div>
-              <div className={s.innerCardContainer}>
-                {coinData.map(coinDatum => (
-                  <Card
-                    coinId={coinDatum.coin_id}
-                    isActive={coinDatum.coin_id === this.state.selectedCoinId}
-                    onClick={() => this.handleCoinSelect(coinDatum.coin_id)}
-                    sortBy={this.state.sortBy}
-                    name={coinDatum.name}
-                    avgDeviation={coinDatum.avg_deviation}
-                    marketCap={coinDatum.market_cap}
-                    volume={coinDatum.volume}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className={s.chartSection}>
-              <div className={s.chartOptionsContainer}>
-                {/* <div className={s.optionsPanel}>
+                <div className={s.chartSection}>
+                  <div className={s.chartOptionsContainer}>
+                    {/* <div className={s.optionsPanel}>
                   <div className={s.optionTitle}> Chart: </div>
                   <div
                     className={`${s.optionButton} ${
@@ -169,40 +174,47 @@ class Analytics extends React.Component {
                     Line
                   </div>
                 </div> */}
-                <div className={s.optionsPanelEmpty} />
-              </div>
-              <div className={s.chartContainer}>
-                <h2 className={s.chartTitle}>
-                  {sortByLabels[this.state.sortBy]}
-                </h2>
-                <div className={s.chartArea}>
-                  <Chart
-                    data={[
-                      {
-                        label: sortByLabels[this.state.sortBy],
-                        data: coinData.map(coinDatum => [
-                          coinDatum.name,
-                          coinDatum[this.state.sortBy]
-                        ])
-                      }
-                    ]}
-                    series={{ type: 'bar' }}
-                    axes={[
-                      { primary: true, type: 'ordinal', position: 'bottom' },
-                      { position: 'left', type: 'linear', stacked: true }
-                    ]}
-                    tooltip
-                    dark
-                  />
+                    <div className={s.optionsPanelEmpty}/>
+                  </div>
+                  <div className={s.chartContainer}>
+                    <h2 className={s.chartTitle}>
+                      {sortByLabels[this.state.sortBy]}
+                    </h2>
+                    <div className={s.chartArea}>
+                      <Chart
+                        data={[
+                          {
+                            label: sortByLabels[this.state.sortBy],
+                            data: coinData.map(coinDatum => [
+                              coinDatum.name,
+                              coinDatum[this.state.sortBy]
+                            ])
+                          }
+                        ]}
+                        series={{type: 'bar'}}
+                        axes={[
+                          {primary: true, type: 'ordinal', position: 'bottom'},
+                          {position: 'left', type: 'linear', stacked: true}
+                        ]}
+                        tooltip
+                        dark
+                      />
+                    </div>
+                  </div>
+                  <CoinDescription coinId={this.state.selectedCoinId}/>
                 </div>
               </div>
-              <CoinDescription coinId={this.state.selectedCoinId} />
-            </div>
+              :
+              <div className={s.loadingContainer}>
+                <RingLoader color={'#061316'} size={90}/>
+              </div>
+            }
           </div>
         </div>
       </div>
     );
   }
+
 }
 
 const Card = props => (

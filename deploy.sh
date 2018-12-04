@@ -8,6 +8,7 @@ fi
 
 
 echo "This could take a while... We're optimizing."
+sed -i '.bk' 's/http:\/\/localhost:3000/https:\/\/stablecoincompare.com/g' src/secrets.js
 yarn build --release
 tar czf build.tar build
 echo "Sending build over the wire."
@@ -25,3 +26,4 @@ ssh -i ~/.ssh/stable_dashboard.pem ec2-user@$EC2_IP_ADDRESS << EOF
   rm -rf build.tar
 EOF
 rm -f build.tar
+mv src/secrets.js.bk src/secrets.js
