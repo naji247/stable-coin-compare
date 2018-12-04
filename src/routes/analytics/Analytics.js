@@ -14,7 +14,16 @@ import { connect } from 'react-redux';
 import { APP_URL } from '../../secrets';
 import Navbar from '../../components/Navbar';
 import _ from 'lodash';
-import { Chart } from 'react-charts';
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from 'recharts';
 import * as coinDetails from '../../stablecoinInfo';
 import { getLatest } from '../../actions/runtime';
 import numeral from 'numeral';
@@ -48,12 +57,10 @@ class Analytics extends React.Component {
 
   componentDidMount() {
     var activeCoinDetails = _.filter(coinDetails, 'isLive');
-    console.log(activeCoinDetails);
     activeCoinDetails = _.filter(
       activeCoinDetails,
       activeCoin => DROP_LIST.indexOf(activeCoin.id) == -1
     );
-    console.log('hi', 'steem-dollars' in DROP_LIST);
     const coinIds = _.map(activeCoinDetails, 'id');
     this.props.getLatest(coinIds);
   }
@@ -176,24 +183,48 @@ class Analytics extends React.Component {
                   {sortByLabels[this.state.sortBy]}
                 </h2>
                 <div className={s.chartArea}>
-                  <Chart
-                    data={[
-                      {
-                        label: sortByLabels[this.state.sortBy],
-                        data: coinData.map(coinDatum => [
-                          coinDatum.name,
-                          coinDatum[this.state.sortBy]
-                        ])
-                      }
-                    ]}
-                    series={{ type: 'bar' }}
-                    axes={[
-                      { primary: true, type: 'ordinal', position: 'bottom' },
-                      { position: 'left', type: 'linear', stacked: true }
-                    ]}
-                    tooltip
-                    dark
-                  />
+                  <ResponsiveContainer>
+                    <BarChart
+                      data={coinData.map(coinDatum => {
+                        var tmp = {
+                          name: coinDatum.name
+                        };
+                        tmp[
+                          sortByLabels[this.state.sortBy]
+                        ] = formatAvgDeviation(coinDatum[this.state.sortBy]);
+                        return tmp;
+                      })}
+                      margin={{ top: 20, bottom: 30 }}
+                    >
+                      <XAxis
+                        dataKey="name"
+                        stroke="#f4f4f4"
+                        fontSize="0.6em"
+                        interval={0}
+                        tick={<CustomizedAxisTick />}
+                      />
+                      <YAxis
+                        stroke="#f4f4f4"
+                        fontSize="0.7em"
+                        width={45}
+                        tickFormatter={
+                          this.state.sortBy == 'avg_deviation'
+                            ? formatAvgDeviation
+                            : formatVolCap
+                        }
+                      />
+                      <Tooltip
+                        cursor={false}
+                        content={
+                          <CustomizedTooltip sortBy={this.state.sortBy} />
+                        }
+                      />
+                      <Bar
+                        dataKey={sortByLabels[this.state.sortBy]}
+                        fill="#00A5CF"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
               <CoinDescription coinId={this.state.selectedCoinId} />
@@ -280,10 +311,22 @@ function formatAvgDeviation(x) {
 }
 
 function formatVolCap(x) {
-  return numeral(x)
-    .format('$0a')
-    .toString()
-    .toUpperCase();
+  if (x >= 1e9) {
+    return numeral(x)
+      .format('$0.00a')
+      .toString()
+      .toUpperCase();
+  } else {
+    return numeral(x)
+      .format('$0a')
+      .toString()
+      .toUpperCase();
+  }
+}
+
+function formatByState(state) {
+  if (state == 'avg_deviation') return formatAvgDeviation;
+  else return formatVolCap;
 }
 
 const shownDetails = [
@@ -320,6 +363,51 @@ const CoinDescription = props => {
     );
   }
 };
+
+class CustomizedAxisTick extends React.Component {
+  render() {
+    const { x, y, stroke, payload } = this.props;
+
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text
+          x={0}
+          y={0}
+          dy={10}
+          textAnchor="end"
+          fill="#f4f4f4"
+          fontSize="0.6em"
+          transform="rotate(-35)"
+        >
+          {payload.value}
+        </text>
+      </g>
+    );
+  }
+}
+
+class CustomizedTooltip extends React.Component {
+  render() {
+    const { active } = this.props;
+
+    if (active) {
+      const { payload, label, sortBy } = this.props;
+
+      let value;
+      if (sortBy == 'avg_deviation')
+        value = formatAvgDeviation(payload[0].value);
+      else value = formatVolCap(payload[0].value);
+
+      return (
+        <div className={s.tooltip}>
+          <p>{label}</p>
+          <p>{`${payload[0].dataKey} : ${value}`}</p>
+        </div>
+      );
+    }
+    return null;
+  }
+}
 
 const mapState = state => ({ ...state.analytics });
 
