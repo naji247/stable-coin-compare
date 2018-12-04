@@ -24,7 +24,7 @@ class Navbar extends React.Component {
     return (
       <header className={s.root}>
         <nav className={background}>
-          <ul>
+          <ul className={s.linkHome}>
             <li>
               <a
                 className={
@@ -33,12 +33,12 @@ class Navbar extends React.Component {
                 href="/"
               >
                 <img src={logoUrl} alt="Logo" className={s.logo} />
-                Stablecoin Compare
+                <div className={s.siteName}>Stablecoin Compare</div>
               </a>
             </li>
           </ul>
 
-          <ul>
+          <ul className={s.navOptions}>
             <li>
               <a href="/analytics" className={s.navOption}>
                 Analytics

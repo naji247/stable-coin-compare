@@ -26,8 +26,14 @@ nav {
   background-color: rgba(26, 29, 30, 0.7);
 }
 
+.navOptions {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 ul {
-  max-width: 90%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -35,6 +41,18 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (min-width: 700px) {
+  .siteName {
+    display: inline;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .siteName {
+    display: none;
+  }
 }
 
 li {
@@ -47,7 +65,7 @@ li {
   text-align: center;
   font-size: 1em;
   font-weight: 100;
-  padding: 0em 1.4em;
+  padding: 0em 1em;
   font-family: var(--font-family-base);
   text-decoration: none;
 }
