@@ -205,7 +205,7 @@ class Analytics extends React.Component {
                             );
                             return tmp;
                           })}
-                          margin={{ top: 20, bottom: 30 }}
+                          margin={{ top: 20, bottom: 45 }}
                         >
                           <XAxis
                             dataKey="name"
@@ -217,7 +217,7 @@ class Analytics extends React.Component {
                           <YAxis
                             stroke="#f4f4f4"
                             fontSize="0.7em"
-                            width={45}
+                            width={this.state.sortBy != 'avg_deviation' ? 60 : 45}
                             tickFormatter={
                               this.state.sortBy == 'avg_deviation'
                                 ? formatAvgDeviation
