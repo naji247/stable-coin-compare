@@ -20,6 +20,7 @@ ssh -i ~/.ssh/stable_dashboard.pem ec2-user@$EC2_IP_ADDRESS << EOF
   cd stable-coin-compare
   source env.sh
   git pull
+  yarn install
   forever stopall
   forever start build/server.js
   cd ~
