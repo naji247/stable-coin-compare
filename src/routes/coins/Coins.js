@@ -23,6 +23,15 @@ import history from '../../history';
 import { COIN_IDS, CoinMarketCapWidget, EmailSignUp } from '../home/Home';
 import request from 'request-promise';
 
+const REASONS = [
+  'More analytics',
+  'Line charts',
+  'Qualitative commentary',
+  'News and updates',
+  'Side-by-side comparisons',
+  'Additional project info'
+];
+
 function importAll(r) {
   const images = {};
   r.keys().map((item, index) => {
@@ -159,15 +168,6 @@ class CoinDetails extends React.Component {
       document.body.appendChild(script);
     }
 
-    const reasons = [
-      'Stability analytics',
-      'Comprehensive list',
-      'Rankings',
-      'Side-by-side comparisons',
-      'Market cap/volume info',
-      'News and updates'
-    ];
-
     return (
       <div>
         <div className={s.coinDescriptionHeader}>
@@ -215,7 +215,7 @@ class CoinDetails extends React.Component {
                 on one of the following features you would like most to see or
                 type in a suggestion.
               </p>
-              {_.map(reasons, reason => (
+              {_.map(REASONS, reason => (
                 <button
                   onClick={() => {
                     this.handleFeedbackClick(reason);

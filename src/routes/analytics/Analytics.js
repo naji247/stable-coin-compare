@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 import { APP_URL } from '../../secrets';
 import Navbar from '../../components/Navbar';
 import _ from 'lodash';
+import request from 'request-promise';
+
 import {
   ResponsiveContainer,
   BarChart,
@@ -34,6 +36,33 @@ import { RingLoader } from 'react-spinners';
 
 const DROP_LIST = ['steem-dollars', 'white-standard', 'bridgecoin'];
 
+const REASONS = [
+  'More analytics',
+  'Line charts',
+  'Qualitative commentary',
+  'News and updates',
+  'Side-by-side comparisons',
+  'Additional project info'
+];
+
+function formatAvgDeviation(x) {
+  return Number.parseFloat(x).toFixed(0);
+}
+
+function formatVolCap(x) {
+  if (x >= 1e9) {
+    return numeral(x)
+      .format('$0.0a')
+      .toString()
+      .toUpperCase();
+  } else {
+    return numeral(x)
+      .format('$0a')
+      .toString()
+      .toUpperCase();
+  }
+}
+
 function importAll(r) {
   const images = {};
   r.keys().map((item, index) => {
@@ -52,7 +81,8 @@ class Analytics extends React.Component {
     this.state = {
       selectedCoinId: null,
       chartType: 'bar',
-      sortBy: 'avg_deviation'
+      sortBy: 'avg_deviation',
+      submitted: false
     };
   }
 
@@ -66,7 +96,24 @@ class Analytics extends React.Component {
     this.props.getLatest(coinIds);
   }
 
-  componentDidMount() {}
+  async handleFeedbackClick(reason) {
+    this.setState({ submitted: true });
+    try {
+      await request({
+        url: `${APP_URL}/api/feedback`,
+        method: 'POST',
+        json: { reason }
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  handleKeyPress(e) {
+    if (event.key == 'Enter') {
+      this.handleFeedbackClick(this.state.otherValue);
+    }
+  }
 
   handleCoinSelect(coinId) {
     if (coinId === this.state.selectedCoinId) {
@@ -241,6 +288,56 @@ class Analytics extends React.Component {
                     </div>
                   </div>
                   <CoinDescription coinId={this.state.selectedCoinId} />
+                  <div className={s.feedbackArea}>
+                    {this.state.submitted ? (
+                      <p>
+                        Thank you for the feedback! We appreciate your input
+                        will do our best to bring you these features.
+                      </p>
+                    ) : (
+                      <div>
+                        <p className={s.boldText}>
+                          Didn't find exactly what you were looking for?
+                        </p>
+                        <p>
+                          Help us build a product that better fits your needs by
+                          letting us know what features you would like to have
+                          implemented. Click on one of the following features
+                          you would like most to see or type in a suggestion.
+                        </p>
+                        {_.map(REASONS, reason => (
+                          <button
+                            onClick={() => {
+                              this.handleFeedbackClick(reason);
+                            }}
+                          >
+                            {reason}
+                          </button>
+                        ))}
+                        <div className={s.otherOptionForm}>
+                          <input
+                            value={this.state.otherValue}
+                            onKeyPress={e => {
+                              this.handleKeyPress(e);
+                            }}
+                            onChange={e => {
+                              this.setState({ otherValue: e.target.value });
+                            }}
+                            placeholder="Other reason"
+                            type="text"
+                          />
+                          <button
+                            className={s.feedbackSubmit}
+                            onClick={() => {
+                              this.handleFeedbackClick(this.state.otherValue);
+                            }}
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ) : (
@@ -336,29 +433,6 @@ const Card = props => (
     </div>
   </div>
 );
-
-function formatAvgDeviation(x) {
-  return Number.parseFloat(x).toFixed(0);
-}
-
-function formatVolCap(x) {
-  if (x >= 1e9) {
-    return numeral(x)
-      .format('$0.0a')
-      .toString()
-      .toUpperCase();
-  } else {
-    return numeral(x)
-      .format('$0a')
-      .toString()
-      .toUpperCase();
-  }
-}
-
-function formatByState(state) {
-  if (state == 'avg_deviation') return formatAvgDeviation;
-  else return formatVolCap;
-}
 
 const shownDetails = [
   'Founders',
