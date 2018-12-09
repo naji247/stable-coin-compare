@@ -239,7 +239,7 @@ class Analytics extends React.Component {
                       {sortByLabels[this.state.sortBy]}
                     </h2>
                     <div className={s.chartArea}>
-                      <ResponsiveContainer>
+                      <ResponsiveContainer width={'99%'} height={'99%'}>
                         <BarChart
                           data={coinData.map(coinDatum => {
                             var tmp = {
