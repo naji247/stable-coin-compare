@@ -145,7 +145,7 @@ class Analytics extends React.Component {
     );
 
     const sortByLabels = {
-      avg_deviation: 'Average Deviation',
+      avg_deviation: 'Average Deviation (bps)',
       market_cap: 'Market Cap',
       volume: 'Volume'
     };
