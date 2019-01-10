@@ -50,12 +50,10 @@ const routes = {
     {
       path: '/analytics',
       load: () => import(/* webpackChunkName: 'analytics' */ './analytics')
-      // children: [
-      //   {
-      //     path: '/:coinId',
-      //     action: (context) => `<h1>${context}</h1>`
-      //   }
-      // ]
+    },
+    {
+      path: '/rank',
+      load: () => import(/* webpackChunkName: 'rank' */ './rank')
     },
     {
       path: '/knowledge-base/:methodologyType',
