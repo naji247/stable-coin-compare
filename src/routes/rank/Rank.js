@@ -84,10 +84,8 @@ class Rank extends React.Component {
       <div className={s.root}>
         <div className={s.gradientLayer}>
           <div className={s.navBar}>
-            <a href="/">
-              <img src={logoUrl} alt="Logo" className={s.logo} />
-              Stablecoin Rank
-            </a>
+            <img src={logoUrl} alt="Logo" className={s.logo} />
+            Stablecoin Rank
           </div>
           {!this.props.loading ? (
             <div>
@@ -101,7 +99,7 @@ class Rank extends React.Component {
               </div>
               <div className={s.footer}>
                 This site is powered by{' '}
-                <a href="stablecoincompare.com">Stablecoin Compare</a>
+                <a href="https://stablecoincompare.com">Stablecoin Compare</a>
               </div>
             </div>
           ) : (
